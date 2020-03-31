@@ -120,7 +120,7 @@ tidal-dl
 7. **mp4格式没有转换为m4a?**  
 答：安装ffmpeg
 
-## 捐赠
+<!-- ## 捐赠
 | 名称  | 咖啡  | 留言 |
 | --------- | ------ | ------ |
 | Someone | 5 coffees |
@@ -132,6 +132,6 @@ tidal-dl
 | IshimaruOficial | 3 coffees | I just wanted to thank you for the constant support of your tools, it's made my life at work so much better |
 | burybury | 1 coffee |
 | Someone | 2 coffee |
-| Someone | 5 coffee |
+| Someone | 5 coffee | -->
 
 
