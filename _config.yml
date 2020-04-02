@@ -15,7 +15,8 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://www.yaronzz.top
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
+# permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -122,7 +123,7 @@ baidusitemap:
   path: baidusitemap.xml
 
 baidu_url_submit:
-  count: 1               # 提交最新的多少个链接
-  host: www.yaronzz.com  # 在百度站长平台中添加的域名
+  count: 100                # 提交最新的多少个链接
+  host: www.yaronzz.top  # 在百度站长平台中添加的域名
   token: RlmDtBVrshokFjss      # 秘钥
   path: baidu_urls.txt   # 文本文档的地址， 新链接会保存在此文本文档里
