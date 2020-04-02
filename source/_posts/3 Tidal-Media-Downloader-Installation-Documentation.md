@@ -1,5 +1,6 @@
 ---
 title: Tidal-Media-Downloader Installation Documentation
+urlname: tidal_dl_installation
 date: 2020-03-16 16:10:33
 tags: 
   - tidal

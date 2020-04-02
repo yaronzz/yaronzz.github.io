@@ -1,5 +1,6 @@
 ---
 title: Tidal-Media-Downloader安装文档
+urlname: tidal_dl_installation_chn
 date: 2020-03-16 15:51:31
 tags: 
   - tidal

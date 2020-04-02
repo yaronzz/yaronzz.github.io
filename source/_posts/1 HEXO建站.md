@@ -1,5 +1,6 @@
 ---
 title: HEXO建站
+urlname: hexo_build
 date: 2020-03-11 10:47:20
 tags: 
   - hexo

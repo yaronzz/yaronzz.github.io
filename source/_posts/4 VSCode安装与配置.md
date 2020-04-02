@@ -1,5 +1,6 @@
 ---
 title: VSCode安装与配置 
+urlname: vscode_install
 date: 2020-03-16 11:33:56
 tags: 
   - vscode

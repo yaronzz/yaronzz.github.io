@@ -1,5 +1,6 @@
 ---
 title: jsDelivr加速Github图床
+urlname: jsdelivr_cdn_github
 date: 2020-03-29 11:16:03
 tags:
   - jsdelivr
