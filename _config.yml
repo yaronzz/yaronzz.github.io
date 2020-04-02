@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.yaronzz.top
+url: https://www.yaronzz.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -99,12 +99,14 @@ theme: Butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  # repo: git@github.com:yaronzz/yaronzz.github.io.git 
-  # repo: git@e.coding.net:yaronzz/yaronzz.git #coding
-  # repo: git@code.aliyun.com:yaronzz/yaronzz.git #阿里云 
-  repo: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
+- type: git
+  repository:
+    github: git@github.com:yaronzz/yaronzz.github.io.git 
+    # coding: git@e.coding.net:yaronzz/yaronzz.git #coding
+    # repo: git@code.aliyun.com:yaronzz/yaronzz.git #阿里云 
+    gitee: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
   branch: master
+- type: baidu_url_submitter                         # 这是新加的主动推送
 
 #search function
 search:
@@ -118,3 +120,9 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+baidu_url_submit:
+  count: 1               # 提交最新的多少个链接
+  host: www.yaronzz.com  # 在百度站长平台中添加的域名
+  token: RlmDtBVrshokFjss      # 秘钥
+  path: baidu_urls.txt   # 文本文档的地址， 新链接会保存在此文本文档里

@@ -26,10 +26,18 @@ valine:
   bg: /img/comment_bg.png               # valine background
   count: true                   # top_img顯示評論數
 
+### 搜索系统收录
+```
+npm install hexo-generator-baidu-sitemap --save
+```
+
 ### 网站
 图标 http://www.fontawesome.com.cn/faicons/
+腾讯分析 https://ta.qq.com/#/total
+百度分析 https://tongji.baidu.com/web/10000175180/overview/index?siteId=14906403
 码云 https://yaronzz.gitee.io
 Github https://yaronzz.top
+
 
 ### 待写文章
 v2ray+ws+tls最稳定的科学上网方式
