@@ -69,13 +69,15 @@ tidal-dl
 | Save covers  | 是否保存封面文件 |
 
 音频质量Sound Quality的选择对应的文件格式如下： 
- 
+
+HI_RES > LOSSLESS > HIGH > LOW 
+
 | 音频质量  | 文件格式   |
 | --------- | ------ |
 | LOW  | mp4或m4a |
 | HIGH  | mp4或m4a |
-| LOSSLESS  | flac |
-| HI_RES  | flac |
+| LOSSLESS  | flac或mp4或m4a |
+| HI_RES | flac |
 
 3. 输入歌曲\视频\专辑\歌单\歌手的链接即可下载
 4. 批量下载
@@ -98,7 +100,7 @@ tidal-dl
 
 
 ## 免责声明
-- 音乐不是免费的，需要开通会员。
+- 音乐不是免费的，需要开通HIFI会员。
 - 这是一个私人工具，请不要用于商业和恶意传播等用途。
 - 任何对此工具的二次开发，产生的后果跟本人无关。
 - 请不要用此工具分发和盗版音乐。
@@ -120,19 +122,5 @@ tidal-dl
 答：gui在登陆界面的右上角就可以设置
 7. **mp4格式没有转换为m4a?**  
 答：安装ffmpeg
-
-<!-- ## 捐赠
-| 名称  | 咖啡  | 留言 |
-| --------- | ------ | ------ |
-| Someone | 5 coffees |
-| edgar | 3 coffees | Muchas Gracias |
-| CaSa | 3 coffees | Great tool - thanks a lot :) |
-| HellF | 1 coffee |
-| Someone | 3 coffees | Happy Birthday |
-| Someone | 3 coffee |
-| IshimaruOficial | 3 coffees | I just wanted to thank you for the constant support of your tools, it's made my life at work so much better |
-| burybury | 1 coffee |
-| Someone | 2 coffee |
-| Someone | 5 coffee | -->
 
 

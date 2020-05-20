@@ -17,13 +17,16 @@ Have two version：
 - **Tidal-gui**: gui，support windows
 
 ## Tidal-dl Install&Use
+
 ![image](https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/tidal/tidal_dl_log.jpg)
 ### Install
+
 First you need to install [**ffmpeg**](http://ffmpeg.org/) to download videos. Select the installation steps according to the computer system
 
 **1. For Windows**：[tidal-dl.exe](https://github.com/yaronzz/Tidal-Media-Downloader/tree/master/TIDALDL-PY/exe)  
 **2. For Linux**: ```pip3 install tidal-dl --upgrade```  
 **3. For MacOs**:  
+
 ```
 brew install python
 curl -O http://python-distribute.org/distribute_setup.py
@@ -38,6 +41,7 @@ tidal-dl
 a). Install termux：https://play.google.com/store/apps/details?id=com.termux  
 b). Open permission：termux-setup-storage  
 c). Install python和tidal-dl  
+
 ```
 pkg install python clang libjpeg-turbo ffmpeg zlib -y
 pip3 install --upgrade pip
@@ -46,6 +50,7 @@ tidal-dl
 ```
 
 ### Use
+
 1. Enter username and password.
 2. Type '2' and enter，set config file
 
@@ -69,10 +74,12 @@ tidal-dl
 | LOW  | mp4 or m4a |
 | HIGH  | mp4 or m4a |
 | LOSSLESS  | flac |
-| HI_RES  | flac |
+| HI_RES **(BEST)** | flac |
 
-1. Type track\video\album\playlist\artist url to download
-2. Download by file
+3. Type track\video\album\playlist\artist url to download
+
+4. Download by file
+
 - [Download the example file](https://github.com/yaronzz/Tidal-Media-Downloader/blob/master/TIDALDL-PY/dllist-example.ini)
 - Add the ID to the file
 - Open tidal-dl，type the path of file
@@ -91,8 +98,8 @@ Because the gui more cumbersome to do, it is generally tidal-dl that adds new fe
 4. Type track\album\video\artist id or url to download  
 ![image](https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/tidal/tidal_gui_example.jpg)
 
-
 ## Disclaimer
+
 - Musice is not free, need a hifi account.
 - Private use only.
 - Any secondary development of this tool has nothing to do with me.
@@ -100,6 +107,7 @@ Because the gui more cumbersome to do, it is generally tidal-dl that adds new fe
 - It may be illegal to use this in your country, so be informed.
 
 ## Q&A
+
 1. **Does the tool require hi-fi account？**   
 Yes.
 2. **Can't download 'Master'？**  
@@ -113,16 +121,3 @@ You need a hi-fi account.
 6. **Convert mp4 to m4a failed?**  
 Install ffmpeg.
 
-<!-- ## Donation
-| Name  | Coffee  | Comment |
-| --------- | ------ | ------ |
-| Someone | 5 coffees |
-| edgar | 3 coffees | Muchas Gracias |
-| CaSa | 3 coffees | Great tool - thanks a lot :) |
-| HellF | 1 coffee |
-| Someone | 3 coffees | Happy Birthday |
-| Someone | 3 coffee |
-| IshimaruOficial | 3 coffees | I just wanted to thank you for the constant support of your tools, it's made my life at work so much better |
-| burybury | 1 coffee |
-| Someone | 2 coffee |
-| Someone | 5 coffee | -->
