@@ -5,23 +5,6 @@ type: "comment"
 top_img: https://cdn.jsdelivr.net/gh/yaronzz/CDN/blog/comment.jpg
 ---
 
-<!-- 
-惠化洞/双门洞
-口琴
-http://music.163.com/song/media/outer/url?id=1299063318.mp3
-http://p4.music.126.net/nozXZuW3-EF61hgAYYy3IQ==/109951163633314108.jpg?param=200y200
-
-没有理想的人不伤心
-新裤子
-http://music.163.com/song/media/outer/url?id=1305364671.mp3
-http://p1.music.126.net/GW7sRVT4sfm8P0kwkMlQlg==/109951163522768092.jpg?param=130y130
-
-I Hate Myself For Loving You
-Joan Jett & the Blackhearts
-http://music.163.com/song/media/outer/url?id=4132379.mp3
-http://p2.music.126.net/rde3fYhAf7xUId0TDFSyBA==/2593747929926872.jpg?param=130y130
--->
-
 {% aplayerlist %}
 {
     "narrow": false,                          
