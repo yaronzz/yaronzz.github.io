@@ -73,7 +73,7 @@ tidal-dl
 | --------- | ------ |
 | LOW  | mp4 or m4a |
 | HIGH  | mp4 or m4a |
-| LOSSLESS  | flac |
+| LOSSLESS  | mp4 or m4a or flac |
 | HI_RES **(BEST)** | flac |
 
 3. Type track\video\album\playlist\artist url to download
