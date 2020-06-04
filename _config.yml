@@ -103,10 +103,10 @@ theme: Butterfly
 deploy:
 - type: git
   repository:
-    github: git@github.com:yaronzz/yaronzz.github.io.git 
+    # github: git@github.com:yaronzz/yaronzz.github.io.git 
     coding: git@e.coding.net:yaronzz/yaronzz.git #coding
     # repo: git@code.aliyun.com:yaronzz/yaronzz.git #阿里云 
-    gitee: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
+    # gitee: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
   branch: master
 - type: baidu_url_submitter                         # 这是新加的主动推送
 
