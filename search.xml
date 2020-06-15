@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Charles抓包工具使用教程</title>
+      <link href="/post/charles_use/"/>
+      <url>/post/charles_use/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a>是一款抓包工具，能够在Windows，Mac，Linux上使用，个人觉得比Fiddler要好用得多。它可以提供代理服务，使手机或电脑软件通过它代理上网。</p><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest//blog/charles.png" alt="charles"></p><h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><ol><li><p><strong>安装电脑证书</strong></p><p>选择菜单Help–&gt;SSL Proxying–&gt;Install Charles Root Certificate</p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest//blog/charles1.png" alt="charles1" style="zoom: 80%;" /></li><li><p><strong>安装手机证书</strong></p><p>选择菜单Help–&gt;SSL Proxying–&gt;Install Charles Root Certificate on a Mobile Device or Remote Browser</p><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charles2.png" alt="charles2"></p><p>手机与电脑连接同一个WIFI，进入WIFI设置，选择配置代理–手动，填写Charles提供的IP与端口</p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charlesphone.jpg" alt="charlesphone" style="zoom: 50%;" /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charlesphone1.jpg" alt="charlesphone1" style="zoom: 50%;" /><p>手机使用浏览器登录网址 chls.pro/ssl ,下载并安装证书</p></li><li><p>设置监听站点与数据</p><p>选择菜单Proxy–&gt;SSL Proxying Settings，勾选Enable SSL Proxying，在Location部份选择add，按如下图添加，抓取任意站点、443端口的数据。</p><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charles3.png" alt="charles3"></p></li><li><p>设置代理</p><p>选择菜单Proxy–&gt;Proxying Settings，勾选HTTP和SOCKS，填写自己的代理端口，如下所示。如果不需要代理这一步骤可以跳过。</p><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charles4.png" alt="charles3"></p></li><li><p>开始抓包</p><p>选择菜单Proxy，勾选Windows Proxy，如果需要代理则再勾选External Proxy Settings</p></li></ol><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/yaronzz/CDN@latest/blog/charles5.png" alt="charles5"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> charles </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>jsDelivr加速Github图床</title>
       <link href="/post/jsdelivr_cdn_github/"/>
       <url>/post/jsdelivr_cdn_github/</url>
