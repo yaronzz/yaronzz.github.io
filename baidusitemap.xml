@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.yaronzz.top/post/macos_build/</loc>
+    <lastmod>2020-06-17</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.top/post/jsdelivr_cdn_github/</loc>
+    <lastmod>2020-06-16</lastmod>
+  </url>  <url>
     <loc>https://www.yaronzz.top/post/hexo_build/</loc>
     <lastmod>2020-06-15</lastmod>
   </url>  <url>
@@ -8,9 +14,6 @@
     <lastmod>2020-06-15</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.top/post/vscode_install/</loc>
-    <lastmod>2020-06-15</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.top/post/jsdelivr_cdn_github/</loc>
     <lastmod>2020-06-15</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.top/post/tidal_dl_installation_chn/</loc>
