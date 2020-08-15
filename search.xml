@@ -4,20 +4,7 @@
   
     
     <entry>
-      <title>20200810-Liunx命令</title>
-      <link href="/post/undefined/"/>
-      <url>/post/undefined/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table><thead><tr><th align="left">说明</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">创建目录</td><td align="left">mkdir  test</td></tr><tr><td align="left">删除目录</td><td align="left">rm  -rf  test</td></tr><tr><td align="left">切换目录</td><td align="left">cd  test</td></tr><tr><td align="left">移动目录</td><td align="left">mv  ./test    /root/test</td></tr></tbody></table><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><table><thead><tr><th align="left">说明</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">新建文件</td><td align="left">touch  test.txt</td></tr><tr><td align="left">复制文件</td><td align="left">cp  test.txt  /root/test/desc.txt</td></tr><tr><td align="left">查看文件</td><td align="left">cat  test.txt</td></tr></tbody></table><h2 id="过滤-管道与重定向"><a href="#过滤-管道与重定向" class="headerlink" title="过滤, 管道与重定向"></a>过滤, 管道与重定向</h2><table><thead><tr><th align="left">说明</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">过滤出 /etc/passwd 文件中包含 <code>root</code> 的记录</td><td align="left">grep ‘root’ /etc/passwd</td></tr><tr><td align="left">递归地过滤出 /var/log/ 目录中包含 <code>linux</code> 的记录</td><td align="left">grep -r ‘linux’ /var/log/</td></tr><tr><td align="left">打印/etc/passwd 文件中包含 <code>root</code> 的记录</td><td align="left">cat /etc/passwd | grep ‘root’</td></tr><tr><td align="left">输出重定向到一个文件中</td><td align="left">echo ‘Hello World’ &gt; ~/test.txt</td></tr></tbody></table><h2 id="运维常用命令"><a href="#运维常用命令" class="headerlink" title="运维常用命令"></a>运维常用命令</h2><table><thead><tr><th align="left">说明</th><th align="left">命令</th></tr></thead><tbody><tr><td align="left">发送 4 个 ping 包, 检查与其是否联通</td><td align="left">ping -c 4 cloud.tencent.com</td></tr><tr><td align="left">列出所有处于监听状态的tcp端口</td><td align="left">netstat -lt</td></tr><tr><td align="left">查看所有的端口信息, 包括 PID 和进程名称</td><td align="left">netstat -tulpn</td></tr><tr><td align="left">过滤得到当前系统中的 ssh 进程信息</td><td align="left">ps aux | grep ‘ssh’</td></tr></tbody></table>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20200815-Linux挂载OneDrive</title>
+      <title>Linux挂载OneDrive</title>
       <link href="/post/linux_mount_onedrive/"/>
       <url>/post/linux_mount_onedrive/</url>
       
@@ -33,34 +20,9 @@
       
         <tags>
             
-            <tag> linux </tag>
-            
             <tag> onedrive </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20200731-WPF笔记</title>
-      <link href="/post/wpf_note/"/>
-      <url>/post/wpf_note/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="🎉控件"><a href="#🎉控件" class="headerlink" title="🎉控件"></a>🎉控件</h2><h3 id="✅DataGrid"><a href="#✅DataGrid" class="headerlink" title="✅DataGrid"></a>✅DataGrid</h3><ol><li><p><strong>Header绑定动态文本资源</strong></p><p> 问题：文本资源修改时，Header并没有更新</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataGridTextColumn Header&#x3D;&quot;&#123;DynamicResource strTitle&#125;&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure><p> 解决：DataGrid.Columns的Columns并没有继承DataGrid中的DataContext元素，所以需要将资源绑定到Header的TextBlock控件</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataGridTextColumn &gt;</span><br><span class="line">   &lt;DataGridTextColumn.Header&gt;</span><br><span class="line">        &lt;TextBlock Text &#x3D;&quot;&#123;DynamicResource strTitle&#125;&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;DataGridTextColumn.Header&gt;</span><br><span class="line">&lt;&#x2F;DataGridTextColumn&gt;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> WPF </tag>
+            <tag> linux </tag>
             
         </tags>
       
@@ -268,9 +230,9 @@
       
         <tags>
             
-            <tag> vs </tag>
-            
             <tag> linux </tag>
+            
+            <tag> vs </tag>
             
         </tags>
       
