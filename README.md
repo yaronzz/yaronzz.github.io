@@ -7,7 +7,7 @@ git pull master https://github.com/jerryc127/hexo-theme-butterfly.git themes/But
 
 ### 站点分类与图床token
 分类：建站 | 软件 | 其他 | 编程技术   
-图床token: bfb98b2dda28cba3df1b172f4f416a1a0474fd0f  
+图床token: 0a11ca228600d589de96a30665e35460aff0e557
 
 ### 评论系统
 valine:

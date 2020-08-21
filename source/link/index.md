@@ -1,5 +1,5 @@
 ﻿---
-title: 友链
+title: Link
 date: 2020-03-28 11:15:57
 type: "link"
 top_img: https://cdn.jsdelivr.net/gh/yaronzz/CDN/blog/friend.jpg

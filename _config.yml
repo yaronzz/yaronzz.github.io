@@ -8,7 +8,7 @@ subtitle:
 description:
 keywords:
 author: YaornzZ
-language: zh-CN
+language: en
 timezone:
 
 # URL
@@ -97,14 +97,16 @@ ignore:
 ## Themes: https://hexo.io/themes/
 # theme: next
 theme: Butterfly
-
+# theme: volantis
+# theme: icarus
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
   repository:
-    # github: git@github.com:yaronzz/yaronzz.github.io.git 
+    github: git@github.com:yaronzz/yaronzz.github.io.git 
     coding: git@e.coding.net:yaronzz/yaronzz.git #coding
+    repo: root@144.34.241.208:/var/repo/hexo_static.git
     # repo: git@code.aliyun.com:yaronzz/yaronzz.git #阿里云 
     # gitee: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
   branch: master
