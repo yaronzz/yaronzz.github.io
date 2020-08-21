@@ -8,17 +8,14 @@ html(lang=config.language data-theme=theme.display_mode)
     if theme.preloader
       !=partial('includes/loading/loading', {}, {cache:theme.fragment_cache})
 
-    if theme.fireworks && theme.fireworks.enable
-      canvas.fireworks
-
     !=partial('includes/mobile-sidebar/index', {}, {cache:theme.fragment_cache})
-
-    include ./sidebar.pug
 
     #body-wrap
       if theme.background
-        - var is_photo = theme.background.substring(3,0) === 'url' ? 'photo':'color'
+        - var is_photo = theme.background.startsWith('url') ? 'photo':'color'
         #web_bg(data-type=is_photo)
+
+      include ./sidebar.pug
       include ./header/index.pug
 
       if (!is_post())
@@ -41,5 +38,5 @@ html(lang=config.language data-theme=theme.display_mode)
         !=partial('includes/footer', {}, {cache:theme.fragment_cache})
 
     include ./rightside.pug
-    !=partial('includes/search/index', {}, {cache:theme.fragment_cache})
+    !=partial('includes/third-party/search/index', {}, {cache:theme.fragment_cache})
     include ./additional-js.pug

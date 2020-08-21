@@ -97,6 +97,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 # theme: next
 theme: Butterfly
+# theme: livemylife
 # theme: volantis
 # theme: icarus
 # Deployment

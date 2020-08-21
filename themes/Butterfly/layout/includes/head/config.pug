@@ -31,20 +31,20 @@
     translate = JSON.stringify({
       defaultEncoding: theme.translate.defaultEncoding,
       translateDelay: theme.translate.translateDelay,
-      cookieDomain: theme.translate.cookieDomain,
       msgToTraditionalChinese: theme.translate.msgToTraditionalChinese,
       msgToSimplifiedChinese: theme.translate.msgToSimplifiedChinese
     })
   }
 
-  var copyright = 'undefined' ;
-  if (theme.copy.enable && theme.copy.copyright){
-    copyright = JSON.stringify({      
+  var copyright = 'undefined';
+  if (theme.copy.enable && theme.copy.copyright.enable){
+    copyright = JSON.stringify({
+      limitCount: theme.copy.copyright.limit_count,
       languages: {
-      author: _p("copy_copyright.author") + ': ' + config.author,
-      link: _p("copy_copyright.link") + ': ',
-      source: _p("copy_copyright.source") + ': ' + config.title,
-      info: _p("copy_copyright.info")
+        author: _p("copy_copyright.author") + ': ' + config.author,
+        link: _p("copy_copyright.link") + ': ',
+        source: _p("copy_copyright.source") + ': ' + config.title,
+        info: _p("copy_copyright.info")
       }
     })
   }
@@ -60,7 +60,7 @@
   
   var Snackbar = 'undefined';
   if (theme.snackbar && theme.snackbar.enable) {
-  Snackbar = JSON.stringify({      
+  Snackbar = JSON.stringify({
     bookmark: {
       message_prev: _p("Snackbar.bookmark.message_prev"),
       message_next: _p("Snackbar.bookmark.message_next")
@@ -75,12 +75,24 @@
     })
   }
 
+  var noticeOutdate = 'undefined';
+  if (theme.noticeOutdate && theme.noticeOutdate.enable) {
+    noticeOutdate = JSON.stringify({
+      limitDay: theme.noticeOutdate.limit_day,
+      position: theme.noticeOutdate.position,
+      messagePrev: theme.noticeOutdate.message_prev,
+      messageNext: theme.noticeOutdate.message_next,
+    })
+  }
+
 script.
   var GLOBAL_CONFIG = { 
     root: '!{config.root}',
+    hexoversion: '!{get_hexo_version()}',
     algolia: !{algolia},
     localSearch: !{localSearch},
     translate: !{translate},
+    noticeOutdate: !{noticeOutdate},
     copy: {
       success: '!{_p("copy.success")}',
       error: '!{_p("copy.error")}',
@@ -94,17 +106,18 @@ script.
     runtime: !{theme.runtimeshow.enable},
     copyright: !{copyright},
     ClickShowText: !{ClickShowText},
-    medium_zoom: !{theme.medium_zoom.enable},
-    fancybox: !{theme.fancybox.enable},
+    medium_zoom: !{theme.medium_zoom},
+    fancybox: !{theme.fancybox},
     Snackbar: !{Snackbar},
-    baiduPush: !{theme.baidu_push && theme.baidu_push.enable},
+    justifiedGallery: {
+      js: '!{theme.CDN.justifiedGallery_js}',
+      css: '!{theme.CDN.justifiedGallery_css}'
+    },
+    baiduPush: !{theme.baidu_push},
     highlightCopy: !{theme.highlight_copy},
     highlightLang: !{theme.highlight_lang},
-    highlightShrink: '!{theme.highlight_shrink}',
-    isFontAwesomeV5: !{theme.fontawesome_v5 && theme.fontawesome_v5.enable},
     isPhotoFigcaption: !{theme.photofigcaption},
-    islazyload: !{theme.lazyload},
-    isanchor: !{theme.anchor}
-    
+    islazyload: !{theme.lazyload.enable},
+    isanchor: !{theme.anchor}    
   }
 
