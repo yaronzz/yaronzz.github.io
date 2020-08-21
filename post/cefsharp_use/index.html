@@ -118,11 +118,11 @@ if (autoChangeMode === '1') {
 </ul>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
 <li><p>通过Nuget安装，右击项目 -&gt; 管理Nuget程序包 -&gt; 在打开的界面中搜索CefSharp，依次安装 <code>CefSharp.Common</code>和 <code>CefSharp.Wpf</code> ，至于 <code>cef.redist.x64</code>和 <code>cef.redist.x86</code>会自动安装。</p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png" alt="image-20200730153609000"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png" alt="image-20200730153609000"></p>
 </li>
 <li><p>配置解决方案平台</p>
 <p>因为CefSharp不支持ANYCPU所以要配置x86、x64，点击菜单生成 -&gt; 配置管理器。选择解决方案平台，点击编辑，先将x64和x86删掉，再重新新建，重新配置比较容易些。</p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://i.loli.net/2020/07/30/Unib4OjqVvwKB7P.png" alt="image-20200730154155013"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2020/07/30/Unib4OjqVvwKB7P.png" alt="image-20200730154155013"></p>
 </li>
 </ol>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用时可以直接在xaml文件中直接添加<code>ChromiumWebBrowser</code>控件，不过一个<code>ChromiumWebBrowser</code>控件就要占几M的内存，所以代码动态添加也是一种选择。</p>

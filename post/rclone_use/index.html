@@ -126,7 +126,7 @@ if (autoChangeMode === '1') {
 <li><p>在目录下打开cmd运行命令 <code>rclone authorize &quot;onedrive&quot;</code></p>
 </li>
 <li><p>复制授权码：<code>{&quot;access_token&quot;:&quot;xxxx&quot;}</code></p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://i.loli.net/2020/08/15/4p2tTQ8yJ7RsxHO.png" alt="image-20200815092021152"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2020/08/15/4p2tTQ8yJ7RsxHO.png" alt="image-20200815092021152"></p>
 </li>
 <li><p>配置</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
@@ -169,7 +169,7 @@ if (autoChangeMode === '1') {
 <p>启动脚本 <code>rcloned start</code></p>
 </li>
 <li><p>挂载成功后，输入<code>df -h</code>命令查看</p>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://i.loli.net/2020/08/15/y2B5TYqenzbkDcX.png" alt="image-20200815181741080"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2020/08/15/y2B5TYqenzbkDcX.png" alt="image-20200815181741080"></p>
 </li>
 <li><p>设置开机启动</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mv rcloned /etc/init.d/rcloned    #移动rcloned到init(开机启动目录)下</span><br><span class="line">chmod +x /etc/init.d/rcloned      #给rcloned可执行权限</span><br><span class="line">chkconfig rcloned on                   #设置自启动</span><br><span class="line">bash /etc/init.d/rcloned start       #启动rclone</span><br></pre></td></tr></table></figure>
