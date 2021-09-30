@@ -1,0 +1,35 @@
+version: 1619416789282
+language: cn
+aomori_widgets:
+  - toc
+  - category
+  - tag
+  - recent_posts
+  - archive
+
+aomori_menu:
+  Home: /
+  Link: /link/
+  About: /about/
+
+aomori_logo: /images/avatar.jpg
+aomori_logo_typed_animated: true
+aomori_copyright: true
+aomori_baidu_sitepush: true 
+aomori_busuanzi: true
+
+
+aomori_valine:
+  appId: qGPY6BGroy3OrgXxRWHdRENn-MdYXbMMI
+  appKey: HVCrjO8XzV2rgWueOsVd1idy
+  pageSize: 10 # comment list page size
+  avatar: retro # gravatar style https://valine.js.org/#/avatar
+  lang: en # i18n: zh-CN/zh-TW/en/ja
+  placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
+  guest_info: nick,mail,link # valine comment header info (nick/mail/link)
+  recordIP: false # Record reviewer IP
+  serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
+  # bg: /img/comment_bg.png
+  emojiCDN: # emoji CDN
+  enableQQ: true # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  requiredFields: nick,mail # required fields (nick/mail)

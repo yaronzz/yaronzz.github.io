@@ -10,15 +10,15 @@
 '''
 import aigpy.pathHelper as pathHelper
 
-src = "G:/OneDrive/写作/笔记/"
-desc = "G:/code/myblog/source/_posts/"
+src = "E:/OneDrive/写作/笔记/"
+desc = "./source/_posts/"
 ext = ".md"
 
-files = pathHelper.getDirFiles(desc)
+files = pathHelper.getFiles(desc)
 for item in files:
     pathHelper.remove(item)
 
-files = pathHelper.getDirFiles(src)
+files = pathHelper.getFiles(src)
 for item in files:
     name = pathHelper.getFileName(item)
     to = desc + name

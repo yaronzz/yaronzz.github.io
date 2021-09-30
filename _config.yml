@@ -8,12 +8,12 @@ subtitle:
 description:
 keywords:
 author: YaornzZ
-language: en
+language: en #zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.yaronzz.top
+url: https://www.yaronzz.com
 root: /
 permalink: post/:urlname/
 # permalink: :year/:month/:day/:title/
@@ -95,9 +95,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: next
-theme: Butterfly
-# theme: livemylife
+theme: next
+# theme: Butterfly
 # theme: volantis
 # theme: icarus
 # Deployment
@@ -107,7 +106,7 @@ deploy:
   repository:
     github: git@github.com:yaronzz/yaronzz.github.io.git 
     coding: git@e.coding.net:yaronzz/yaronzz.git #coding
-    repo: root@144.34.241.208:/var/repo/hexo_static.git
+    # repo: root@144.34.241.208:/var/repo/hexo_static.git
     # repo: git@code.aliyun.com:yaronzz/yaronzz.git #阿里云 
     # gitee: git@gitee.com:yaronzz/yaronzz.git #码云 https://yaronzz.gitee.io
   branch: master
@@ -128,6 +127,6 @@ baidusitemap:
 
 baidu_url_submit:
   count: 100                # 提交最新的多少个链接
-  host: www.yaronzz.top  # 在百度站长平台中添加的域名
+  host: www.yaronzz.com  # 在百度站长平台中添加的域名
   token: RlmDtBVrshokFjss      # 秘钥
   path: baidu_urls.txt   # 文本文档的地址， 新链接会保存在此文本文档里
