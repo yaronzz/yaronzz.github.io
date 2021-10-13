@@ -28,7 +28,7 @@
 <meta property="og:description" content="QT使用QSS（Qt Style Sheet）来设置控件样式并进行个性化定制和界面美化。QSS的语法和CSS十分类似，都是使用选择器来配置控件属性。 QT导入QSS样式文件的方式也十分简单，只需要调用setStyleSheet进行设置： 12345QApplication app(argc, argv);QFile qss(&quot;style.qss&quot;);qss.open(QFile::ReadOnly">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-11T03:12:30.000Z">
-<meta property="article:modified_time" content="2021-10-11T02:06:00.464Z">
+<meta property="article:modified_time" content="2021-10-13T01:01:10.487Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="qt">
 <meta property="article:tag" content="qss">
@@ -192,10 +192,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-10-11 11:12:30 / Modified: 10:06:00" itemprop="dateCreated datePublished" datetime="2021-10-11T11:12:30+08:00">2021-10-11</time>
+              <time title="Created: 2021-10-11 11:12:30" itemprop="dateCreated datePublished" datetime="2021-10-11T11:12:30+08:00">2021-10-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-13 09:01:10" itemprop="dateModified" datetime="2021-10-13T09:01:10+08:00">2021-10-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -258,15 +264,13 @@
 
 <a id="more"></a>
 
-
-
 <h2 id="QSS语法"><a href="#QSS语法" class="headerlink" title="QSS语法"></a>QSS语法</h2><p>QSS同CSS语法规则类似：<br><code>selector {attribute:value};</code><br>其中：</p>
 <ul>
 <li><code>selector</code>选择器：通常情况下为控件类名（如<code>QPushButton</code>）；</li>
 <li><code>attribute</code>属性：待设置的样式表属性（如<code>background-color</code>）；</li>
 <li><code>value</code>值：属性赋值（如<code>rgb(40, 85, 20);</code>）；</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPushButton &#123; color: red &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">QPushButton</span> &#123; <span class="attribute">color</span>: red &#125;</span><br></pre></td></tr></table></figure>
 
 <p>Qt样式表<strong>通常不区分大小写</strong>(即，color、Color、color和color指的是同一属性)，但是是<strong>类名、对象名和Qt属性名</strong>，它们区分大小写。</p>
 <p><code>selector</code>选择器的有多种使用方式，如下：</p>
@@ -1331,7 +1335,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">44 mins.</span>
+    <span title="Reading time total">43 mins.</span>
 </div>
 
         
