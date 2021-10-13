@@ -853,7 +853,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:06:00" itemprop="dateModified" datetime="2021-10-11T10:06:00+08:00">2021-10-11</time>
+                <time title="Modified: 2021-10-13 09:04:22" itemprop="dateModified" datetime="2021-10-13T09:04:22+08:00">2021-10-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -908,6 +908,8 @@
 
 <h2 id="VSCODE安装"><a href="#VSCODE安装" class="headerlink" title="VSCODE安装"></a>VSCODE安装</h2><p>下载安装 VSCODE：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p>
 <p><img src="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png" alt="image-20200924091310812"></p>
+<!-- more -->
+
 <p>选择软件左侧插件扩展项，在输入框中输入要安装的插件即可。</p>
 <ol>
 <li><p>汉化插件</p>
@@ -1001,7 +1003,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:06:00" itemprop="dateModified" datetime="2021-10-11T10:06:00+08:00">2021-10-11</time>
+                <time title="Modified: 2021-10-13 09:04:22" itemprop="dateModified" datetime="2021-10-13T09:04:22+08:00">2021-10-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1052,67 +1054,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol>
+          <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol>
 <li><p>Linux安装调试器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server g++ gdb gdbserver</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Windows环境配置</p>
-<ul>
-<li><p>Linux C++调试组件安装</p>
-<p><img src="https://i.loli.net/2020/06/22/1dVF5TKPo3W8tsp.png" alt="vstool"></p>
-</li>
-<li><p>Linux头文件拷贝到Windows</p>
-<p>Linux的头文件目录为：/usr/include   </p>
-<p>Windows的目录为：安装目录\Common7\IDE\VC\Linux\include\usr\include</p>
-<p>注：拷贝之前最好先备份一下windows的头文件目录</p>
-</li>
-<li><p>VS配置</p>
-<p>增加Linux程序编译时的信息输出，以便更容易查看错误信息，打开路径”菜单-工具-选项-项目和解决方案-生成并运行”，更改MSBuild的两个选项改为普通</p>
-<p><img src="https://i.loli.net/2020/06/22/3HrUAYFdV6GE4lh.png" alt="MSBuild"></p>
-<p>添加Linux的IP与端口，使用SSH连接，打开路径”菜单-工具-选项-Cross Platform”</p>
-<p><img src="https://i.loli.net/2020/06/22/yoaX9reUzTCVWKQ.png" alt="linuxssh"></p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="测试工程"><a href="#测试工程" class="headerlink" title="测试工程"></a>测试工程</h2><ol>
-<li><p>新建Linux工程</p>
-<p><img src="https://i.loli.net/2020/06/22/FdYG23qugl7bZEy.png" alt="linuxpro"></p>
-</li>
-<li><p>测试代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">func</span><span class="params">(<span class="keyword">void</span>* arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"HELLO WORLD - VS LINUX!"</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="keyword">pthread_t</span> handle;</span><br><span class="line">       pthread_create(&amp;handle, <span class="literal">NULL</span>, func,<span class="literal">NULL</span>);</span><br><span class="line">       pthread_join(handle, <span class="literal">NULL</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改项目配置</p>
-<ul>
-<li><p>路径：右键项目-属性-C/C++-所有选项 </p>
-<p> a. 检查linux是否支持C11，如果不支持的话，要改为C99之类</p>
-<p> b. 附加选项增加多线程所需要的标识‘-lphread’</p>
-</li>
-<li><p>路径：右键项目-属性-链接器-所有选项 </p>
-<p> a. 附加选项增加多线程所需要的标识‘-lphread’</p>
-</li>
-<li><p>路径：右键项目-属性-常规  </p>
-<p> a. 远程生成根目录（默认生成地址为~/project，这里可以修改成自己的专属目录地址）</p>
-</li>
-<li><p>路径：右键项目-属性-调试  </p>
-<p> a. 调试模式（默认为gdbserver，需要看看自己的linux是否支持，如果不支持要改成gdb）</p>
-<p> <img src="https://i.loli.net/2020/06/22/wQSsTkGa6IhZKyu.png" alt="vsset1"></p>
-<p> <img src="https://i.loli.net/2020/06/22/h8iqXyV3cE7mBOa.png" alt="vsset2"></p>
-<p> <img src="https://i.loli.net/2020/06/22/XvDc982jJdqg7C6.png" alt="vsset3"></p>
-</li>
-</ul>
-</li>
-<li><p>调试</p>
-<p>路径：菜单-调试-linux console，可以查看printf输出的信息，linux上需要安装gdbserver才能看到输出的信息</p>
-</li>
-<li><p>链接库的配置</p>
-<p>比如：工程需要链接静态库  /root/projects/xxxxxxxx.a</p>
-<p><img src="https://i.loli.net/2020/06/22/fqjKJQx7EPCIXWv.png" alt="vslib"></p>
-</li>
-</ol>
 
+</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/vs_linux_debug/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
