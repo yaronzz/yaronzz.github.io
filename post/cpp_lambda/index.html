@@ -20,24 +20,21 @@
     var CONFIG = {"hostname":"www.yaronzz.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="之前一直使用WPF自带的WebBrowser控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。  开源项目地址 官方中文帮助文档">
+  <meta name="description" content="概述C++ 11 中的 Lambda 表达式用于定义并创建匿名的函数对象，以简化编程工作。Lambda 的语法形式如下： 12345678[捕获列表] (参数) mutable 或 exception 声明 -&gt; 返回值类型 &amp;#123;函数体&amp;#125;&#x2F;&#x2F;计算两个值的和auto func &#x3D; [](int a, int b) -&gt; int&amp;#123;return a+b;&amp;#125">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CefSharp的使用">
-<meta property="og:url" content="https://www.yaronzz.com/post/cefsharp_use/index.html">
+<meta property="og:title" content="C++Lambda表达式">
+<meta property="og:url" content="https://www.yaronzz.com/post/cpp_lambda/index.html">
 <meta property="og:site_name" content="Yaronzz">
-<meta property="og:description" content="之前一直使用WPF自带的WebBrowser控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。  开源项目地址 官方中文帮助文档">
+<meta property="og:description" content="概述C++ 11 中的 Lambda 表达式用于定义并创建匿名的函数对象，以简化编程工作。Lambda 的语法形式如下： 12345678[捕获列表] (参数) mutable 或 exception 声明 -&gt; 返回值类型 &amp;#123;函数体&amp;#125;&#x2F;&#x2F;计算两个值的和auto func &#x3D; [](int a, int b) -&gt; int&amp;#123;return a+b;&amp;#125">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/30/Unib4OjqVvwKB7P.png">
-<meta property="article:published_time" content="2020-07-30T07:30:48.000Z">
-<meta property="article:modified_time" content="2021-10-11T02:06:00.441Z">
+<meta property="article:published_time" content="2021-10-14T04:40:33.000Z">
+<meta property="article:modified_time" content="2021-10-14T01:55:59.527Z">
 <meta property="article:author" content="YaornzZ">
-<meta property="article:tag" content="WPF">
-<meta property="article:tag" content="C#">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="lambda">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png">
 
-<link rel="canonical" href="https://www.yaronzz.com/post/cefsharp_use/">
+<link rel="canonical" href="https://www.yaronzz.com/post/cpp_lambda/">
 
 
 <script id="page-configurations">
@@ -50,7 +47,7 @@
   };
 </script>
 
-  <title>CefSharp的使用 | Yaronzz</title>
+  <title>C++Lambda表达式 | Yaronzz</title>
   
 
 
@@ -173,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/cefsharp_use/">
+    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/cpp_lambda/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
@@ -186,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CefSharp的使用
+          C++Lambda表达式
         </h1>
 
         <div class="post-meta">
@@ -195,16 +192,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-07-30 15:30:48" itemprop="dateCreated datePublished" datetime="2020-07-30T15:30:48+08:00">2020-07-30</time>
+              <time title="Created: 2021-10-14 12:40:33 / Modified: 09:55:59" itemprop="dateCreated datePublished" datetime="2021-10-14T12:40:33+08:00">2021-10-14</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:06:00" itemprop="dateModified" datetime="2021-10-11T10:06:00+08:00">2021-10-11</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -231,8 +222,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/post/cefsharp_use/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/cefsharp_use/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/cpp_lambda/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/cpp_lambda/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -242,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.5k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -261,50 +252,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>之前一直使用WPF自带的<code>WebBrowser</code>控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。</p>
-<ul>
-<li><a href="https://github.com/cefsharp/CefSharp" target="_blank" rel="noopener">开源项目地址</a></li>
-<li><a href="https://github.com/cefsharp/CefSharp/wiki/CefSharp中文帮助文档" target="_blank" rel="noopener">官方中文帮助文档</a></li>
-</ul>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>C++ 11 中的 Lambda 表达式用于定义并创建匿名的函数对象，以简化编程工作。<code>Lambda</code> 的语法形式如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[捕获列表] (参数) <span class="keyword">mutable</span> 或 exception 声明 -&gt; 返回值类型 &#123;函数体&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//计算两个值的和</span></span><br><span class="line"><span class="keyword">auto</span> func = [](<span class="keyword">int</span> a, <span class="keyword">int</span> b) -&gt; <span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;;</span><br><span class="line"><span class="comment">//当返回值的类型是确定时，可以忽略返回值</span></span><br><span class="line"><span class="keyword">auto</span> func = [](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a + b;&#125;;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">int</span> sum = func(<span class="number">1</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>通过Nuget安装，右击项目 -&gt; 管理Nuget程序包 -&gt; 在打开的界面中搜索CefSharp，依次安装 <code>CefSharp.Common</code>和 <code>CefSharp.Wpf</code> ，至于 <code>cef.redist.x64</code>和 <code>cef.redist.x86</code>会自动安装。</p>
-<p><img src="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png" alt="image-20200730153609000"></p>
-</li>
-<li><p>配置解决方案平台</p>
-<p>因为CefSharp不支持ANYCPU所以要配置x86、x64，点击菜单生成 -&gt; 配置管理器。选择解决方案平台，点击编辑，先将x64和x86删掉，再重新新建，重新配置比较容易些。</p>
-<p><img src="https://i.loli.net/2020/07/30/Unib4OjqVvwKB7P.png" alt="image-20200730154155013"></p>
-</li>
-</ol>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用时可以直接在xaml文件中直接添加<code>ChromiumWebBrowser</code>控件，不过一个<code>ChromiumWebBrowser</code>控件就要占几M的内存，所以代码动态添加也是一种选择。</p>
-<h3 id="在xaml中添加浏览器"><a href="#在xaml中添加浏览器" class="headerlink" title="在xaml中添加浏览器"></a>在xaml中添加浏览器</h3><ol>
-<li><p>xmal文件头部插入引用<code>xmlns:wpf=&quot;clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf&quot;</code>，添加控件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Grid x:Name&#x3D;&quot;ctrlBrowerGrid&quot;&gt;</span><br><span class="line">    &lt;wpf:ChromiumWebBrowser x:Name&#x3D;&quot;Browser&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;Grid&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cs文件中操作控件访问网址：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Browser.Load(“www.baidu.com”);</span><br></pre></td></tr></table></figure>
+<h2 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h2><h3 id="捕获列表"><a href="#捕获列表" class="headerlink" title="捕获列表"></a>捕获列表</h3><p>Lambda 表达式相当于一个类，那么捕获列表就是传递给这个类的类成员。比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Labmda</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> test;</span><br><span class="line">    Labmda(<span class="keyword">int</span> value):test(value)</span><br><span class="line">    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">run</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b + test;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">auto</span> func = Labmda(test);</span><br><span class="line">    <span class="keyword">int</span> sum = func.<span class="built_in">run</span>(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Lambda 表达式的写法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">auto</span> func = [test](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line">    <span class="keyword">int</span> sum = func(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<h3 id="动态添加浏览器"><a href="#动态添加浏览器" class="headerlink" title="动态添加浏览器"></a>动态添加浏览器</h3><ol>
-<li><p>添加浏览器类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">internal sealed class CollapsableChromiumWebBrowser : ChromiumWebBrowser</span><br><span class="line">&#123;</span><br><span class="line">    public CollapsableChromiumWebBrowser()</span><br><span class="line">    &#123;</span><br><span class="line">        this.Loaded +&#x3D; this.BrowserLoaded;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void BrowserLoaded(object sender, System.Windows.RoutedEventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F; Avoid loading CEF in designer</span><br><span class="line">        if (DesignerProperties.GetIsInDesignMode(this))</span><br><span class="line">            return;</span><br><span class="line">        &#x2F;&#x2F; Avoid NRE in AbstractRenderHandler.OnPaint</span><br><span class="line">        ApplyTemplate();</span><br><span class="line">        CreateOffscreenBrowser(new Size(400, 400));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>动态添加和操作控件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CollapsableChromiumWebBrowser Browser &#x3D; new CollapsableChromiumWebBrowser();</span><br><span class="line">&#x2F;&#x2F;页面插入控件</span><br><span class="line">ctrlBrowerGrid.Children.Add(Browser);</span><br><span class="line">&#x2F;&#x2F;这里不能用Load()的方法，会报错。</span><br><span class="line">Browser.Address &#x3D; “www.baidu.com”;</span><br></pre></td></tr></table></figure>
+<p>捕获列表有以下格式：</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[]</td>
+<td>不带任何参数</td>
+</tr>
+<tr>
+<td>[=]</td>
+<td>Lambda表达式之前的局部变量，包括所在类的this，变量按值方式传递</td>
+</tr>
+<tr>
+<td>[&amp;]</td>
+<td>Lambda表达式之前的局部变量，包括所在类的this，变量按引用方式传递</td>
+</tr>
+<tr>
+<td>[this]</td>
+<td>Lambda表达式所在类的this</td>
+</tr>
+<tr>
+<td>[a]</td>
+<td>Lambda表达式之前的局部变量a的值，也可以传入多个值，如<code>[a , b]</code></td>
+</tr>
+<tr>
+<td>[&amp;a]</td>
+<td>Lambda表达式之前的局部变量a的引用</td>
+</tr>
+</tbody></table>
+<h3 id="关键字声明"><a href="#关键字声明" class="headerlink" title="关键字声明"></a>关键字声明</h3><p>关键字声明一般都很少用到，也不建议随便使用，可以忽略不计。</p>
+<ol>
+<li><p><code>mutable</code></p>
+<p>当捕获列表以值的方式传递时有效，加上此关键字后，可以修改Lambda类成员（带const修饰符）。比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//编译报错，test成员不能修改</span></span><br><span class="line"><span class="keyword">auto</span> func = [test](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;test = <span class="number">8</span>; <span class="keyword">return</span> a + b + test;&#125;; </span><br><span class="line"><span class="comment">//编译正常</span></span><br><span class="line"><span class="keyword">auto</span> func = [test](<span class="keyword">int</span> a, <span class="keyword">int</span> b)<span class="keyword">mutable</span> &#123;test = <span class="number">8</span>; <span class="keyword">return</span> a + b + test;&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>这里需要注意的是：Lambda类成员<code>test</code>修改之后，并不会改变外部<code>int test</code>的值。</p>
+</li>
+<li><p><code>exception</code> </p>
+<p>exception 声明用于指定函数抛出的异常，如抛出整数类型的异常，可以使用 throw(int)</p>
 </li>
 </ol>
-<h3 id="获取Cookie和Html"><a href="#获取Cookie和Html" class="headerlink" title="获取Cookie和Html"></a>获取Cookie和Html</h3><ol>
-<li><p>添加Cookie访问类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class CookieVisitor : ICookieVisitor</span><br><span class="line">&#123;</span><br><span class="line">    public static string Cookies &#x3D; null;</span><br><span class="line">    public static string Html &#x3D; null;</span><br><span class="line">    public event Action&lt;object&gt; Action;</span><br><span class="line">    public bool Visit(CefSharp.Cookie cookie, int count, int total, ref bool deleteCookie)</span><br><span class="line">    &#123;</span><br><span class="line">        if(count &#x3D;&#x3D; 0)</span><br><span class="line">            Cookies &#x3D; null;</span><br><span class="line">        </span><br><span class="line">        Cookies +&#x3D; cookie.Name + &quot;&#x3D;&quot; + cookie.Value + &quot;;&quot;;</span><br><span class="line">        deleteCookie &#x3D; false;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void Dispose() </span><br><span class="line">    &#123;</span><br><span class="line">        if (Action !&#x3D; null)</span><br><span class="line">            Action((Html, Cookies));</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ol>
+<li><p>捕获列表按值传递</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">auto</span> func = [=](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line"><span class="keyword">auto</span> func2 = [test](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line"><span class="keyword">int</span> sum = func(<span class="number">1</span>, <span class="number">3</span>); <span class="comment">//sum等于14</span></span><br></pre></td></tr></table></figure>
+
+<p> 这里需要注意的是<code>func</code>表达式中<code>test</code>的值只更新到表达式之前：</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">auto</span> func = [=](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line">test = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> sum = func(<span class="number">1</span>, <span class="number">3</span>); <span class="comment">//sum还是等于14</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加Cookie和Html获取回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public async void RecieveCookie(object data)</span><br><span class="line">&#123;</span><br><span class="line">    (string html,string cookies) &#x3D; ((string,string))data;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器控件访问网址，并设置回调</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">async void LoadWebBrowser()</span><br><span class="line">&#123;</span><br><span class="line">    Browser.FrameLoadEnd +&#x3D; Browser_FrameLoadEnd;</span><br><span class="line">    Browser.Address &#x3D; &quot;www.baidu.com&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private async void Browser_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)</span><br><span class="line">&#123;</span><br><span class="line">    CookieVisitor.Html &#x3D; await Browser.GetSourceAsync();</span><br><span class="line">    CookieVisitor visitor &#x3D; new CookieVisitor();</span><br><span class="line">    visitor.Action +&#x3D; RecieveCookie;</span><br><span class="line">    Cef.GetGlobalCookieManager().VisitAllCookies(visitor);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>捕获列表按引用传递</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> test = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">auto</span> func = [&amp;](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;test = <span class="number">5</span>; <span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line"><span class="keyword">auto</span> func2 = [&amp;test](<span class="keyword">int</span> a, <span class="keyword">int</span> b)&#123;test = <span class="number">5</span>; <span class="keyword">return</span> a + b + test;&#125;;</span><br><span class="line"><span class="keyword">int</span> sum = func(<span class="number">1</span>, <span class="number">3</span>); <span class="comment">//sum等于9，test等于5</span></span><br></pre></td></tr></table></figure>
+
+<p>这里<code>func</code>表达式中<code>test</code>的值就能随时更新：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int test &#x3D; 10;</span><br><span class="line">auto func &#x3D; [&#x3D;](int a, int b)&#123;return a + b + test;&#125;;</span><br><span class="line">test &#x3D; 5;</span><br><span class="line">int sum &#x3D; func(1, 3); &#x2F;&#x2F;sum等于9，test等于5</span><br></pre></td></tr></table></figure>
 
 
 
@@ -345,7 +357,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://www.yaronzz.com/post/cefsharp_use/" title="CefSharp的使用">https://www.yaronzz.com/post/cefsharp_use/</a>
+    <a href="https://www.yaronzz.com/post/cpp_lambda/" title="C++Lambda表达式">https://www.yaronzz.com/post/cpp_lambda/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -356,8 +368,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/WPF/" rel="tag"># WPF</a>
-              <a href="/tags/C/" rel="tag"># C#</a>
+              <a href="/tags/cpp/" rel="tag"># cpp</a>
+              <a href="/tags/lambda/" rel="tag"># lambda</a>
           </div>
 
         
@@ -366,13 +378,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/get_accesstoken/" rel="prev" title="Get AccessToken From Tidal">
-      <i class="fa fa-chevron-left"></i> Get AccessToken From Tidal
+    <a href="/post/linux_cmd/" rel="prev" title="Linux常用命令">
+      <i class="fa fa-chevron-left"></i> Linux常用命令
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/rclone_use/" rel="next" title="Rclone使用教程 - 挂载Onedrive和谷歌网盘">
-      Rclone使用教程 - 挂载Onedrive和谷歌网盘 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -432,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在xaml中添加浏览器"><span class="nav-number">2.1.</span> <span class="nav-text">在xaml中添加浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态添加浏览器"><span class="nav-number">2.2.</span> <span class="nav-text">动态添加浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Cookie和Html"><span class="nav-number">2.3.</span> <span class="nav-text">获取Cookie和Html</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法分析"><span class="nav-number">2.</span> <span class="nav-text">语法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获列表"><span class="nav-number">2.1.</span> <span class="nav-text">捕获列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键字声明"><span class="nav-number">2.2.</span> <span class="nav-text">关键字声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

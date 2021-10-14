@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/cpp_json_class_conver/</loc>
+    
+    <lastmod>2021-10-14T01:55:59.537Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/cpp_lambda/</loc>
+    
+    <lastmod>2021-10-14T01:55:59.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
     
     <lastmod>2021-10-13T01:34:31.342Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>https://www.yaronzz.com/post/qt_qss/</loc>
     
     <lastmod>2021-10-13T01:01:10.487Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/cpp_json_class_conver/</loc>
-    
-    <lastmod>2021-10-13T01:01:10.480Z</lastmod>
     
   </url>
   
