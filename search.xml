@@ -426,33 +426,6 @@
     
     
     <entry>
-      <title>Vscode-Lua环境安装</title>
-      <link href="/post/vscode_lua/"/>
-      <url>/post/vscode_lua/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="VSCODE安装"><a href="#VSCODE安装" class="headerlink" title="VSCODE安装"></a>VSCODE安装</h2><p>下载安装 VSCODE：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p><p><img src="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png" alt="image-20200924091310812"></p><a id="more"></a><p>选择软件左侧插件扩展项，在输入框中输入要安装的插件即可。</p><ol><li><p>汉化插件</p><p>Chinese (Simplified) Language Pack for Visual Studio Code</p></li><li><p>主题与图标</p><ul><li><p>Atom One Dark Theme</p></li><li><p>vscode-icons</p></li></ul></li><li><p>代码自动对齐</p><p>Better Align</p></li><li><p>显示对齐线</p><p>Guides</p></li><li><p>Lua插件</p><p><img src="https://i.loli.net/2020/09/24/SjLKXNulb4C86qW.png" alt="image-20200924091359589"></p><p><img src="https://i.loli.net/2020/09/24/tdxUz8gTGpLr4D6.png" alt="image-20200924091413376"></p></li></ol><h2 id="调试Lua"><a href="#调试Lua" class="headerlink" title="调试Lua"></a>调试Lua</h2><p>vscode的项目工程以文件夹为单位，打开文件夹即打开一个工程，lua的工作目录为此文件夹路径。</p><ol><li><p>新建文件加 <code>test</code></p></li><li><p>打开<code>test</code>目录，鼠标右键选择<code>vscode</code>打开目录</p></li><li><p>新建<code>info.ls</code></p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info = &#123;</span><br><span class="line">    age = <span class="number">10</span>,</span><br><span class="line">    name = <span class="string">"xiaoming"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>新建<code>main.ls</code></p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"info"</span>)</span><br><span class="line"></span><br><span class="line">para = <span class="built_in">_G</span>.info</span><br><span class="line"><span class="built_in">print</span>(para.name)</span><br><span class="line"><span class="built_in">print</span>(para.age)</span><br></pre></td></tr></table></figure></li><li><p>点击软件右下角语言模式，将<code>ls</code>文件关联到<code>lua</code></p><p><img src="https://i.loli.net/2020/09/24/1OpsnlWLXFNGzKE.png" alt="image-20200924091556942"></p><p><img src="https://i.loli.net/2020/09/24/O8DplPHubRTUAQx.png" alt="image-20200924091618675"></p></li><li><p>打开<code>mian.ls</code>，按<code>F5</code>即可调试，按<code>F12</code>可以跳转参数定义，将鼠标移动到参数上也可以显示参数信息</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> settings </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> vs </tag>
-            
-            <tag> lua </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>VS调试Linux程序环境配置</title>
       <link href="/post/vs_linux_debug/"/>
       <url>/post/vs_linux_debug/</url>
@@ -472,6 +445,33 @@
             <tag> linux </tag>
             
             <tag> vs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vscode-Lua环境安装</title>
+      <link href="/post/vscode_lua/"/>
+      <url>/post/vscode_lua/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="VSCODE安装"><a href="#VSCODE安装" class="headerlink" title="VSCODE安装"></a>VSCODE安装</h2><p>下载安装 VSCODE：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p><p><img src="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png" alt="image-20200924091310812"></p><a id="more"></a><p>选择软件左侧插件扩展项，在输入框中输入要安装的插件即可。</p><ol><li><p>汉化插件</p><p>Chinese (Simplified) Language Pack for Visual Studio Code</p></li><li><p>主题与图标</p><ul><li><p>Atom One Dark Theme</p></li><li><p>vscode-icons</p></li></ul></li><li><p>代码自动对齐</p><p>Better Align</p></li><li><p>显示对齐线</p><p>Guides</p></li><li><p>Lua插件</p><p><img src="https://i.loli.net/2020/09/24/SjLKXNulb4C86qW.png" alt="image-20200924091359589"></p><p><img src="https://i.loli.net/2020/09/24/tdxUz8gTGpLr4D6.png" alt="image-20200924091413376"></p></li></ol><h2 id="调试Lua"><a href="#调试Lua" class="headerlink" title="调试Lua"></a>调试Lua</h2><p>vscode的项目工程以文件夹为单位，打开文件夹即打开一个工程，lua的工作目录为此文件夹路径。</p><ol><li><p>新建文件加 <code>test</code></p></li><li><p>打开<code>test</code>目录，鼠标右键选择<code>vscode</code>打开目录</p></li><li><p>新建<code>info.ls</code></p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info = &#123;</span><br><span class="line">    age = <span class="number">10</span>,</span><br><span class="line">    name = <span class="string">"xiaoming"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>新建<code>main.ls</code></p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"info"</span>)</span><br><span class="line"></span><br><span class="line">para = <span class="built_in">_G</span>.info</span><br><span class="line"><span class="built_in">print</span>(para.name)</span><br><span class="line"><span class="built_in">print</span>(para.age)</span><br></pre></td></tr></table></figure></li><li><p>点击软件右下角语言模式，将<code>ls</code>文件关联到<code>lua</code></p><p><img src="https://i.loli.net/2020/09/24/1OpsnlWLXFNGzKE.png" alt="image-20200924091556942"></p><p><img src="https://i.loli.net/2020/09/24/O8DplPHubRTUAQx.png" alt="image-20200924091618675"></p></li><li><p>打开<code>mian.ls</code>，按<code>F5</code>即可调试，按<code>F12</code>可以跳转参数定义，将鼠标移动到参数上也可以显示参数信息</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> settings </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vs </tag>
+            
+            <tag> lua </tag>
             
         </tags>
       
