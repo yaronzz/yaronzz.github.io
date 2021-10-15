@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/python_string/</loc>
+    
+    <lastmod>2021-10-15T01:01:02.821Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/cpp_lambda/</loc>
+    
+    <lastmod>2021-10-15T01:01:02.770Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/regular_expression/</loc>
     
     <lastmod>2021-10-14T02:03:47.250Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>https://www.yaronzz.com/post/cpp_json_class_conver/</loc>
     
     <lastmod>2021-10-14T02:03:47.247Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/cpp_lambda/</loc>
-    
-    <lastmod>2021-10-14T02:03:47.246Z</lastmod>
     
   </url>
   
