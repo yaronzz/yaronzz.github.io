@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"www.yaronzz.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="索引字符串的索引是只读，不能修改，从左到右的索引以0开始，从右到左的索引以-1开始（因为-0&#x3D;0程序无法识别左右） 1234test &#x3D; &#39;name&#39;c1 &#x3D; test[0]  #nc2 &#x3D; test[-1] #ec3 &#x3D; test[-2] #m">
+  <meta name="description" content="SQLite 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持Windows&#x2F;Linux&#x2F;Unix等等主流的操作系统，其源代码不受版权限制。 优点：  不需要安装与配置，以文件的形式作为数据库 轻量、小型，对嵌入式设备十分友好 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问 支持 SQL92（SQL2）标准的大多数查询语言的功能  SQLite的命令包括：    分类 命令 描述">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python字符串">
-<meta property="og:url" content="https://www.yaronzz.com/post/python_string/index.html">
+<meta property="og:title" content="SQLite语法">
+<meta property="og:url" content="https://www.yaronzz.com/post/sqlite_note/index.html">
 <meta property="og:site_name" content="Yaronzz">
-<meta property="og:description" content="索引字符串的索引是只读，不能修改，从左到右的索引以0开始，从右到左的索引以-1开始（因为-0&#x3D;0程序无法识别左右） 1234test &#x3D; &#39;name&#39;c1 &#x3D; test[0]  #nc2 &#x3D; test[-1] #ec3 &#x3D; test[-2] #m">
+<meta property="og:description" content="SQLite 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持Windows&#x2F;Linux&#x2F;Unix等等主流的操作系统，其源代码不受版权限制。 优点：  不需要安装与配置，以文件的形式作为数据库 轻量、小型，对嵌入式设备十分友好 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问 支持 SQL92（SQL2）标准的大多数查询语言的功能  SQLite的命令包括：    分类 命令 描述">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-15T00:40:33.000Z">
-<meta property="article:modified_time" content="2021-10-15T01:09:34.827Z">
+<meta property="article:published_time" content="2021-10-18T03:06:33.000Z">
+<meta property="article:modified_time" content="2021-10-18T03:28:50.477Z">
 <meta property="article:author" content="YaornzZ">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="sqlite">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.yaronzz.com/post/python_string/">
+<link rel="canonical" href="https://www.yaronzz.com/post/sqlite_note/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Python字符串 | Yaronzz</title>
+  <title>SQLite语法 | Yaronzz</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/python_string/">
+    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/sqlite_note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python字符串
+          SQLite语法
         </h1>
 
         <div class="post-meta">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-15 08:40:33 / Modified: 09:09:34" itemprop="dateCreated datePublished" datetime="2021-10-15T08:40:33+08:00">2021-10-15</time>
+              <time title="Created: 2021-10-18 11:06:33 / Modified: 11:28:50" itemprop="dateCreated datePublished" datetime="2021-10-18T11:06:33+08:00">2021-10-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,8 +221,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/post/python_string/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/python_string/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/sqlite_note/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/sqlite_note/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -232,14 +232,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>749</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -251,22 +251,127 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>字符串的索引是只读，不能修改，从左到右的索引以<code>0</code>开始，从右到左的索引以<code>-1</code>开始（因为<code>-0=0</code>程序无法识别左右）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test = <span class="string">'name'</span></span><br><span class="line">c1 = test[<span class="number">0</span>]  <span class="comment">#n</span></span><br><span class="line">c2 = test[<span class="number">-1</span>] <span class="comment">#e</span></span><br><span class="line">c3 = test[<span class="number">-2</span>] <span class="comment">#m</span></span><br></pre></td></tr></table></figure>
-
+        <p><code>SQLite</code> 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持<code>Windows/Linux/Unix</code>等等主流的操作系统，其源代码不受版权限制。</p>
+<p>优点：</p>
+<ul>
+<li>不需要安装与配置，以文件的形式作为数据库</li>
+<li>轻量、小型，对嵌入式设备十分友好</li>
+<li>事务是完全兼容 ACID 的，允许从多个进程或线程安全访问</li>
+<li>支持 SQL92（SQL2）标准的大多数查询语言的功能</li>
+</ul>
+<p><code>SQLite</code>的命令包括：</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表操作</td>
+<td>CREATE</td>
+<td>创建表</td>
+</tr>
+<tr>
+<td>表操作</td>
+<td>ALTER</td>
+<td>修改表</td>
+</tr>
+<tr>
+<td>表操作</td>
+<td>DROP</td>
+<td>删除表</td>
+</tr>
+<tr>
+<td>记录操作</td>
+<td>INSERT</td>
+<td>插入记录</td>
+</tr>
+<tr>
+<td>记录操作</td>
+<td>UPDATE</td>
+<td>修改更新表记录</td>
+</tr>
+<tr>
+<td>记录操作</td>
+<td>DELETE</td>
+<td>删除记录</td>
+</tr>
+<tr>
+<td>检索</td>
+<td>SELECT</td>
+<td>查询记录</td>
+</tr>
+</tbody></table>
 <a id="more"></a>
 
-<h2 id="截取"><a href="#截取" class="headerlink" title="截取"></a>截取</h2><p>从字符串中获取子串，类似<code>substring</code>之类的功能，也是以索引来获取。</p>
-<p>格式为：<code>字符串[头下标，尾下标]</code>，采用前闭后开的规则，表示截取到<code>尾下标</code>前一个字符，示例如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test = <span class="string">'name'</span></span><br><span class="line">c1 = test[<span class="number">0</span>:<span class="number">-1</span>] <span class="comment">#nam</span></span><br><span class="line">c2 = test[<span class="number">0</span>:<span class="number">3</span>]  <span class="comment">#nam</span></span><br><span class="line">c3 = test[<span class="number">0</span>:]   <span class="comment">#name</span></span><br><span class="line">c4 = test[:<span class="number">3</span>]   <span class="comment">#nam</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="忽略转义字符"><a href="#忽略转义字符" class="headerlink" title="忽略转义字符"></a>忽略转义字符</h2><p>此用法最适合对<code>windows</code>的路径做处理，路径格式一般为<code>C:\user\file.txt</code>，在代码中需要对转义字符<code>\</code>做处理，操作起来比较繁琐。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#反斜杠可以用来转义，使用r可以让反斜杠不发生转义</span></span><br><span class="line">path = <span class="string">"C:\\user\\file.txt"</span></span><br><span class="line">path2 = <span class="string">r"C:\user\file.txt"</span></span><br><span class="line">test = <span class="string">r"this is a line with \n"</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h2><p>python提供多种拼接方式，常见如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#最终组成this is my name</span></span><br><span class="line">s1 = <span class="string">'my'</span></span><br><span class="line">s2 = <span class="string">'name'</span></span><br><span class="line"><span class="comment">#普通拼接</span></span><br><span class="line">s3 = <span class="string">"this is "</span> + s1 + <span class="string">" "</span> + s2</span><br><span class="line"><span class="comment">#format</span></span><br><span class="line">s3 = <span class="string">'this is &#123;&#125; &#123;&#125;'</span>.format(s1, s2)</span><br><span class="line">s3 = <span class="string">'this is &#123;1&#125; &#123;0&#125;'</span>.format(s2, s1)</span><br><span class="line"><span class="comment">#f关键字</span></span><br><span class="line">s3 = <span class="string">f'this is <span class="subst">&#123;s1&#125;</span> <span class="subst">&#123;s2&#125;</span>'</span></span><br></pre></td></tr></table></figure>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><h4 id="创建和删除表"><a href="#创建和删除表" class="headerlink" title="创建和删除表"></a>创建和删除表</h4><p>创建格式：<code>CREATE TABLE IF NOT EXISTS 表名 (列名 类型)</code><br>删除格式：<code>DROP 表名</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS &quot;student&quot; (</span><br><span class="line">    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span><br><span class="line">    name VARCHAR(30) NOT NULL,</span><br><span class="line">    age FLOAT);</span><br></pre></td></tr></table></figure>
 
-<h2 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test = <span class="string">'name'</span></span><br><span class="line">print(test)</span><br><span class="line">print(test, end=<span class="string">''</span>)	<span class="comment">#不换行</span></span><br></pre></td></tr></table></figure>
+<h4 id="更新sqlite-sequence"><a href="#更新sqlite-sequence" class="headerlink" title="更新sqlite_sequence"></a>更新sqlite_sequence</h4><p>由于在Sqlite中使用自增长字段，引擎会自动产生一个<code>sqlite_sequence</code>表，用于记录每个表的自增长字段的已使用的最大值，所以要一起更新下。如果有没有设置自增长，则跳过此步骤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &quot;sqlite_sequence&quot; SET seq &#x3D; 3 WHERE name &#x3D; &#39;Student&#39;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改表名称"><a href="#修改表名称" class="headerlink" title="修改表名称"></a>修改表名称</h4><p>格式：<code>ALTER TABLE 旧表名 RENAME TO 新表名</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE or_sql_table RENAME TO new_table;</span><br></pre></td></tr></table></figure>
+
+<h4 id="增加表字段"><a href="#增加表字段" class="headerlink" title="增加表字段"></a>增加表字段</h4><p>格式：<code>ALTER TABLE 表名 ADD COLUMN 列名 数据类型</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE new_table ADD COLUMN sex Text;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询表结构"><a href="#查询表结构" class="headerlink" title="查询表结构"></a>查询表结构</h4><p>格式：<code>RAGMA TABLE_INFO (表名)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PRAGMA TABLE_INFO (new_table);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="记录操作"><a href="#记录操作" class="headerlink" title="记录操作"></a>记录操作</h3><h4 id="插入和删除记录"><a href="#插入和删除记录" class="headerlink" title="插入和删除记录"></a>插入和删除记录</h4><p>插入格式：<code>INSERT INTO 表名 (列名1,列名2,...) VALUES (值1,值2,...)</code></p>
+<p>删除格式：<code>DELETE FROM 表名</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO sutdent (name,age) VALUES (&#39;xiaoming&#39;,18);</span><br><span class="line">DELETE FROM student WHERE name &#x3D; &#39;xiaoming&#39;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h4><p>格式：<code>UPDATE 表名 SET 列名 = 列值 WHERE 条件</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE student SET age &#x3D; 18 WHERE name &#x3D; &#39;xiaoming&#39;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="LIKE与GLOB搜索"><a href="#LIKE与GLOB搜索" class="headerlink" title="LIKE与GLOB搜索"></a>LIKE与GLOB搜索</h3><p>格式：<code>SELECT 列名 FROM 表名 WHERE 列名 LIKE &quot;XXX&quot;</code>或<code>SELECT 列名 FROM 表名 WHERE 列名 GLOB &quot;XXX&quot;</code></p>
+<ul>
+<li><p>LIKE关键字通配符包括：<code>%：表示有N个字符</code>和 <code>_：表示有1个字符</code>，不区分大小写</p>
+</li>
+<li><p>GLOB关键字通配符包括：<code>*：表示有N个字符</code>和 <code>?：表示有1个字符</code>，区分大小写</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM student WHERE name LINK  &#39;%ming&#39;</span><br><span class="line">SELECT * FROM student WHERE name LINK  &#39;%min_&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LIMIT和OFFSET翻页"><a href="#LIMIT和OFFSET翻页" class="headerlink" title="LIMIT和OFFSET翻页"></a>LIMIT和OFFSET翻页</h3><p>格式：<code>SELECT 列名 FROM 表名 LIMIT 数量 OFFSET 偏移;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 显示1到4的行</span><br><span class="line">SELECT * FROM student LIMIT 3 OFFSET 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="分组与排序"><a href="#分组与排序" class="headerlink" title="分组与排序"></a>分组与排序</h3><p>分组格式：<code>SELECT 列名 FROM 表名 WHERE 条件 GROUP BY 列名</code></p>
+<p>排序格式：<code>SELECT 列名 FROM 表名 WHERE 条件 ORDER BY 列名 关键字;</code></p>
+<p>关键字包括：</p>
+<ul>
+<li><code>ASC</code>：升序</li>
+<li><code>DESC</code>：降序</li>
+</ul>
+<h3 id="唯一值"><a href="#唯一值" class="headerlink" title="唯一值"></a>唯一值</h3><p>格式：<code>SELECT DISTINCT 列名 FROM 表名</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询所有学生名</span><br><span class="line">SELECT DISTINCT name FROM student</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ol>
+<li><p>计数<code>COUNT</code></p>
+</li>
+<li><p>最大最小值<code>MAX\MIN</code></p>
+</li>
+<li><p>平均值<code>AVG</code></p>
+</li>
+<li><p>和<code>SUM</code></p>
+</li>
+<li><p>绝对值<code>ABS</code></p>
+</li>
+<li><p>获取字符串长度<code>LENGTH</code></p>
+</li>
+<li><p>转换大小写<code>UPPER\LOWER</code></p>
+</li>
+</ol>
 
     </div>
 
@@ -302,7 +407,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://www.yaronzz.com/post/python_string/" title="Python字符串">https://www.yaronzz.com/post/python_string/</a>
+    <a href="https://www.yaronzz.com/post/sqlite_note/" title="SQLite语法">https://www.yaronzz.com/post/sqlite_note/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -313,7 +418,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/sqlite/" rel="tag"># sqlite</a>
           </div>
 
         
@@ -322,13 +427,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/cpp_lambda/" rel="prev" title="C++Lambda表达式">
-      <i class="fa fa-chevron-left"></i> C++Lambda表达式
+    <a href="/post/python_string/" rel="prev" title="Python字符串">
+      <i class="fa fa-chevron-left"></i> Python字符串
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/sqlite_note/" rel="next" title="SQLite语法">
-      SQLite语法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -388,7 +490,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截取"><span class="nav-number">2.</span> <span class="nav-text">截取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略转义字符"><span class="nav-number">3.</span> <span class="nav-text">忽略转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串拼接"><span class="nav-number">4.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打印"><span class="nav-number">5.</span> <span class="nav-text">打印</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表操作"><span class="nav-number">1.1.</span> <span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建和删除表"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建和删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新sqlite-sequence"><span class="nav-number">1.1.2.</span> <span class="nav-text">更新sqlite_sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名称"><span class="nav-number">1.1.3.</span> <span class="nav-text">修改表名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增加表字段"><span class="nav-number">1.1.4.</span> <span class="nav-text">增加表字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询表结构"><span class="nav-number">1.1.5.</span> <span class="nav-text">查询表结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录操作"><span class="nav-number">1.2.</span> <span class="nav-text">记录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入和删除记录"><span class="nav-number">1.2.1.</span> <span class="nav-text">插入和删除记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新记录"><span class="nav-number">1.2.2.</span> <span class="nav-text">更新记录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">2.</span> <span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LIKE与GLOB搜索"><span class="nav-number">2.1.</span> <span class="nav-text">LIKE与GLOB搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LIMIT和OFFSET翻页"><span class="nav-number">2.2.</span> <span class="nav-text">LIMIT和OFFSET翻页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分组与排序"><span class="nav-number">2.3.</span> <span class="nav-text">分组与排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一值"><span class="nav-number">2.4.</span> <span class="nav-text">唯一值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">2.5.</span> <span class="nav-text">函数</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

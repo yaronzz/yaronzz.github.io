@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.yaronzz.com/"/>
-  <updated>2021-10-15T01:09:34.827Z</updated>
+  <updated>2021-10-18T03:28:50.477Z</updated>
   <id>https://www.yaronzz.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQLite语法</title>
+    <link href="https://www.yaronzz.com/post/sqlite_note/"/>
+    <id>https://www.yaronzz.com/post/sqlite_note/</id>
+    <published>2021-10-18T03:06:33.000Z</published>
+    <updated>2021-10-18T03:28:50.477Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><code>SQLite</code> 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持<code>Windows/Linux/Unix</code>等等主流的操作系统，其源代码不受版权限制。</p><p>优点：</p><ul><li>不需要安装与配置，以文件的形式作为数据库</li><li>轻量、小型，对嵌入式设备十分友好</li><li>事务是完全兼容 ACID 的，允许从多个进程或线程安全访问</li><li>支持 SQL92（SQL2）标准的大多数查询语言的功能</li></ul><p><code>SQLite</code>的命令包括：</p><table><thead><tr><th>分类</th><th>命令</th><th>描述</th></tr></thead><tbody><tr><td>表操作</td><td>CREATE</td><td>创建表</td></tr><tr><td>表操作</td><td>ALTER</td><td>修改表</td></tr><tr><td>表操作</td><td>DROP</td><td>删除表</td></tr><tr><td>记录操作</td><td>INSERT</td><td>插入记录</td></tr><tr><td>记录操作</td><td>UPDATE</td><td>修改更新表记录</td></tr><tr><td>记录操作</td><td>DELETE</td><td>删除记录</td></tr><tr><td>检索</td><td>SELECT</td><td>查询记录</td></tr></tbody></table><a id="more"></a><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h3><h4 id="创建和删除表"><a href="#创建和删除表" class="headerlink" title="创建和删除表"></a>创建和删除表</h4><p>创建格式：<code>CREATE TABLE IF NOT EXISTS 表名 (列名 类型)</code><br>删除格式：<code>DROP 表名</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS &quot;student&quot; (</span><br><span class="line">    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span><br><span class="line">    name VARCHAR(30) NOT NULL,</span><br><span class="line">    age FLOAT);</span><br></pre></td></tr></table></figure><h4 id="更新sqlite-sequence"><a href="#更新sqlite-sequence" class="headerlink" title="更新sqlite_sequence"></a>更新sqlite_sequence</h4><p>由于在Sqlite中使用自增长字段，引擎会自动产生一个<code>sqlite_sequence</code>表，用于记录每个表的自增长字段的已使用的最大值，所以要一起更新下。如果有没有设置自增长，则跳过此步骤。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &quot;sqlite_sequence&quot; SET seq &#x3D; 3 WHERE name &#x3D; &#39;Student&#39;;</span><br></pre></td></tr></table></figure><h4 id="修改表名称"><a href="#修改表名称" class="headerlink" title="修改表名称"></a>修改表名称</h4><p>格式：<code>ALTER TABLE 旧表名 RENAME TO 新表名</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE or_sql_table RENAME TO new_table;</span><br></pre></td></tr></table></figure><h4 id="增加表字段"><a href="#增加表字段" class="headerlink" title="增加表字段"></a>增加表字段</h4><p>格式：<code>ALTER TABLE 表名 ADD COLUMN 列名 数据类型</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE new_table ADD COLUMN sex Text;</span><br></pre></td></tr></table></figure><h4 id="查询表结构"><a href="#查询表结构" class="headerlink" title="查询表结构"></a>查询表结构</h4><p>格式：<code>RAGMA TABLE_INFO (表名)</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PRAGMA TABLE_INFO (new_table);</span><br></pre></td></tr></table></figure><h3 id="记录操作"><a href="#记录操作" class="headerlink" title="记录操作"></a>记录操作</h3><h4 id="插入和删除记录"><a href="#插入和删除记录" class="headerlink" title="插入和删除记录"></a>插入和删除记录</h4><p>插入格式：<code>INSERT INTO 表名 (列名1,列名2,...) VALUES (值1,值2,...)</code></p><p>删除格式：<code>DELETE FROM 表名</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO sutdent (name,age) VALUES (&#39;xiaoming&#39;,18);</span><br><span class="line">DELETE FROM student WHERE name &#x3D; &#39;xiaoming&#39;;</span><br></pre></td></tr></table></figure><h4 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h4><p>格式：<code>UPDATE 表名 SET 列名 = 列值 WHERE 条件</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE student SET age &#x3D; 18 WHERE name &#x3D; &#39;xiaoming&#39;;</span><br></pre></td></tr></table></figure><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="LIKE与GLOB搜索"><a href="#LIKE与GLOB搜索" class="headerlink" title="LIKE与GLOB搜索"></a>LIKE与GLOB搜索</h3><p>格式：<code>SELECT 列名 FROM 表名 WHERE 列名 LIKE &quot;XXX&quot;</code>或<code>SELECT 列名 FROM 表名 WHERE 列名 GLOB &quot;XXX&quot;</code></p><ul><li><p>LIKE关键字通配符包括：<code>%：表示有N个字符</code>和 <code>_：表示有1个字符</code>，不区分大小写</p></li><li><p>GLOB关键字通配符包括：<code>*：表示有N个字符</code>和 <code>?：表示有1个字符</code>，区分大小写</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM student WHERE name LINK  &#39;%ming&#39;</span><br><span class="line">SELECT * FROM student WHERE name LINK  &#39;%min_&#39;</span><br></pre></td></tr></table></figure><h3 id="LIMIT和OFFSET翻页"><a href="#LIMIT和OFFSET翻页" class="headerlink" title="LIMIT和OFFSET翻页"></a>LIMIT和OFFSET翻页</h3><p>格式：<code>SELECT 列名 FROM 表名 LIMIT 数量 OFFSET 偏移;</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 显示1到4的行</span><br><span class="line">SELECT * FROM student LIMIT 3 OFFSET 1</span><br></pre></td></tr></table></figure><h3 id="分组与排序"><a href="#分组与排序" class="headerlink" title="分组与排序"></a>分组与排序</h3><p>分组格式：<code>SELECT 列名 FROM 表名 WHERE 条件 GROUP BY 列名</code></p><p>排序格式：<code>SELECT 列名 FROM 表名 WHERE 条件 ORDER BY 列名 关键字;</code></p><p>关键字包括：</p><ul><li><code>ASC</code>：升序</li><li><code>DESC</code>：降序</li></ul><h3 id="唯一值"><a href="#唯一值" class="headerlink" title="唯一值"></a>唯一值</h3><p>格式：<code>SELECT DISTINCT 列名 FROM 表名</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询所有学生名</span><br><span class="line">SELECT DISTINCT name FROM student</span><br></pre></td></tr></table></figure><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ol><li><p>计数<code>COUNT</code></p></li><li><p>最大最小值<code>MAX\MIN</code></p></li><li><p>平均值<code>AVG</code></p></li><li><p>和<code>SUM</code></p></li><li><p>绝对值<code>ABS</code></p></li><li><p>获取字符串长度<code>LENGTH</code></p></li><li><p>转换大小写<code>UPPER\LOWER</code></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持&lt;code&gt;Windows/Linux/Unix&lt;/code&gt;等等主流的操作系统，其源代码不受版权限制。&lt;/p&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不需要安装与配置，以文件的形式作为数据库&lt;/li&gt;
+&lt;li&gt;轻量、小型，对嵌入式设备十分友好&lt;/li&gt;
+&lt;li&gt;事务是完全兼容 ACID 的，允许从多个进程或线程安全访问&lt;/li&gt;
+&lt;li&gt;支持 SQL92（SQL2）标准的大多数查询语言的功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt;的命令包括：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;分类&lt;/th&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;表操作&lt;/td&gt;
+&lt;td&gt;CREATE&lt;/td&gt;
+&lt;td&gt;创建表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;表操作&lt;/td&gt;
+&lt;td&gt;ALTER&lt;/td&gt;
+&lt;td&gt;修改表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;表操作&lt;/td&gt;
+&lt;td&gt;DROP&lt;/td&gt;
+&lt;td&gt;删除表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;记录操作&lt;/td&gt;
+&lt;td&gt;INSERT&lt;/td&gt;
+&lt;td&gt;插入记录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;记录操作&lt;/td&gt;
+&lt;td&gt;UPDATE&lt;/td&gt;
+&lt;td&gt;修改更新表记录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;记录操作&lt;/td&gt;
+&lt;td&gt;DELETE&lt;/td&gt;
+&lt;td&gt;删除记录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;检索&lt;/td&gt;
+&lt;td&gt;SELECT&lt;/td&gt;
+&lt;td&gt;查询记录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+    
+      <category term="code" scheme="https://www.yaronzz.com/categories/code/"/>
+    
+    
+      <category term="sqlite" scheme="https://www.yaronzz.com/tags/sqlite/"/>
+    
+  </entry>
   
   <entry>
     <title>Python字符串</title>
@@ -511,29 +586,6 @@
       <category term="vs" scheme="https://www.yaronzz.com/tags/vs/"/>
     
       <category term="lua" scheme="https://www.yaronzz.com/tags/lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Macos初始配置与使用</title>
-    <link href="https://www.yaronzz.com/post/macos_build/"/>
-    <id>https://www.yaronzz.com/post/macos_build/</id>
-    <published>2020-06-16T03:17:40.000Z</published>
-    <updated>2021-10-14T02:03:47.233Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>主要介绍虚拟机配置、环境配置与软件安装。</p><a id="more"></a><h2 id="虚拟机配置"><a href="#虚拟机配置" class="headerlink" title="虚拟机配置"></a>虚拟机配置</h2><ol><li><p>安装<a href="https://www.vmware.com/cn.html" target="_blank" rel="noopener">VMware</a> </p><p>版本15.5 序列号：</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</span><br><span class="line">VF750-4MX5Q-488DQ-9WZE9-ZY2D6</span><br><span class="line">UU54R-FVD91-488PP-7NNGC-ZFAX6</span><br><span class="line">YC74H-FGF92-081VZ-R5QNG-P6RY4</span><br><span class="line">YC34H-6WWDK-085MQ-JYPNX-NZRA2</span><br></pre></td></tr></table></figure></li><li><p>安装<a href="https://pan.baidu.com/s/19XFWF3aVIiYCHwL6Pq9yag" target="_blank" rel="noopener">VMware Unlocker</a>工具（提取码dagu），才能使用Macos</p><p>下载完成后解压unlocker，将解压后的文件复制到Vmware的安装目录，使用管理员运行<strong>unlocker.exe</strong>和<strong>win-install.cmd</strong>。</p><p><img src="https://i.loli.net/2020/06/27/pL7CAhHrYaGImgN.png" alt="img"></p></li><li><p>安装<a href="https://pan.baidu.com/s/1gpmjn6vR1-UKOA67bFd3pg" target="_blank" rel="noopener">Macos10.15</a> 提取码 jlhr</p></li><li><p>安装VMwareTool</p><!--more--></li></ol><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol><li><p><strong>修改Host文件，解决GitHub的raw.githubusercontent.com无法连接问题</strong> </p><p>打开终端输入<code>sudo vi /etc/hosts</code>,并复制黏贴以下内容，之后按ESC键，再输入<code>:wq</code>保存</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># GitHub Start</span><br><span class="line">52.74.223.119 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">54.169.195.247 api.github.com</span><br><span class="line">185.199.111.153 assets-cdn.github.com</span><br><span class="line">151.101.76.133 raw.githubusercontent.com</span><br><span class="line">151.101.108.133 user-images.githubusercontent.com</span><br><span class="line">151.101.76.133 gist.githubusercontent.com</span><br><span class="line">151.101.76.133 cloud.githubusercontent.com</span><br><span class="line">151.101.76.133 camo.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.76.133 avatars8.githubusercontent.com</span><br><span class="line"># GitHub End</span><br></pre></td></tr></table></figure></li><li><p><strong>安装brew</strong> </p><p>打开终端，输入一下命令并按回车</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br></pre></td></tr></table></figure><p>可能会出现卡住的情况，如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Tapping homebrew/core</span><br><span class="line">Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core'...</span><br></pre></td></tr></table></figure><p>则直接按Ctrl+C退出，换源安装core，输入以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Homebrew/Library/Taps/homebrew</span><br><span class="line">git clone git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1</span><br></pre></td></tr></table></figure><p>接下来修改为国内源，加速访问速度：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/homebrew</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line">cd /usr/local/homebrew/Library/Taps/homebrew/homebrew-core"</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line">cd /usr/local/homebrew/Library/Taps/homebrew/homebrew-cask"</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br><span class="line">/usr/local/homebrew/bin/brew update</span><br></pre></td></tr></table></figure><p>如果要换回原来的源，则输入以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd  /usr/local/homebrew</span><br><span class="line">git remote set-url origin https://github.com/homebrew/brew.git</span><br><span class="line">cd /usr/local/homebrew/Library/Taps/homebrew/homebrew-core</span><br><span class="line">git remote set-url origin https://github.com/homebrew/homebrew-core.git</span><br><span class="line">cd /usr/local/homebrew/Library/Taps/homebrew/homebrew-cask</span><br><span class="line">git remote set-url origin https://github.com/homebrew/homebrew-cask.git</span><br></pre></td></tr></table></figure></li></ol><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><ol><li><p>V2rayU</p><p>地址：<a href="https://github.com/yanue/V2rayU/releases" target="_blank" rel="noopener">https://github.com/yanue/V2rayU/releases</a> </p><p>功能：支持二维码扫描、URL导入等功能，跟V2rayN差不多</p></li><li><p>谷歌浏览器 </p><p>地址：<a href="https://www.google.com/intl/zh-CN/chrome/" target="_blank" rel="noopener">https://www.google.com/intl/zh-CN/chrome/</a></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;主要介绍虚拟机配置、环境配置与软件安装。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件" scheme="https://www.yaronzz.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="macos" scheme="https://www.yaronzz.com/tags/macos/"/>
     
   </entry>
   

@@ -1,3 +1,4 @@
+https://www.yaronzz.com/post/sqlite_note/
 https://www.yaronzz.com/post/python_string/
 https://www.yaronzz.com/post/cpp_lambda/
 https://www.yaronzz.com/post/linux_cmd/
