@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.yaronzz.com/post/sqlite_note/</loc>
-    <lastmod>2021-10-18</lastmod>
+    <lastmod>2021-10-20</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/qt_qss/</loc>
+    <lastmod>2021-10-20</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/python_note/</loc>
+    <lastmod>2021-10-20</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/python_string/</loc>
     <lastmod>2021-10-15</lastmod>
@@ -11,9 +17,6 @@
     <lastmod>2021-10-15</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/regular_expression/</loc>
-    <lastmod>2021-10-14</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/qt_qss/</loc>
     <lastmod>2021-10-14</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
