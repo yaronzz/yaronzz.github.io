@@ -5,6 +5,7 @@ https://www.yaronzz.com/post/cpp_lambda/
 https://www.yaronzz.com/post/linux_cmd/
 https://www.yaronzz.com/post/qt_qss/
 https://www.yaronzz.com/post/windows_log/
+https://www.yaronzz.com/post/qt_note/
 https://www.yaronzz.com/post/windows_share/
 https://www.yaronzz.com/post/cloud_drive/
 https://www.yaronzz.com/post/cpp_json_class_conver/
