@@ -20,15 +20,24 @@
     var CONFIG = {"hostname":"www.yaronzz.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yaronzz">
-<meta property="og:url" content="https://www.yaronzz.com/archives/2020/index.html">
+  <meta name="description" content="WSL是适用于 Linux 的 Windows 子系统，可让开发人员按原样运行 GNU&#x2F;Linux 环境 - 包括大多数命令行工具、实用工具和应用程序 - 且不会产生传统虚拟机或双启动设置开销。 官方教程 启用子系统 控制面板 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能 -&gt; 勾选 适用于Linux的Windows子系统  控制面板 -&gt; 程序和功能 -&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSL系统安装与使用">
+<meta property="og:url" content="https://www.yaronzz.com/post/wsl_system_install/index.html">
 <meta property="og:site_name" content="Yaronzz">
+<meta property="og:description" content="WSL是适用于 Linux 的 Windows 子系统，可让开发人员按原样运行 GNU&#x2F;Linux 环境 - 包括大多数命令行工具、实用工具和应用程序 - 且不会产生传统虚拟机或双启动设置开销。 官方教程 启用子系统 控制面板 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能 -&gt; 勾选 适用于Linux的Windows子系统  控制面板 -&gt; 程序和功能 -&gt;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2021/12/08/p3jtFmLgwvfnshu.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/08/AUDceGguX1ZH7bs.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/09/QNCXqZuv8siFmRV.png">
+<meta property="article:published_time" content="2021-12-08T02:47:20.000Z">
+<meta property="article:modified_time" content="2021-12-09T01:27:41.462Z">
 <meta property="article:author" content="YaornzZ">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/08/p3jtFmLgwvfnshu.png">
 
-<link rel="canonical" href="https://www.yaronzz.com/archives/2020/">
+<link rel="canonical" href="https://www.yaronzz.com/post/wsl_system_install/">
 
 
 <script id="page-configurations">
@@ -36,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Yaronzz</title>
+  <title>WSL系统安装与使用 | Yaronzz</title>
   
 
 
@@ -157,239 +166,207 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/wsl_system_install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
+      <meta itemprop="name" content="YaornzZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yaronzz">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WSL系统安装与使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-12-08 10:47:20" itemprop="dateCreated datePublished" datetime="2021-12-08T10:47:20+08:00">2021-12-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-09 09:27:41" itemprop="dateModified" datetime="2021-12-09T09:27:41+08:00">2021-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 30 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/post/wsl_system_install/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/wsl_system_install/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>734</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <p>WSL是适用于 Linux 的 Windows 子系统，可让开发人员按原样运行 GNU/Linux 环境 - 包括大多数命令行工具、实用工具和应用程序 - 且不会产生传统虚拟机或双启动设置开销。</p>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/" target="_blank" rel="noopener">官方教程</a></p>
+<h2 id="启用子系统"><a href="#启用子系统" class="headerlink" title="启用子系统"></a>启用子系统</h2><ul>
+<li><p>控制面板 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能 -&gt; 勾选 <code>适用于Linux的Windows子系统</code></p>
+</li>
+<li><p>控制面板 -&gt; 程序和功能 -&gt; 启用或关闭Windows功能 -&gt; 勾选 <code>虚拟机平台</code></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2021/12/08/p3jtFmLgwvfnshu.png" alt="image-20211208114609489"></p>
+<h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><ol>
+<li><p>下载<a href="https://wsldownload.azureedge.net/Ubuntu_2004.2020.424.0_x64.appx" target="_blank" rel="noopener">Ubuntu20.04系统</a>，可以将系统下载到其他盘上</p>
+</li>
+<li><p>修改文件后缀名：<code>Ubuntu20.04.appx --&gt; Ubuntu.zip</code>，并解压</p>
+</li>
+<li><p>双击exe文件，输入用户名与密码即可</p>
+<p><img src="https://s2.loli.net/2021/12/08/AUDceGguX1ZH7bs.png" alt="image-20211208114959128"></p>
+</li>
+</ol>
+<h2 id="WSL配置与使用"><a href="#WSL配置与使用" class="headerlink" title="WSL配置与使用"></a>WSL配置与使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询已安装的子系统</span></span><br><span class="line">wsl -l -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">设置默认系统为wsl2</span></span><br><span class="line">wsl --set-default-version 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">将已安装的子系统升级到wsl2</span></span><br><span class="line">wsl --set-version Ubuntu 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">删除子系统</span></span><br><span class="line">wslconfig /unregister xxx</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-09T12:40:33+08:00"
-              content="2020-10-09">
-          10-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/cpp_json_class_conver/" itemprop="url">
-            <span itemprop="name">C++类结构体与json相互转换</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-16T11:53:51+08:00"
-              content="2020-08-16">
-          08-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/nginx_set/" itemprop="url">
-            <span itemprop="name">Linux上Nginx安装配置</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-15T08:57:02+08:00"
-              content="2020-08-15">
-          08-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/rclone_use/" itemprop="url">
-            <span itemprop="name">Rclone使用教程 - 挂载Onedrive和谷歌网盘</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-30T15:30:48+08:00"
-              content="2020-07-30">
-          07-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/cefsharp_use/" itemprop="url">
-            <span itemprop="name">CefSharp的使用</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-16T16:16:33+08:00"
-              content="2020-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/get_accesstoken/" itemprop="url">
-            <span itemprop="name">Get AccessToken From Tidal</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-30T09:00:33+08:00"
-              content="2020-06-30">
-          06-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/audio_knowledge_point/" itemprop="url">
-            <span itemprop="name">音频相关知识点</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-26T15:00:33+08:00"
-              content="2020-06-26">
-          06-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/office365/" itemprop="url">
-            <span itemprop="name">Office365家庭版却需要激活专业增强版的解决办法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-26T15:00:33+08:00"
-              content="2020-06-26">
-          06-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/typora_keymap/" itemprop="url">
-            <span itemprop="name">Typora快捷键</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-22T12:40:33+08:00"
-              content="2020-06-22">
-          06-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/regular_expression/" itemprop="url">
-            <span itemprop="name">正则表达式语法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-21T23:12:03+08:00"
-              content="2020-06-21">
-          06-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/video_clip_resources/" itemprop="url">
-            <span itemprop="name">剪辑资源如何获取</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<ul>
+<li>WSL2需要保证Winows版本不低于<code>19041</code></li>
+<li>windwos下访问子系统目录，在文件夹路径栏上输入：<code>\\wsl$</code></li>
+<li>WSL1和WSL2的区别</li>
+</ul>
+<p><img src="https://s2.loli.net/2021/12/09/QNCXqZuv8siFmRV.png" alt="image-20211209090047432"></p>
+<ul>
+<li>WSL2与VMware和VirtualBox的共存：需要VMware15.5.5+，VirtualBox 6+才能打开</li>
+</ul>
+<h2 id="32位交叉编译环境配置"><a href="#32位交叉编译环境配置" class="headerlink" title="32位交叉编译环境配置"></a>32位交叉编译环境配置</h2><ul>
+<li>只支持WSL2版本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 -y</span><br><span class="line">sudo apt-get install g++ -y</span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/alipay.jpg" alt="YaornzZ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/alipay.jpg" alt="YaornzZ Alipay">
+        <p>Alipay</p>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>YaornzZ
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://www.yaronzz.com/post/wsl_system_install/" title="WSL系统安装与使用">https://www.yaronzz.com/post/wsl_system_install/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/qt_note/" rel="prev" title="Qt笔记">
+      <i class="fa fa-chevron-left"></i> Qt笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -436,6 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用子系统"><span class="nav-number">1.</span> <span class="nav-text">启用子系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL配置与使用"><span class="nav-number">3.</span> <span class="nav-text">WSL配置与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32位交叉编译环境配置"><span class="nav-number">4.</span> <span class="nav-text">32位交叉编译环境配置</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -1,3 +1,4 @@
+https://www.yaronzz.com/post/wsl_system_install/
 https://www.yaronzz.com/post/qt_note/
 https://www.yaronzz.com/post/python_note/
 https://www.yaronzz.com/post/sqlite_note/
