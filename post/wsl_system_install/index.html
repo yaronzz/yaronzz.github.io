@@ -30,8 +30,12 @@
 <meta property="og:image" content="https://s2.loli.net/2021/12/08/p3jtFmLgwvfnshu.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/08/AUDceGguX1ZH7bs.png">
 <meta property="og:image" content="https://s2.loli.net/2021/12/09/QNCXqZuv8siFmRV.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/16/cmMN4Rrv3qiQ2y5.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/16/YxVTGItse5mULNA.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/16/DyLqijtZauOf2C7.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/16/wZUgAy9H452sRbo.png">
 <meta property="article:published_time" content="2021-12-08T02:47:20.000Z">
-<meta property="article:modified_time" content="2021-12-09T01:32:50.257Z">
+<meta property="article:modified_time" content="2021-12-21T07:54:29.222Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
@@ -203,7 +207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 09:32:50" itemprop="dateModified" datetime="2021-12-09T09:32:50+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-21 15:54:29" itemprop="dateModified" datetime="2021-12-21T15:54:29+08:00">2021-12-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,7 +246,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>734</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -281,7 +285,7 @@
 <p><img src="https://s2.loli.net/2021/12/08/AUDceGguX1ZH7bs.png" alt="image-20211208114959128"></p>
 </li>
 </ol>
-<h2 id="WSL配置与使用"><a href="#WSL配置与使用" class="headerlink" title="WSL配置与使用"></a>WSL配置与使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询已安装的子系统</span></span><br><span class="line">wsl -l -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">设置默认系统为wsl2</span></span><br><span class="line">wsl --set-default-version 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">将已安装的子系统升级到wsl2</span></span><br><span class="line">wsl --set-version Ubuntu 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">删除子系统</span></span><br><span class="line">wslconfig /unregister xxx</span><br></pre></td></tr></table></figure>
+<h2 id="WSL配置与使用"><a href="#WSL配置与使用" class="headerlink" title="WSL配置与使用"></a>WSL配置与使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">更新</span></span><br><span class="line">wsl --update</span><br><span class="line"><span class="meta">#</span><span class="bash">查询已安装的子系统</span></span><br><span class="line">wsl -l -v</span><br><span class="line"><span class="meta">#</span><span class="bash">设置默认系统为wsl2</span></span><br><span class="line">wsl --set-default-version 2</span><br><span class="line"><span class="meta">#</span><span class="bash">将已安装的子系统升级到wsl2</span></span><br><span class="line">wsl --set-version Ubuntu 2</span><br><span class="line"><span class="meta">#</span><span class="bash">删除子系统</span></span><br><span class="line">wslconfig /unregister xxx</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>WSL2需要保证Winows版本不低于<code>19041</code></li>
@@ -297,6 +301,33 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 -y</span><br><span class="line">sudo apt-get install g++ -y</span><br></pre></td></tr></table></figure>
 
+<h2 id="运行图形界面"><a href="#运行图形界面" class="headerlink" title="运行图形界面"></a>运行图形界面</h2><h3 id="window内核版本为21"><a href="#window内核版本为21" class="headerlink" title="window内核版本为21+"></a>window内核版本为21+</h3><p>先在windows更新WSL：<code>wsl --update</code>， 再在linux安装界面程序：<code>apt-get install gedit</code>，win10 21+系统内置了WSLG（GUI）功能，可以在Window菜单发现多了一个Ubuntu目录，其中显示了已经安装的界面程序，直接点击即可运行：</p>
+<p><img src="https://s2.loli.net/2021/12/16/cmMN4Rrv3qiQ2y5.png" alt="image-20211216103137449"></p>
+<h3 id="内核版本不支持"><a href="#内核版本不支持" class="headerlink" title="内核版本不支持"></a>内核版本不支持</h3><ol>
+<li><p>安装<a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="noopener">VcXsrv Windows X Server download | SourceForge.net</a></p>
+</li>
+<li><p>打开并配置VcXsrv</p>
+<p><img src="https://s2.loli.net/2021/12/16/YxVTGItse5mULNA.png" alt="image-20211216103507780"></p>
+<p><img src="https://s2.loli.net/2021/12/16/DyLqijtZauOf2C7.png" alt="image-20211216103527258"></p>
+<p><img src="https://s2.loli.net/2021/12/16/wZUgAy9H452sRbo.png" alt="image-20211216103540971"></p>
+<ol start="3">
+<li><p>linux设置显示的服务端</p>
+<ul>
+<li>打开bashrc文件：<code>vi ~/.bashrc</code></li>
+<li>在文件最后添加两行并保存：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">下面的IP地址为window的ip</span></span><br><span class="line">export DISPLAY=192.168.0.218:0</span><br><span class="line">export LIBGL_ALWAYS_INDIRECT=1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>刷新配置：<code>source .bashrc</code></p>
+</li>
+<li><p>测试界面软件：<code>gedit test.ini</code></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 
     </div>
 
@@ -355,7 +386,10 @@
     <a href="/post/qt_note/" rel="prev" title="Qt笔记">
       <i class="fa fa-chevron-left"></i> Qt笔记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/post/udp_membership/" rel="next" title="UDP组播的说明与使用">
+      UDP组播的说明与使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -415,7 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用子系统"><span class="nav-number">1.</span> <span class="nav-text">启用子系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL配置与使用"><span class="nav-number">3.</span> <span class="nav-text">WSL配置与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32位交叉编译环境配置"><span class="nav-number">4.</span> <span class="nav-text">32位交叉编译环境配置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用子系统"><span class="nav-number">1.</span> <span class="nav-text">启用子系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL配置与使用"><span class="nav-number">3.</span> <span class="nav-text">WSL配置与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32位交叉编译环境配置"><span class="nav-number">4.</span> <span class="nav-text">32位交叉编译环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行图形界面"><span class="nav-number">5.</span> <span class="nav-text">运行图形界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window内核版本为21"><span class="nav-number">5.1.</span> <span class="nav-text">window内核版本为21+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核版本不支持"><span class="nav-number">5.2.</span> <span class="nav-text">内核版本不支持</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -431,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -444,7 +478,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -491,12 +525,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">59k</span>
+    <span title="Symbols count total">62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">53 mins.</span>
+    <span title="Reading time total">56 mins.</span>
 </div>
 
         

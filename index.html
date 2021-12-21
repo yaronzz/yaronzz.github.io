@@ -381,6 +381,143 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/udp_membership/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
+      <meta itemprop="name" content="YaornzZ">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yaronzz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/post/udp_membership/" class="post-title-link" itemprop="url">UDP组播的说明与使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-12-21 12:00:33 / Modified: 15:54:29" itemprop="dateCreated datePublished" datetime="2021-12-21T12:00:33+08:00">2021-12-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/post/udp_membership/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/udp_membership/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。</p>
+<p>组播中数据发送者和接收者之间是一对多点的连接方式，多个接收者加入同一个组播组，共享同一个IP地址，同时组播组中的成员是动态的，某个成员的加入和退出并不影响原有的组播组。当网络中的某些用户需要特定数据时，组播数据发送者（即组播源）仅发送一次数据，借助组播路由协议为组播数据包建立组播分发树，被传递的数据到达距离用户端尽可能近的节点后才开始复制和分发。</p>
+<h3 id="组播地址"><a href="#组播地址" class="headerlink" title="组播地址"></a>组播地址</h3><p>组播组可以是永久的也可以是临时的。组播组地址中，有一部分由官方分配的，称为永久组播组。永久组播组保持不变的是它的ip地址，组中的成员构成可以发生变化。永久组播组中成员的数量都可以是任意的，甚至可以为零。那些没有保留下来供永久组播组使用的ip组播地址，可以被临时组播组利用。<br><code>224.0.0.0～224.0.0.255</code>为预留的组播地址（永久组地址），地址224.0.0.0保留不做分配，其它地址供路由协议使用；<br><code>224.0.1.0～224.0.1.255</code>是公用组播地址，可以用于Internet；<br><code>224.0.2.0～238.255.255.255</code>为用户可用的组播地址（临时组地址），全网范围内有效；<br><code>239.0.0.0～239.255.255.255</code>为本地管理组播地址，仅在特定的本地范围内有效。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a>配置流程</h3><ol>
+<li><p>创建套接字</p>
+<p>  由于UDP与TCP都是全双工的，所以可以使用同一个套接字进行同时收发操作。</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UDP_MCAST_PORT 37102        <span class="comment">//组播端口</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UDP_MCAST_ADDR <span class="meta-string">"224.0.1.88"</span> <span class="comment">//组播地址</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> socket = socket(AF_INET,SOCK_DGRAM,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (socket &lt;= <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>设置端口复用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> opt = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, SOL_SOCKET, SO_REUSEADDR ,(<span class="keyword">char</span>*)&amp;opt, <span class="keyword">sizeof</span>(opt)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定组播端口</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">addr</span>;</span></span><br><span class="line">addr.sin_family = AF_INET;</span><br><span class="line">addr.sin_port = htons(UDP_MCAST_PORT);</span><br><span class="line">addr.sin_addr.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (bind(socket, (struct sockaddr*)&amp;addr, <span class="keyword">sizeof</span>(addr)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入组播</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ip_mreq</span> <span class="title">mreq</span>;</span></span><br><span class="line">mreq.imr_multiaddr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">mreq.imr_interface.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (<span class="keyword">char</span>*)&amp;mreq, <span class="keyword">sizeof</span>(mreq)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送与接收</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">addrSrv</span>;</span></span><br><span class="line">addrSrv.sin_family=AF_INET;</span><br><span class="line">addrSrv.sin_addr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">addrSrv.sin_port=htons(UDP_MCAST_PORT);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (sendto(socket, data, dataLen, <span class="number">0</span>, (struct sockaddr *)&amp;addrSrv,<span class="keyword">sizeof</span>(addrSrv)) &gt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">group_addr</span>;</span></span><br><span class="line"><span class="keyword">socklen_t</span> addr_len = <span class="keyword">sizeof</span>(group_addr);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len = recvfrom(socket, buff, buffLen, <span class="number">0</span>, (struct sockaddr *) &amp;group_addr, (<span class="keyword">int</span> *)&amp;addr_len);</span><br><span class="line">recvIP = inet_ntoa(group_addr.sin_addr);</span><br><span class="line">recvPort = group_addr.sin_port;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="多网卡配置流程"><a href="#多网卡配置流程" class="headerlink" title="多网卡配置流程"></a>多网卡配置流程</h3><p>多网卡组播需要在加入组播时指定本地IP地址，并且需要在最后多加一步指定组播的出口网卡：</p>
+<ol>
+<li><p>加入组播</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ip_mreq</span> <span class="title">mreq</span>;</span></span><br><span class="line">mreq.imr_multiaddr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">mreq.imr_interface.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="comment">//指定接口接收组播信息</span></span><br><span class="line">mreq.imr_interface.s_addr = inet_addr(<span class="built_in">localIP</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (<span class="keyword">char</span>*)&amp;mreq, <span class="keyword">sizeof</span>(mreq)) &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定组播出口网卡</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span> <span class="title">addr</span>;</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;addr, <span class="number">0</span>, <span class="keyword">sizeof</span>(struct in_addr));</span><br><span class="line"></span><br><span class="line">addr.s_addr=inet_addr(<span class="built_in">localIP</span>);</span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_MULTICAST_IF, (<span class="keyword">char</span>*)&amp;addr, <span class="keyword">sizeof</span>(addr)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a href="https://blog.csdn.net/wangzhen_csdn/article/details/76467811" target="_blank" rel="noopener">IP地址划分、组播地址、公有IP、私有IP</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_41482303/article/details/88132412" target="_blank" rel="noopener">组播基础</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/wsl_system_install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,7 +549,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 09:32:50" itemprop="dateModified" datetime="2021-12-09T09:32:50+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-21 15:54:29" itemprop="dateModified" datetime="2021-12-21T15:54:29+08:00">2021-12-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -444,7 +581,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>734</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -522,7 +659,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 09:27:41" itemprop="dateModified" datetime="2021-12-09T09:27:41+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-21 15:54:29" itemprop="dateModified" datetime="2021-12-21T15:54:29+08:00">2021-12-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -554,7 +691,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.9k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1119,7 +1256,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-09 09:27:41" itemprop="dateModified" datetime="2021-12-09T09:27:41+08:00">2021-12-09</time>
+                <time title="Modified: 2021-12-21 15:54:29" itemprop="dateModified" datetime="2021-12-21T15:54:29+08:00">2021-12-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1151,7 +1288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1201,121 +1338,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/qt_qss/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
-      <meta itemprop="name" content="YaornzZ">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yaronzz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/qt_qss/" class="post-title-link" itemprop="url">Qt-Qss笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-11 11:12:30" itemprop="dateCreated datePublished" datetime="2021-10-11T11:12:30+08:00">2021-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 10:12:11" itemprop="dateModified" datetime="2021-10-20T10:12:11+08:00">2021-10-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/post/qt_qss/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/qt_qss/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>6 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>QT使用QSS<code>（Qt Style Sheet）</code>来设置控件样式并进行个性化定制和界面美化。QSS的语法和CSS十分类似，都是使用选择器来配置控件属性。</p>
-<p>QT导入QSS样式文件的方式也十分简单，只需要调用<code>setStyleSheet</code>进行设置：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QApplication <span class="title">app</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"><span class="function">QFile <span class="title">qss</span><span class="params">(<span class="string">"style.qss"</span>)</span></span>;</span><br><span class="line">qss.<span class="built_in">open</span>(QFile::ReadOnly);</span><br><span class="line">app.setStyleSheet(qss.readAll());</span><br><span class="line">qss.<span class="built_in">close</span>();</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/qt_qss/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1383,7 +1409,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1396,7 +1422,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1443,12 +1469,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">59k</span>
+    <span title="Symbols count total">62k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">53 mins.</span>
+    <span title="Reading time total">56 mins.</span>
 </div>
 
         

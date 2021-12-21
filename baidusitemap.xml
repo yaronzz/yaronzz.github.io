@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <loc>https://www.yaronzz.com/post/udp_membership/</loc>
+    <lastmod>2021-12-21</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/qt_note/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2021-12-21</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
-    <lastmod>2021-12-09</lastmod>
+    <lastmod>2021-12-21</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
+    <lastmod>2021-12-21</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/python_note/</loc>
     <lastmod>2021-10-20</lastmod>

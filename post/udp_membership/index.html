@@ -20,27 +20,21 @@
     var CONFIG = {"hostname":"www.yaronzz.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="VSCODE安装下载安装 VSCODE：https:&#x2F;&#x2F;code.visualstudio.com&#x2F;">
+  <meta name="description" content="概述说明网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。 组播中数据发送者和接收者之间是一对多点的连">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vscode-Lua环境安装">
-<meta property="og:url" content="https://www.yaronzz.com/post/vscode_lua/index.html">
+<meta property="og:title" content="UDP组播的说明与使用">
+<meta property="og:url" content="https://www.yaronzz.com/post/udp_membership/index.html">
 <meta property="og:site_name" content="Yaronzz">
-<meta property="og:description" content="VSCODE安装下载安装 VSCODE：https:&#x2F;&#x2F;code.visualstudio.com&#x2F;">
+<meta property="og:description" content="概述说明网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。 组播中数据发送者和接收者之间是一对多点的连">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png">
-<meta property="og:image" content="https://i.loli.net/2020/09/24/SjLKXNulb4C86qW.png">
-<meta property="og:image" content="https://i.loli.net/2020/09/24/tdxUz8gTGpLr4D6.png">
-<meta property="og:image" content="https://i.loli.net/2020/09/24/1OpsnlWLXFNGzKE.png">
-<meta property="og:image" content="https://i.loli.net/2020/09/24/O8DplPHubRTUAQx.png">
-<meta property="article:published_time" content="2020-06-21T11:01:17.000Z">
-<meta property="article:modified_time" content="2021-10-14T02:03:47.231Z">
+<meta property="article:published_time" content="2021-12-21T04:00:33.000Z">
+<meta property="article:modified_time" content="2021-12-21T07:54:29.373Z">
 <meta property="article:author" content="YaornzZ">
-<meta property="article:tag" content="vs">
-<meta property="article:tag" content="lua">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="udp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png">
 
-<link rel="canonical" href="https://www.yaronzz.com/post/vscode_lua/">
+<link rel="canonical" href="https://www.yaronzz.com/post/udp_membership/">
 
 
 <script id="page-configurations">
@@ -53,7 +47,7 @@
   };
 </script>
 
-  <title>Vscode-Lua环境安装 | Yaronzz</title>
+  <title>UDP组播的说明与使用 | Yaronzz</title>
   
 
 
@@ -176,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/vscode_lua/">
+    <link itemprop="mainEntityOfPage" href="https://www.yaronzz.com/post/udp_membership/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar.jpg">
@@ -189,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vscode-Lua环境安装
+          UDP组播的说明与使用
         </h1>
 
         <div class="post-meta">
@@ -198,23 +192,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-06-21 19:01:17" itemprop="dateCreated datePublished" datetime="2020-06-21T19:01:17+08:00">2020-06-21</time>
+              <time title="Created: 2021-12-21 12:00:33 / Modified: 15:54:29" itemprop="dateCreated datePublished" datetime="2021-12-21T12:00:33+08:00">2021-12-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 10:03:47" itemprop="dateModified" datetime="2021-10-14T10:03:47+08:00">2021-10-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/settings/" itemprop="url" rel="index"><span itemprop="name">settings</span></a>
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
                 </span>
             </span>
 
@@ -234,8 +222,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/post/vscode_lua/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/post/vscode_lua/" itemprop="commentCount"></span>
+    <a title="valine" href="/post/udp_membership/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/udp_membership/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>481</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -264,53 +252,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="VSCODE安装"><a href="#VSCODE安装" class="headerlink" title="VSCODE安装"></a>VSCODE安装</h2><p>下载安装 VSCODE：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p>
-<p><img src="https://i.loli.net/2020/09/24/g2oSlNYHJstTBP3.png" alt="image-20200924091310812"></p>
-<a id="more"></a>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。</p>
+<p>组播中数据发送者和接收者之间是一对多点的连接方式，多个接收者加入同一个组播组，共享同一个IP地址，同时组播组中的成员是动态的，某个成员的加入和退出并不影响原有的组播组。当网络中的某些用户需要特定数据时，组播数据发送者（即组播源）仅发送一次数据，借助组播路由协议为组播数据包建立组播分发树，被传递的数据到达距离用户端尽可能近的节点后才开始复制和分发。</p>
+<h3 id="组播地址"><a href="#组播地址" class="headerlink" title="组播地址"></a>组播地址</h3><p>组播组可以是永久的也可以是临时的。组播组地址中，有一部分由官方分配的，称为永久组播组。永久组播组保持不变的是它的ip地址，组中的成员构成可以发生变化。永久组播组中成员的数量都可以是任意的，甚至可以为零。那些没有保留下来供永久组播组使用的ip组播地址，可以被临时组播组利用。<br><code>224.0.0.0～224.0.0.255</code>为预留的组播地址（永久组地址），地址224.0.0.0保留不做分配，其它地址供路由协议使用；<br><code>224.0.1.0～224.0.1.255</code>是公用组播地址，可以用于Internet；<br><code>224.0.2.0～238.255.255.255</code>为用户可用的组播地址（临时组地址），全网范围内有效；<br><code>239.0.0.0～239.255.255.255</code>为本地管理组播地址，仅在特定的本地范围内有效。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a>配置流程</h3><ol>
+<li><p>创建套接字</p>
+<p>  由于UDP与TCP都是全双工的，所以可以使用同一个套接字进行同时收发操作。</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UDP_MCAST_PORT 37102        <span class="comment">//组播端口</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UDP_MCAST_ADDR <span class="meta-string">"224.0.1.88"</span> <span class="comment">//组播地址</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> socket = socket(AF_INET,SOCK_DGRAM,<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (socket &lt;= <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
 
-<p>选择软件左侧插件扩展项，在输入框中输入要安装的插件即可。</p>
+
+</li>
+</ol>
+<ol start="2">
+<li><p>设置端口复用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> opt = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, SOL_SOCKET, SO_REUSEADDR ,(<span class="keyword">char</span>*)&amp;opt, <span class="keyword">sizeof</span>(opt)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定组播端口</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">addr</span>;</span></span><br><span class="line">addr.sin_family = AF_INET;</span><br><span class="line">addr.sin_port = htons(UDP_MCAST_PORT);</span><br><span class="line">addr.sin_addr.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (bind(socket, (struct sockaddr*)&amp;addr, <span class="keyword">sizeof</span>(addr)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入组播</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ip_mreq</span> <span class="title">mreq</span>;</span></span><br><span class="line">mreq.imr_multiaddr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">mreq.imr_interface.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (<span class="keyword">char</span>*)&amp;mreq, <span class="keyword">sizeof</span>(mreq)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送与接收</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">addrSrv</span>;</span></span><br><span class="line">addrSrv.sin_family=AF_INET;</span><br><span class="line">addrSrv.sin_addr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">addrSrv.sin_port=htons(UDP_MCAST_PORT);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (sendto(socket, data, dataLen, <span class="number">0</span>, (struct sockaddr *)&amp;addrSrv,<span class="keyword">sizeof</span>(addrSrv)) &gt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">group_addr</span>;</span></span><br><span class="line"><span class="keyword">socklen_t</span> addr_len = <span class="keyword">sizeof</span>(group_addr);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len = recvfrom(socket, buff, buffLen, <span class="number">0</span>, (struct sockaddr *) &amp;group_addr, (<span class="keyword">int</span> *)&amp;addr_len);</span><br><span class="line">recvIP = inet_ntoa(group_addr.sin_addr);</span><br><span class="line">recvPort = group_addr.sin_port;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="多网卡配置流程"><a href="#多网卡配置流程" class="headerlink" title="多网卡配置流程"></a>多网卡配置流程</h3><p>多网卡组播需要在加入组播时指定本地IP地址，并且需要在最后多加一步指定组播的出口网卡：</p>
 <ol>
-<li><p>汉化插件</p>
-<p>Chinese (Simplified) Language Pack for Visual Studio Code</p>
+<li><p>加入组播</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ip_mreq</span> <span class="title">mreq</span>;</span></span><br><span class="line">mreq.imr_multiaddr.s_addr = inet_addr(UDP_MCAST_ADDR);</span><br><span class="line">mreq.imr_interface.s_addr = htonl(INADDR_ANY);</span><br><span class="line"></span><br><span class="line"><span class="comment">//指定接口接收组播信息</span></span><br><span class="line">mreq.imr_interface.s_addr = inet_addr(<span class="built_in">localIP</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (<span class="keyword">char</span>*)&amp;mreq, <span class="keyword">sizeof</span>(mreq)) &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>主题与图标</p>
-<ul>
-<li><p>Atom One Dark Theme</p>
+<li><p>指定组播出口网卡</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span> <span class="title">addr</span>;</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;addr, <span class="number">0</span>, <span class="keyword">sizeof</span>(struct in_addr));</span><br><span class="line"></span><br><span class="line">addr.s_addr=inet_addr(<span class="built_in">localIP</span>);</span><br><span class="line"><span class="keyword">if</span> (setsockopt(socket, IPPROTO_IP, IP_MULTICAST_IF, (<span class="keyword">char</span>*)&amp;addr, <span class="keyword">sizeof</span>(addr)) &lt; <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
 </li>
-<li><p>vscode-icons</p>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a href="https://blog.csdn.net/wangzhen_csdn/article/details/76467811" target="_blank" rel="noopener">IP地址划分、组播地址、公有IP、私有IP</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_41482303/article/details/88132412" target="_blank" rel="noopener">组播基础</a></p>
 </li>
 </ul>
-</li>
-<li><p>代码自动对齐</p>
-<p>Better Align</p>
-</li>
-<li><p>显示对齐线</p>
-<p>Guides</p>
-</li>
-<li><p>Lua插件</p>
-<p><img src="https://i.loli.net/2020/09/24/SjLKXNulb4C86qW.png" alt="image-20200924091359589"></p>
-<p><img src="https://i.loli.net/2020/09/24/tdxUz8gTGpLr4D6.png" alt="image-20200924091413376"></p>
-</li>
-</ol>
-<h2 id="调试Lua"><a href="#调试Lua" class="headerlink" title="调试Lua"></a>调试Lua</h2><p>vscode的项目工程以文件夹为单位，打开文件夹即打开一个工程，lua的工作目录为此文件夹路径。</p>
-<ol>
-<li><p>新建文件加 <code>test</code></p>
-</li>
-<li><p>打开<code>test</code>目录，鼠标右键选择<code>vscode</code>打开目录</p>
-</li>
-<li><p>新建<code>info.ls</code></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info = &#123;</span><br><span class="line">    age = <span class="number">10</span>,</span><br><span class="line">    name = <span class="string">"xiaoming"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建<code>main.ls</code></p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"info"</span>)</span><br><span class="line"></span><br><span class="line">para = <span class="built_in">_G</span>.info</span><br><span class="line"><span class="built_in">print</span>(para.name)</span><br><span class="line"><span class="built_in">print</span>(para.age)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击软件右下角语言模式，将<code>ls</code>文件关联到<code>lua</code></p>
-<p><img src="https://i.loli.net/2020/09/24/1OpsnlWLXFNGzKE.png" alt="image-20200924091556942"></p>
-<p><img src="https://i.loli.net/2020/09/24/O8DplPHubRTUAQx.png" alt="image-20200924091618675"></p>
-</li>
-<li><p>打开<code>mian.ls</code>，按<code>F5</code>即可调试，按<code>F12</code>可以跳转参数定义，将鼠标移动到参数上也可以显示参数信息</p>
-</li>
-</ol>
 
     </div>
 
@@ -346,7 +329,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://www.yaronzz.com/post/vscode_lua/" title="Vscode-Lua环境安装">https://www.yaronzz.com/post/vscode_lua/</a>
+    <a href="https://www.yaronzz.com/post/udp_membership/" title="UDP组播的说明与使用">https://www.yaronzz.com/post/udp_membership/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -357,8 +340,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/vs/" rel="tag"># vs</a>
-              <a href="/tags/lua/" rel="tag"># lua</a>
+              <a href="/tags/cpp/" rel="tag"># cpp</a>
+              <a href="/tags/udp/" rel="tag"># udp</a>
           </div>
 
         
@@ -367,13 +350,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/post/macos_build/" rel="prev" title="Macos初始配置与使用">
-      <i class="fa fa-chevron-left"></i> Macos初始配置与使用
+    <a href="/post/wsl_system_install/" rel="prev" title="WSL系统安装与使用">
+      <i class="fa fa-chevron-left"></i> WSL系统安装与使用
     </a></div>
-      <div class="post-nav-item">
-    <a href="/post/vs_linux_debug/" rel="next" title="VS调试Linux程序环境配置">
-      VS调试Linux程序环境配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -433,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCODE安装"><span class="nav-number">1.</span> <span class="nav-text">VSCODE安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试Lua"><span class="nav-number">2.</span> <span class="nav-text">调试Lua</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组播地址"><span class="nav-number">1.2.</span> <span class="nav-text">组播地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置流程"><span class="nav-number">2.1.</span> <span class="nav-text">配置流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多网卡配置流程"><span class="nav-number">2.2.</span> <span class="nav-text">多网卡配置流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
