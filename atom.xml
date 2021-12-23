@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.yaronzz.com/"/>
-  <updated>2021-12-23T01:47:59.439Z</updated>
+  <updated>2021-12-23T09:27:39.435Z</updated>
   <id>https://www.yaronzz.com/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GDB-CoreDump调试</title>
+    <link href="https://www.yaronzz.com/post/gdb_coreDump/"/>
+    <id>https://www.yaronzz.com/post/gdb_coreDump/</id>
+    <published>2021-12-23T09:26:17.000Z</published>
+    <updated>2021-12-23T09:27:39.435Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="配置并生成崩溃信息"><a href="#配置并生成崩溃信息" class="headerlink" title="配置并生成崩溃信息"></a>配置并生成崩溃信息</h2><ol><li>查看并开启core dump功能</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看是否开启 0不开</span></span><br><span class="line">ulimit -c</span><br><span class="line"><span class="meta">#</span><span class="bash">开启core dump功能</span></span><br><span class="line">ulimit -c unlimited</span><br></pre></td></tr></table></figure><ol start="2"><li>指定core dump输出目录到<code>/opt/dump/</code></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo /opt/dump/core.%e.%p &gt; /proc/sys/kernel/core_pattern</span><br></pre></td></tr></table></figure><ol start="3"><li>执行问题程序即可，输出如下：</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">崩溃信息</span></span><br><span class="line">[root@test ~]# Alignment trap: not handling instruction e8502f00 at [&lt;75f76aca&gt;]</span><br><span class="line">Unhandled fault: alignment exception (0x001) at 0x0d98b981</span><br><span class="line">pgd = 98be4000</span><br><span class="line">[0d98b981] *pgd=00000000</span><br><span class="line"></span><br><span class="line">[1]-  Bus error (core dumped)    ./test</span><br></pre></td></tr></table></figure><h2 id="调试崩溃文件"><a href="#调试崩溃文件" class="headerlink" title="调试崩溃文件"></a>调试崩溃文件</h2><p>可执行软件：<code>test</code>，产生的dump文件<code>core-test-775</code></p><ol><li>使用gdb调试程序</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb test</span><br></pre></td></tr></table></figure><ol start="2"><li>设置程序所需的动态库路径</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询所需库</span></span><br><span class="line">(gdb)info sharedlibrary</span><br><span class="line"><span class="meta">#</span><span class="bash">设置库路径/root/lib/和/root/lib2/,用冒号隔开</span></span><br><span class="line">(gdb)set solib-search-path /root/lib/:/root/lib2/</span><br></pre></td></tr></table></figure><ol start="3"><li>打开崩溃文件</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb)core-file core-test-775</span><br></pre></td></tr></table></figure><ol start="4"><li>查询崩溃信息</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb)bt</span><br></pre></td></tr></table></figure><h2 id="设置自动加载动态库路径"><a href="#设置自动加载动态库路径" class="headerlink" title="设置自动加载动态库路径"></a>设置自动加载动态库路径</h2><ol><li>修改用户目录下的<code>~/.gdbinit</code>：</li></ol><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set auto-load safe-path /</span><br></pre></td></tr></table></figure><ol start="2"><li>修改程序软件的目录下的<code>~/.gdbinit</code>：</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set solib-search-path /root/lib/:/root/lib2/</span><br></pre></td></tr></table></figure><ol start="3"><li>调试崩溃信息</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gdb test</span><br><span class="line">(gdb)core-file core-test-775</span><br><span class="line">(gdb)bt</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="code" scheme="https://www.yaronzz.com/categories/code/"/>
+    
+    
+      <category term="linux" scheme="https://www.yaronzz.com/tags/linux/"/>
+    
+      <category term="gdb" scheme="https://www.yaronzz.com/tags/gdb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Qt交叉编译</title>
+    <link href="https://www.yaronzz.com/post/qt_cross_compile/"/>
+    <id>https://www.yaronzz.com/post/qt_cross_compile/</id>
+    <published>2021-12-23T09:06:30.000Z</published>
+    <updated>2021-12-23T09:27:39.464Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><ul><li>下载相应的触摸屏库<code>tslib</code></li><li>下载<code>linaro</code>交叉编译工具链:<a href="http://releases.linaro.org/components/toolchain/binaries/" target="_blank" rel="noopener">Linaro Releases</a></li><li>下载QT源码：<a href="https://download.qt.io/archive/qt/5.9/5.9.6/single/" target="_blank" rel="noopener">Index of /archive/qt/5.9/5.9.6/single</a></li></ul><table><thead><tr><th>文件名</th><th>说明</th></tr></thead><tbody><tr><td>gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</td><td>交叉编译工具链</td></tr><tr><td>tslib.tar.bz2</td><td>触摸屏库</td></tr><tr><td>qt-everywhere-opensource-src-5.9.6.tar.xz</td><td>qt5.9.6源码</td></tr></tbody></table><a id="more"></a><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ol><li><p>将<code>gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</code>和<code>tslib.tar.bz2</code>移动到<code>/opt</code>目录下</p></li><li><p>解压 <code>gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</code>到opt目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">sudo tar -xvjf gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2</span><br></pre></td></tr></table></figure></li><li><p>解压 <code>tslib.tar.bz2</code>到opt目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">sudo tar -xvjf tslib.tar.bz2</span><br></pre></td></tr></table></figure></li><li><p>测试交叉编译链</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux/bin</span><br><span class="line">./arm-linux-gnueabihf-g++ -v</span><br></pre></td></tr></table></figure><p>如果不能运行，可能是系统版本64位与交叉编译链32位不符导致，可以安装32位支持：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --add-architecture i386</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 -y</span><br></pre></td></tr></table></figure></li></ol><h2 id="配置与编译QT"><a href="#配置与编译QT" class="headerlink" title="配置与编译QT"></a>配置与编译QT</h2><ol><li><p>将<code>qt-everywhere-opensource-src-5.9.6.tar.xz</code>移动到用户目录下，创建<code>qt-5.9.6-source</code>目录用于放源码</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir qt-5.9.6-source</span><br></pre></td></tr></table></figure></li><li><p>解压 <code>qt-everywhere-opensource-src-5.9.6.tar.xz</code>到用户目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvjf qt-everywhere-opensource-src-5.9.6.tar.xz ./qt-5.9.6-source</span><br></pre></td></tr></table></figure></li><li><p>配置交叉编译链</p><ul><li>打开配置文件</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/qt-5.9.6-source/qt-everywhere-opensource-src-5.9.6</span><br><span class="line">vi ./qtbase/mkspecs/linux-arm-gnueabi-g++/qmake.conf</span><br></pre></td></tr></table></figure><ul><li>修改内容，并指定交叉编译链地址</li></ul><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># qmake configuration for building with arm-linux-gnueabi-g++</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="attr">MAKEFILE_GENERATOR</span>      = UNIX</span><br><span class="line">CONFIG                 += incremental</span><br><span class="line"><span class="attr">QMAKE_INCREMENTAL_STYLE</span> = sublib</span><br><span class="line"></span><br><span class="line">include(../common/linux.conf)</span><br><span class="line">include(../common/gcc-base-unix.conf)</span><br><span class="line">include(../common/g++-unix.conf)</span><br><span class="line"></span><br><span class="line"><span class="attr">QT_QPA_DEFAULT_PLATFORM</span> = linuxfb</span><br><span class="line">QMAKE_CFLAGS           += -march=armv7-a -mtune=cortex-a7</span><br><span class="line">QMAKE_CXXFLAGS         += -march=armv7-a -mtune=cortex-a7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">QMAKE_INCDIR</span> = /opt/tslib/include</span><br><span class="line"><span class="attr">QMAKE_LIBDIR</span> = /opt/tslib/lib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># modifications to g++.conf</span></span><br><span class="line"><span class="attr">QMAKE_CC</span>         = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-gcc -lts</span><br><span class="line"><span class="attr">QMAKE_CXX</span>        = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-g++ -lts</span><br><span class="line"><span class="attr">QMAKE_LINK</span>       = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-g++ -lts</span><br><span class="line"><span class="attr">QMAKE_LINK_SHLIB</span> = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-g++ -lts</span><br><span class="line"></span><br><span class="line"><span class="comment"># modifications to linux.conf</span></span><br><span class="line"><span class="attr">QMAKE_AR</span>      = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-ar cqs</span><br><span class="line"><span class="attr">QMAKE_OBJCOPY</span> = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-objcopy</span><br><span class="line"><span class="attr">QMAKE_NM</span>      = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-nm -P</span><br><span class="line"><span class="attr">QMAKE_STRIP</span>   = /opt/gcc-linaro-arm-linux-gnueabihf-<span class="number">4.9</span>-<span class="number">2014.09</span>_linux/bin/arm-linux-gnueabihf-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure></li><li><p>创建<code>autoConfig.sh</code>文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/qt-5.9.6-source/qt-everywhere-opensource-src-5.9.6/autoConfig.sh</span><br></pre></td></tr></table></figure><p><code>autoConfig.sh</code>内容：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">./configure \</span><br><span class="line">    -prefix /opt/qt-5.9.6 \</span><br><span class="line">    -v \</span><br><span class="line">    -confirm-license \</span><br><span class="line">    -opensource \</span><br><span class="line">    -release \</span><br><span class="line">    -make libs \</span><br><span class="line">    -xplatform linux-arm-gnueabi-g++ \</span><br><span class="line">    -optimized-qmake \</span><br><span class="line">    -qt-libjpeg \</span><br><span class="line">    -qt-libpng \</span><br><span class="line">    -qt-zlib -tslib \</span><br><span class="line">    -no-opengl -no-sse2 -no-openssl -no-cups -no-glib -no-xcb \</span><br><span class="line">    -no-separate-debug-info -nomake examples \</span><br><span class="line">    -nomake tools -nomake tests -no-iconv -no-dbus \</span><br><span class="line">    -I /opt/tslib/include \</span><br><span class="line">    -L /opt/tslib/lib \</span><br><span class="line">    -recheck-all</span><br></pre></td></tr></table></figure></li><li><p>编译QT</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./autoConfig.sh &amp;&amp; make -j4 &amp;&amp; make install</span><br></pre></td></tr></table></figure><p><em>编译后的qt库放置与/opt目录下</em></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;下载软件&quot;&gt;&lt;a href=&quot;#下载软件&quot; class=&quot;headerlink&quot; title=&quot;下载软件&quot;&gt;&lt;/a&gt;下载软件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;下载相应的触摸屏库&lt;code&gt;tslib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;下载&lt;code&gt;linaro&lt;/code&gt;交叉编译工具链:&lt;a href=&quot;http://releases.linaro.org/components/toolchain/binaries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Linaro Releases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载QT源码：&lt;a href=&quot;https://download.qt.io/archive/qt/5.9/5.9.6/single/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Index of /archive/qt/5.9/5.9.6/single&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件名&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.bz2&lt;/td&gt;
+&lt;td&gt;交叉编译工具链&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tslib.tar.bz2&lt;/td&gt;
+&lt;td&gt;触摸屏库&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;qt-everywhere-opensource-src-5.9.6.tar.xz&lt;/td&gt;
+&lt;td&gt;qt5.9.6源码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+    
+    </summary>
+    
+    
+      <category term="code" scheme="https://www.yaronzz.com/categories/code/"/>
+    
+    
+      <category term="qt" scheme="https://www.yaronzz.com/tags/qt/"/>
+    
+      <category term="arm" scheme="https://www.yaronzz.com/tags/arm/"/>
+    
+  </entry>
   
   <entry>
     <title>Qt-Vnc远程</title>
@@ -545,52 +622,6 @@
     
     
       <category term="tidal" scheme="https://www.yaronzz.com/tags/tidal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>音频相关知识点</title>
-    <link href="https://www.yaronzz.com/post/audio_knowledge_point/"/>
-    <id>https://www.yaronzz.com/post/audio_knowledge_point/</id>
-    <published>2020-06-30T01:00:33.000Z</published>
-    <updated>2021-10-14T02:03:47.227Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>音频知识点包括音频属性与音频格式等。</p><a id="more"></a><h2 id="音频属性"><a href="#音频属性" class="headerlink" title="音频属性"></a>音频属性</h2><h3 id="采样频率-Hz"><a href="#采样频率-Hz" class="headerlink" title="采样频率 Hz"></a>采样频率 Hz</h3><p>采样频率就是采用一段音频，做为样本，因为wav使用的是数码信号，它是用一堆数字来描述原来的模拟信号，所以它要对原来的模拟信号进行分析，我们知道所有的声音都有其波形，数码信号就是在原有的模拟信号波形上每隔一段时间进行一次“取点”，赋予每一个点以一个数值，这就是“采样”，然后把所有的“点”连起来就可以描述模拟信号了，很明显，在一定时间内取的点越多，描述出来的波形就越精确，这个尺度我们就称为“采样频率”。</p><p>我们最常用的采样频率是44.1kHz，它的意思是每秒取样44100次。之所以使用这个数值是因为经过了反复实验（实际上是那个时代才是视频27/1.0001时钟做CD刻录遗留问题），人们发现这个采样频率最合适，低于这个值就会有较明显的损失，而高于这个值人的耳朵已经很难分辨，而且增 大了数字音频所占用的空间。</p><p>一般为了达到“万分精确”，我们还会使用48kHz甚至96kHz的采样频率，实际上，96kHz采样频率和44.1kHz采样频率的区别绝对不会象44.1kHz和22kHz那样区别如此之大，我们所使用的CD的采样标准就是44.1kHz，目前44.1kHz还是一个最通行的标准，有些人认为96kHz将是未来录音界的趋势。采样频率提高应该是一件好事，但我们真的能听出96kHz采样频率制作的音乐与44.1kHz采样频率制作的音乐的区别吗？</p><p>注：16bit/44.1kHz是CD中音频的采样，24bit/48kHz是DVD中音频的采样，24bit/192kHz是蓝光中音频的采样。</p><h3 id="采样位数-bit（位深）"><a href="#采样位数-bit（位深）" class="headerlink" title="采样位数  bit（位深）"></a>采样位数  bit（位深）</h3><p>比特率是大家常听说的一个名词，数码录音一般使用16比特、20比特或24比特制作音乐。什么是“比特”？我们知道声音有轻有响，影响声音<a href="https://baike.baidu.com/item/响度" target="_blank" rel="noopener">响度</a>的物理要素是<a href="https://baike.baidu.com/item/振幅" target="_blank" rel="noopener">振幅</a>，作为<a href="https://baike.baidu.com/item/数码录音" target="_blank" rel="noopener">数码录音</a>，必须也要能精确表示乐曲的轻响，所以一定要对波形的振幅有一个精确的描述。“比特(bit)”就是这样一个单位，16比特就是指把波形的振幅划为2^16即65536个等级，根据<a href="https://baike.baidu.com/item/模拟信号" target="_blank" rel="noopener">模拟信号</a>的轻响把它划分到某个等级中去，就可以用数字来表示了。</p><p>和采样频率一样，比特率越高，越能细致地反映乐曲的轻响变化。20比特就可以产生1048576个等级，表现交响乐这类动态十分大的音乐已经没有什么问题了。刚才提到了一个名词“动态”，它其实指的是一首乐曲最响和最轻的对比能达到多少，我们也常说“<a href="https://baike.baidu.com/item/动态范围" target="_blank" rel="noopener">动态范围</a>”，单位是dB，而动态范围和我们录音时采用的比特率是紧密结合在一起的，如果我们使用了一个很低的比特率，那么就只有很少的等级可以用来描述音响的强弱，当然就不能听到大幅度的强弱对比了。</p><p>动态范围和比特率的关系是；<a href="https://baike.baidu.com/item/比特率" target="_blank" rel="noopener">比特率</a>每增加1比特，动态范围就增加6dB。所以假如我们使用1比特录音，那么我们的动态范围就只有6dB，这样的音乐是不可能听的。16比特时，动态范围是96dB。这可以满足一般的需求了。20比特时，动态范围是120dB，对比再强烈的交响乐都可以应付自如了，表现音乐的强弱是绰绰有余了。发烧级的<a href="https://baike.baidu.com/item/录音师" target="_blank" rel="noopener">录音师</a>还使用24比特，但是和采样精度一样，它不会比20比特有很明显的变化，理论上24比特可以做到144 dB的动态范围，但实际上是很难达到的，因为任何设备都不可避免会产生<a href="https://baike.baidu.com/item/噪音" target="_blank" rel="noopener">噪音</a>，至少在现阶段24比特很难达到其预期效果。</p><h3 id="码率-kbps"><a href="#码率-kbps" class="headerlink" title="码率 kbps"></a>码率 kbps</h3><p>表示每秒存储声音容量，如CD标准的声音信号参数为：信号采样频率为44.1kHz，量化精度为16位，包含两个声道。根据每秒钟存储声音容量的公式：</p><p>字节数 = 采样频率×采样精度(位数)×声道数，可计算出其数据率为 <strong>1411.2kbps</strong>， 即176.4kBps。</p><p>(大写B表示byte,即<a href="https://baike.baidu.com/item/字节" target="_blank" rel="noopener">字节</a>，一个字节=八个位，即1B=8b；前面的小写k表示千的意思，即千个位kb或千个字节kB)</p><h2 id="音频格式"><a href="#音频格式" class="headerlink" title="音频格式"></a>音频格式</h2><h3 id="CD"><a href="#CD" class="headerlink" title="CD"></a>CD</h3><p>标准CD格式也就是44.1K的采样频率，速率88K/秒，16位量化位数，因为CD音轨可以说是近似无损的，因此它的声音基本上是忠于原声的。一个CD音频文件是一个<em>.cda文件，这只是一个索引信息，并不是真正的包含声音信息，所以不论CD音乐的长短，在电脑上看到的“</em>.cda文件”都是44字节长。</p><h3 id="WAV"><a href="#WAV" class="headerlink" title="WAV"></a>WAV</h3><p><strong>无损</strong>，是<a href="https://baike.baidu.com/item/微软公司" target="_blank" rel="noopener">微软公司</a>开发的一种声音文件格式，标准格式的WAV文件和CD格式一样，也是44.1K的采样频率，速率88K/秒，16位量化位数。</p><h3 id="MP3"><a href="#MP3" class="headerlink" title="MP3"></a>MP3</h3><p>MPEG音频文件的压缩是一种有损压缩，MPEG3<a href="https://baike.baidu.com/item/音频编码" target="_blank" rel="noopener">音频编码</a>具有10：1~12：1的高<a href="https://baike.baidu.com/item/压缩率" target="_blank" rel="noopener">压缩率</a>，同时基本保持低音频部分不失真，但是牺牲了声音文件中12KHz到16KHz高音频这部分的质量来换取文件的尺寸，相同长度的音乐文件，用<em>.mp3格式来储存，一般只有</em>.wav文件的1/10，而音质要次于CD格式或WAV格式的声音文件。</p><h3 id="OGG"><a href="#OGG" class="headerlink" title="OGG"></a>OGG</h3><p><a href="https://baike.baidu.com/item/ogg格式" target="_blank" rel="noopener">ogg格式</a>完全开源，完全免费， 和mp3不相上下的新格式。 与MP3类似，OGGVorbis也是对音频进行有损压缩编码，但通过使用更加先进的<a href="https://baike.baidu.com/item/声学模型" target="_blank" rel="noopener">声学模型</a>去减少损失，因此，相同<a href="https://baike.baidu.com/item/码率" target="_blank" rel="noopener">码率</a>编码的OGGVorbis比MP3音质更好一些，文件也更小一些。</p><h3 id="FLAC"><a href="#FLAC" class="headerlink" title="FLAC"></a>FLAC</h3><p><a href="https://baike.baidu.com/item/FLAC" target="_blank" rel="noopener">FLAC</a>即是Free Lossless Audio Codec的缩写，中文可解为无损音频压缩编码。FLAC是一套著名的自由音频压缩编码，其特点是<a href="https://baike.baidu.com/item/无损压缩" target="_blank" rel="noopener">无损压缩</a>。不同于其他有损压缩编码如<a href="https://baike.baidu.com/item/MP3" target="_blank" rel="noopener">MP3</a>及<a href="https://baike.baidu.com/item/AAC" target="_blank" rel="noopener">AAC</a>，它不会破坏任何原有的音频资讯，所以可以还原音乐光盘音质。</p><h3 id="APE"><a href="#APE" class="headerlink" title="APE"></a>APE</h3><p>APE是流行的数字音乐文件格式之一。与<a href="https://baike.baidu.com/item/MP3" target="_blank" rel="noopener">MP3</a>这类<a href="https://baike.baidu.com/item/有损压缩" target="_blank" rel="noopener">有损压缩</a>方式不同，APE是一种无损压缩<a href="https://baike.baidu.com/item/音频技术" target="_blank" rel="noopener">音频技术</a>，也就是说当你将从音频CD上读取的音频数据文件压缩成<a href="https://baike.baidu.com/item/APE格式" target="_blank" rel="noopener">APE格式</a>后，你还可以再将APE格式的文件还原，而还原后的音频文件与压缩前的一模一样，没有任何损失。APE的文件大小大概为CD的一半。</p><h3 id="AAC"><a href="#AAC" class="headerlink" title="AAC"></a>AAC</h3><p>应用相对广泛的有AAC,（高级音频编码技术，Advanced Audio Coding）是<a href="https://baike.baidu.com/item/杜比实验室" target="_blank" rel="noopener">杜比实验室</a>为音乐社区提供的技术。AAC号称「最大能容纳48通道的音轨，采样率达96 KHz，并且在320Kbps的数据速率下能为5.1声道音乐节目提供相当于ITU-R广播的品质」。和MP3比起来，它的音质比较好，也能够节省大约30%的储存空间与带宽。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;音频知识点包括音频属性与音频格式等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="学习" scheme="https://www.yaronzz.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="audio" scheme="https://www.yaronzz.com/tags/audio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Office365家庭版却需要激活专业增强版的解决办法</title>
-    <link href="https://www.yaronzz.com/post/office365/"/>
-    <id>https://www.yaronzz.com/post/office365/</id>
-    <published>2020-06-26T07:00:33.000Z</published>
-    <updated>2021-10-14T02:03:47.241Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于之前使用KMS破解过office，所以安装了正版的office365家庭版之后，打开却显示当前版本是专业增强版，并且需要许可证。</p><a id="more"></a><img src="https://i.loli.net/2020/06/26/H8pUtY6SxTqszQ4.png" alt="IMG" style="zoom:67%;" /><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li>以<strong>管理员</strong>身份运行CMD</li><li>输入命令切换到office目录 <code>cd C:\Program Files\Microsoft Office\Office16</code></li><li>输入命令查询破解软件的KEY(位) <code>cscript ospp.vbs /dstatus</code></li><li>输入命令卸载KEY <code>cscript ospp.vbs /unpkey:XXXXX</code></li></ol><img src="https://i.loli.net/2020/06/26/FyX3YQ5KoGfzbPx.png" alt="IMG" style="zoom:67%;" />]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于之前使用KMS破解过office，所以安装了正版的office365家庭版之后，打开却显示当前版本是专业增强版，并且需要许可证。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="软件" scheme="https://www.yaronzz.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="office" scheme="https://www.yaronzz.com/tags/office/"/>
     
   </entry>
   
