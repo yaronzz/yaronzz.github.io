@@ -28,7 +28,7 @@
 <meta property="og:description" content="配置并生成崩溃信息 查看并开启core dump功能  1234#查看是否开启 0不开ulimit -c#开启core dump功能ulimit -c unlimited   指定core dump输出目录到&#x2F;opt&#x2F;dump&#x2F;  1echo &#x2F;opt&#x2F;dump&#x2F;core.%e.%p &gt; &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;core_pattern   执行问题程序即可，输出如下：  1234">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-23T09:26:17.000Z">
-<meta property="article:modified_time" content="2021-12-23T09:27:39.435Z">
+<meta property="article:modified_time" content="2021-12-23T09:46:14.643Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="gdb">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-12-23 17:26:17 / Modified: 17:27:39" itemprop="dateCreated datePublished" datetime="2021-12-23T17:26:17+08:00">2021-12-23</time>
+              <time title="Created: 2021-12-23 17:26:17 / Modified: 17:46:14" itemprop="dateCreated datePublished" datetime="2021-12-23T17:26:17+08:00">2021-12-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,6 +266,8 @@
 <li>执行问题程序即可，输出如下：</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">崩溃信息</span></span><br><span class="line">[root@test ~]# Alignment trap: not handling instruction e8502f00 at [&lt;75f76aca&gt;]</span><br><span class="line">Unhandled fault: alignment exception (0x001) at 0x0d98b981</span><br><span class="line">pgd = 98be4000</span><br><span class="line">[0d98b981] *pgd=00000000</span><br><span class="line"></span><br><span class="line">[1]-  Bus error (core dumped)    ./test</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h2 id="调试崩溃文件"><a href="#调试崩溃文件" class="headerlink" title="调试崩溃文件"></a>调试崩溃文件</h2><p>可执行软件：<code>test</code>，产生的dump文件<code>core-test-775</code></p>
 <ol>

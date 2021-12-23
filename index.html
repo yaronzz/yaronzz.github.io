@@ -519,7 +519,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-12-23 17:26:17 / Modified: 17:27:39" itemprop="dateCreated datePublished" datetime="2021-12-23T17:26:17+08:00">2021-12-23</time>
+              <time title="Created: 2021-12-23 17:26:17 / Modified: 17:46:14" itemprop="dateCreated datePublished" datetime="2021-12-23T17:26:17+08:00">2021-12-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -584,44 +584,14 @@
 <li>执行问题程序即可，输出如下：</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">崩溃信息</span></span><br><span class="line">[root@test ~]# Alignment trap: not handling instruction e8502f00 at [&lt;75f76aca&gt;]</span><br><span class="line">Unhandled fault: alignment exception (0x001) at 0x0d98b981</span><br><span class="line">pgd = 98be4000</span><br><span class="line">[0d98b981] *pgd=00000000</span><br><span class="line"></span><br><span class="line">[1]-  Bus error (core dumped)    ./test</span><br></pre></td></tr></table></figure>
-
-<h2 id="调试崩溃文件"><a href="#调试崩溃文件" class="headerlink" title="调试崩溃文件"></a>调试崩溃文件</h2><p>可执行软件：<code>test</code>，产生的dump文件<code>core-test-775</code></p>
-<ol>
-<li>使用gdb调试程序</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb test</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>设置程序所需的动态库路径</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询所需库</span></span><br><span class="line">(gdb)info sharedlibrary</span><br><span class="line"><span class="meta">#</span><span class="bash">设置库路径/root/lib/和/root/lib2/,用冒号隔开</span></span><br><span class="line">(gdb)set solib-search-path /root/lib/:/root/lib2/</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>打开崩溃文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb)core-file core-test-775</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>查询崩溃信息</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb)bt</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置自动加载动态库路径"><a href="#设置自动加载动态库路径" class="headerlink" title="设置自动加载动态库路径"></a>设置自动加载动态库路径</h2><ol>
-<li>修改用户目录下的<code>~/.gdbinit</code>：</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set auto-load safe-path /</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>修改程序软件的目录下的<code>~/.gdbinit</code>：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set solib-search-path /root/lib/:/root/lib2/</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>调试崩溃信息</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gdb test</span><br><span class="line">(gdb)core-file core-test-775</span><br><span class="line">(gdb)bt</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/gdb_coreDump/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
