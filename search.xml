@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Qt-Vnc远程</title>
+      <link href="/post/qt_vnc/"/>
+      <url>/post/qt_vnc/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="VNC简介"><a href="#VNC简介" class="headerlink" title="VNC简介"></a>VNC简介</h2><p>VNC(Virtual Network Computing)是基于RFB（Remote Frame Buffer）协议的远程系统，C/S端口默认为5900，B/S端口默认为5800。</p><p>RFB (远程帧缓存) 是一个远程图形用户的简单协议，工作在帧缓存级别上，其传输的是像素数据是以XY为起点的方框数据，通过矩形图形数据组进行帧缓存的更新。另外更新是由客户端通过命令驱动的，也就是说更新只是服务器在响应客户端的请求时发生的，如果网络较差时，有些帧的缓存会忽略，这样能减少客户端对网络和绘制速度的要求。</p><a id="more"></a><p>远程桌面协议对比：</p><table><thead><tr><th></th><th>SPICE</th><th>VNC</th><th>RDP</th></tr></thead><tbody><tr><td>BIOS屏幕显示</td><td>能</td><td>能</td><td>不能</td></tr><tr><td>全彩支持</td><td>能</td><td>能</td><td>能</td></tr><tr><td>更改分辨率</td><td>能</td><td>能</td><td>能</td></tr><tr><td>多显示器</td><td>多显示器支持（高达4画面）</td><td>只有一个屏幕</td><td>多显示器支持</td></tr><tr><td>图像传输</td><td>图像和图形传输</td><td>图像传输</td><td>图像和图形传输</td></tr><tr><td>视频播放支持</td><td>GPU加速支持</td><td>不能</td><td>GPU加速支持</td></tr><tr><td>音频传输</td><td>双向语音可以控制</td><td>不能</td><td>双向语音可以控制</td></tr><tr><td>鼠标控制</td><td>客户端服务器都可以控制</td><td>服务器端控制</td><td>服务器端控制</td></tr></tbody></table><p>VNC作为一种远程桌面协议，常常用在嵌入式开发中，在嵌入式设备上运行vnc服务程序，即可在PC端远程控制。</p><h2 id="QT环境要求"><a href="#QT环境要求" class="headerlink" title="QT环境要求"></a>QT环境要求</h2><ol><li>QT版本需要<code>5.8</code>以上，可以下载相应版本的源码包，比如<a href="https://download.qt.io/archive/qt/5.9/5.9.6/single/" target="_blank" rel="noopener">5.9.6.zip</a>，解压之后，在<code>qtbase/src/plugins/platforms</code>下可以看见有<code>vnc</code>的源码</li></ol><p><img src="https://i.loli.net/2021/11/18/J6a4LokphVfqA9U.png" alt="image-20211118090352762"></p><ol start="2"><li>检查qt库安装目录下插件<code>plugins</code>文件夹中<code>platforms</code>目录是否有vnc动态库<code>libqvnc.so</code></li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls /usr/lib/qt5.8/plugins/platforms/</span></span><br><span class="line">libqeglfs.so       libqminimal.so     libqoffscreen.so</span><br><span class="line">libqlinuxfb.so     libqminimalegl.so  libqvnc.so</span><br></pre></td></tr></table></figure><p><strong>注意：</strong>QT提供的VNC服务比较简单，只支持一些基本的功能，另外老版本的VNC中也有一些BUG可能会造成崩溃，所以最好还是尽量使用新版本。</p><h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><h3 id="QT程序启动vnc服务"><a href="#QT程序启动vnc服务" class="headerlink" title="QT程序启动vnc服务"></a>QT程序启动vnc服务</h3><ol><li><p>方式1：通过设置环境变量，改变程序的启动方式</p><p>配置QT程序的启动的方式 <code>export QT_QPA_PLATFORM=vnc</code></p></li><li><p>方式2：启动程序时指定启动方式</p><p>启动参数<code>./test -platform vnc:size=800x600,port=12345</code></p><ul><li>size 分辨率</li><li>port 服务端口号（不加则默认为5900）</li></ul></li></ol><h3 id="使用VNC客户端"><a href="#使用VNC客户端" class="headerlink" title="使用VNC客户端"></a>使用VNC客户端</h3><p>市面上的VNC客户端有很多，常用的比如<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">Realvnc</a>，另外也有很多开源的项目：</p><ul><li><a href="https://sourceforge.net/projects/tigervnc/files/stable/1.12.0/" target="_blank" rel="noopener">TigerVNC</a></li><li><a href="https://github.com/KangLin/RabbitRemoteControl" target="_blank" rel="noopener">RabbitRemoteControl</a></li></ul><p><strong>参考</strong></p><ul><li><a href="https://tools.ietf.org/html/rfc6143#section-7.7" target="_blank" rel="noopener">VNC PROTOCOL</a></li><li><a href="https://www.cnblogs.com/cnhk19/p/14948622.html" target="_blank" rel="noopener">远程桌面协议对比</a></li><li><a href="https://blog.csdn.net/tylz04/article/details/9181663" target="_blank" rel="noopener">RFB协议解析</a></li><li><a href="https://www.shuzhiduo.com/A/rV57QE6WzP/" target="_blank" rel="noopener">RFB协议具体通信说明</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> qt </tag>
+            
+            <tag> vnc </tag>
+            
+            <tag> arm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UDP组播的说明与使用</title>
       <link href="/post/udp_membership/"/>
       <url>/post/udp_membership/</url>
