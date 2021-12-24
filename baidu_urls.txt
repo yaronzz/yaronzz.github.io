@@ -1,3 +1,4 @@
+https://www.yaronzz.com/post/cpp_nfs/
 https://www.yaronzz.com/post/gdb_coreDump/
 https://www.yaronzz.com/post/qt_cross_compile/
 https://www.yaronzz.com/post/qt_vnc/
