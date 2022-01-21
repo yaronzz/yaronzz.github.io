@@ -411,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -471,7 +471,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">70k</span>
+    <span title="Symbols count total">69k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -582,7 +582,12 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 </body>
 </html>
 
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="yaronzz"
-        data-description="Support me on Buy me a coffee!"
-        data-message="Thank you for visiting!" data-color="#FF813f" data-position="left"
-        data-x_margin="30" data-y_margin="18"></script>
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('yaronzz', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support Me',
+    'floating-chat.donateButton.background-color': '#FF813f',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>

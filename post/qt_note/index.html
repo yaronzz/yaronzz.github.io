@@ -22,13 +22,13 @@
 
   <meta name="description" content="Qt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Meta Object Compiler, moc)）以及一些宏，Qt很容易扩展，并且允许真正地组件编程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qt笔记">
+<meta property="og:title" content="Qt配置与常见问题">
 <meta property="og:url" content="https://www.yaronzz.com/post/qt_note/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="Qt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Meta Object Compiler, moc)）以及一些宏，Qt很容易扩展，并且允许真正地组件编程。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-22T02:40:33.000Z">
-<meta property="article:modified_time" content="2022-01-11T02:13:34.014Z">
+<meta property="article:modified_time" content="2022-01-21T01:04:40.786Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="qt">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Qt笔记 | Yaronzz</title>
+  <title>Qt配置与常见问题 | Yaronzz</title>
   
 
 
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Qt笔记
+          Qt配置与常见问题
         </h1>
 
         <div class="post-meta">
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-11 10:13:34" itemprop="dateModified" datetime="2022-01-11T10:13:34+08:00">2022-01-11</time>
+                <time title="Modified: 2022-01-21 09:04:40" itemprop="dateModified" datetime="2022-01-21T09:04:40+08:00">2022-01-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,14 +236,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -268,8 +268,14 @@
 <li><p>函数注释</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @brief $$</span><br><span class="line"> * @param string</span><br><span class="line"> * @return void</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
 
+
+
 </li>
 </ul>
+<h3 id="多个pro项目管理"><a href="#多个pro项目管理" class="headerlink" title="多个pro项目管理"></a>多个pro项目管理</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATE = subdirs</span><br><span class="line">CONFIG += ordered  #顺序编译</span><br><span class="line">SUBDIRS += pro0\</span><br><span class="line">	pro1\</span><br><span class="line">	app</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="库编译与引用"><a href="#库编译与引用" class="headerlink" title="库编译与引用"></a>库编译与引用</h3><p>库分为动态库和静态库，通过文件名后缀可以知道库的类型：<code>so、dll(动态库)</code>;<code>a、lib(静态库)</code>。</p>
 <p>在windows平台下使用QT编译，库的后缀为dll和a。</p>
 <h4 id="编译库"><a href="#编译库" class="headerlink" title="编译库"></a>编译库</h4><ol>
@@ -305,47 +311,11 @@
 <li><p>方法3：重写<code>paintEvent</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ClassName::paintEvent</span><span class="params">(QPaintEvent *)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  QStyleOption opt;</span><br><span class="line">  opt.init(<span class="keyword">this</span>);</span><br><span class="line">  <span class="function">QPainter <span class="title">p</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line">  style()-&gt;drawPrimitive(QStyle::PE_Widget, &amp;opt, &amp;p, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
 </li>
 </ul>
 <h3 id="编译异常multiple-definition-of-qMain-int-char"><a href="#编译异常multiple-definition-of-qMain-int-char" class="headerlink" title="编译异常multiple definition of qMain(int, char**)"></a>编译异常<code>multiple definition of qMain(int, char**)</code></h3><p>一般是重复定义main函数了，可以全局搜索<code>main()</code>，或者检查pro文件中是否有重复添加的cpp和h，有时给工程中乱添加文件时会导致这种情况。</p>
-<h3 id="多个pro项目管理"><a href="#多个pro项目管理" class="headerlink" title="多个pro项目管理"></a>多个pro项目管理</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATE = subdirs</span><br><span class="line">CONFIG += ordered  #顺序编译</span><br><span class="line">SUBDIRS += pro0\</span><br><span class="line">	pro1\</span><br><span class="line">	app</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="QT知识点"><a href="#QT知识点" class="headerlink" title="QT知识点"></a>QT知识点</h2><ol>
-<li><p>设置无标题窗口</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setWindowFlags(Qt::Window | Qt::FramelessWindowHint);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>显示图片</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ui-&gt;label-&gt;setPixmap(QPixmap(<span class="string">":/4.jpg"</span>));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>信号与槽</p>
-<p>设置按钮名称为<code>BtnShowDialog</code> </p>
-<p>a. 自动绑定点击信号槽（特定的函数名）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">on_BtnShowDialog_clicked</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>b. 手动绑定点击信号与槽</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ShowDialog</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">connect</span>(ui-&gt;BtnShowDialog, SIGNAL(clicked()), <span class="keyword">this</span>, SLOT(showDialog()));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同步线程</p>
-<ul>
-<li><strong>QMutex</strong>互斥锁：只有一个资源，任何时间最多只有一个线程可以获取此锁</li>
-<li><strong>QReadWriteLock</strong>读写锁：分读访问与写访问，允许多个线程同时多数据进行读访问，代替QMutex使用可以提高多线程的并发度</li>
-<li><strong>QSemaphore</strong>信号量：有多个资源可以访问</li>
-<li><strong>QWaitCondition</strong>条件变量：允许一个线程在一些条件满足时唤醒其他线程</li>
-</ul>
-</li>
-<li><p>线程<strong>QObject::moveToThread</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QCoreApplication&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QObject&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QThread&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtCore/QDebug&gt; </span></span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dummy</span>:</span><span class="keyword">public</span> QObject </span><br><span class="line">&#123; </span><br><span class="line">    Q_OBJECT </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    Dummy(QObject* parent=<span class="number">0</span>):QObject(parent)     &#123;&#125; </span><br><span class="line"><span class="keyword">public</span> slots: </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">emitsig</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">        <span class="function">emit <span class="title">sig</span><span class="params">()</span></span>; </span><br><span class="line">    &#125; </span><br><span class="line">signals: </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sig</span><span class="params">()</span></span>; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span>:</span><span class="keyword">public</span> QObject </span><br><span class="line">&#123; </span><br><span class="line">    Q_OBJECT </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    Object()&#123;&#125; </span><br><span class="line"><span class="keyword">public</span> slots: </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">slot</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">    </span>&#123; </span><br><span class="line">        qDebug()&lt;&lt;<span class="string">"from thread slot:"</span> &lt;&lt;QThread::currentThreadId(); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"main.moc"</span> </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="function">QCoreApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>; </span><br><span class="line">    qDebug()&lt;&lt;<span class="string">"main thread:"</span>&lt;&lt;QThread::currentThreadId(); </span><br><span class="line">    QThread thread; </span><br><span class="line">    Object obj; </span><br><span class="line">    Dummy dummy; </span><br><span class="line">    obj.moveToThread(&amp;thread); </span><br><span class="line">    QObject::<span class="built_in">connect</span>(&amp;dummy, SIGNAL(sig()), &amp;obj, SLOT(slot())); </span><br><span class="line">    thread.start(); </span><br><span class="line">    dummy.emitsig(); </span><br><span class="line">    <span class="keyword">return</span> a.exec(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-</li>
-</ol>
 
     </div>
 
@@ -381,7 +351,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://www.yaronzz.com/post/qt_note/" title="Qt笔记">https://www.yaronzz.com/post/qt_note/</a>
+    <a href="https://www.yaronzz.com/post/qt_note/" title="Qt配置与常见问题">https://www.yaronzz.com/post/qt_note/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -467,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QT配置"><span class="nav-number">1.</span> <span class="nav-text">QT配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置代码片段"><span class="nav-number">1.1.</span> <span class="nav-text">设置代码片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#库编译与引用"><span class="nav-number">1.2.</span> <span class="nav-text">库编译与引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译库"><span class="nav-number">1.2.1.</span> <span class="nav-text">编译库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用库"><span class="nav-number">1.2.2.</span> <span class="nav-text">引用库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用SetObjectName无效"><span class="nav-number">2.1.</span> <span class="nav-text">调用SetObjectName无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译异常multiple-definition-of-qMain-int-char"><span class="nav-number">2.2.</span> <span class="nav-text">编译异常multiple definition of qMain(int, char**)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个pro项目管理"><span class="nav-number">2.3.</span> <span class="nav-text">多个pro项目管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QT知识点"><span class="nav-number">3.</span> <span class="nav-text">QT知识点</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#QT配置"><span class="nav-number">1.</span> <span class="nav-text">QT配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置代码片段"><span class="nav-number">1.1.</span> <span class="nav-text">设置代码片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个pro项目管理"><span class="nav-number">1.2.</span> <span class="nav-text">多个pro项目管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#库编译与引用"><span class="nav-number">1.3.</span> <span class="nav-text">库编译与引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译库"><span class="nav-number">1.3.1.</span> <span class="nav-text">编译库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用库"><span class="nav-number">1.3.2.</span> <span class="nav-text">引用库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用SetObjectName无效"><span class="nav-number">2.1.</span> <span class="nav-text">调用SetObjectName无效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译异常multiple-definition-of-qMain-int-char"><span class="nav-number">2.2.</span> <span class="nav-text">编译异常multiple definition of qMain(int, char**)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -543,7 +513,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">70k</span>
+    <span title="Symbols count total">69k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -654,7 +624,12 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 </body>
 </html>
 
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="yaronzz"
-        data-description="Support me on Buy me a coffee!"
-        data-message="Thank you for visiting!" data-color="#FF813f" data-position="left"
-        data-x_margin="30" data-y_margin="18"></script>
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('yaronzz', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support Me',
+    'floating-chat.donateButton.background-color': '#FF813f',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>

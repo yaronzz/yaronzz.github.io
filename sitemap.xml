@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/qt_note/</loc>
+    
+    <lastmod>2022-01-21T01:04:40.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/qt_qscrollarea/</loc>
+    
+    <lastmod>2022-01-21T01:04:40.737Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/regular_expression/</loc>
     
     <lastmod>2022-01-11T02:13:34.038Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://www.yaronzz.com/post/sqlite_note/</loc>
     
     <lastmod>2022-01-11T02:13:34.025Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/qt_note/</loc>
-    
-    <lastmod>2022-01-11T02:13:34.014Z</lastmod>
     
   </url>
   
