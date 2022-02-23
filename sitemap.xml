@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
+    
+    <lastmod>2022-02-23T02:55:54.820Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/cpp_nfs/</loc>
+    
+    <lastmod>2022-02-23T02:55:54.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/ss_install/</loc>
+    
+    <lastmod>2022-02-23T02:55:54.641Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/qt_note/</loc>
     
     <lastmod>2022-01-21T01:04:40.786Z</lastmod>
@@ -72,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
-    
-    <lastmod>2022-01-11T02:13:33.946Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.yaronzz.com/post/gdb_coreDump/</loc>
     
     <lastmod>2022-01-11T02:13:33.944Z</lastmod>
@@ -89,13 +103,6 @@
     <loc>https://www.yaronzz.com/post/cpp_json_class_conver/</loc>
     
     <lastmod>2022-01-11T02:13:33.935Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/cpp_nfs/</loc>
-    
-    <lastmod>2022-01-11T02:13:33.922Z</lastmod>
     
   </url>
   
