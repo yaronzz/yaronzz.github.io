@@ -155,9 +155,9 @@
             
             <tag> qt </tag>
             
-            <tag> vnc </tag>
-            
             <tag> arm </tag>
+            
+            <tag> vnc </tag>
             
         </tags>
       
@@ -636,31 +636,6 @@
     
     
     <entry>
-      <title>Typora快捷键</title>
-      <link href="/post/typora_keymap/"/>
-      <url>/post/typora_keymap/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Typora快捷键包括菜单栏、文件、编辑、段落、格式、视图等。</p><a id="more"></a><h2 id="一：菜单栏"><a href="#一：菜单栏" class="headerlink" title="一：菜单栏"></a>一：菜单栏</h2><ul><li>文件：alt+F</li><li>编辑：alt+</li><li>段落：alt+P</li><li>格式：alt+O</li><li>视图：alt+V</li><li>主题：alt+T</li><li>帮助：alt+H</li></ul><h2 id="二：文件"><a href="#二：文件" class="headerlink" title="二：文件"></a>二：文件</h2><ul><li>新建：Ctrl+N</li><li>新建窗口：Ctrl+Shift+N</li><li>打开：Ctrl+O</li><li>快速打开：Ctrl+P</li><li>保存：Ctrl+S</li><li>另存为：Ctrl+Shift+S</li><li>偏好：Ctrl+,</li><li>关闭：Ctrl+W</li></ul><h2 id="三：编辑"><a href="#三：编辑" class="headerlink" title="三：编辑"></a>三：编辑</h2><ul><li>撤销：Ctrl+Z</li><li>重做：Ctrl+Y</li><li>剪切：Ctrl+X</li><li>复制：Ctrl+C</li><li>粘贴：Ctrl+V</li><li>插入链接：Ctrl+K</li><li>复制为MarkDown：Ctrl+Shift+C</li><li>粘贴为纯文本：Ctrl+Shift+V</li><li>全选：Ctrl+A</li><li>选中当前行/句：Ctrl+L</li><li>选中当前格式文本：Ctrl+E</li><li>选中当前词：Ctrl+D</li><li>跳转到文首：Ctrl+Home</li><li>跳转到所选内容：Ctrl+J</li><li>跳转到文末：Ctrl+End</li><li>查找：Ctrl+F</li><li>查找下一个：F3</li><li>查找上一个：Shift+F3</li><li>替换：Ctrl+H</li></ul><h2 id="四：段落"><a href="#四：段落" class="headerlink" title="四：段落"></a>四：段落</h2><ul><li>标题：Ctrl+1/2/3/4/5</li><li>段落：Ctrl+0</li><li>增大标题级别：Ctrl+=</li><li>减少标题级别：Ctrl+-</li><li>表格：Ctrl+T</li><li>代码块：Ctrl+Shift+K</li><li>公式块：Ctrl+Shift+M</li><li>引用：Ctrl+Shift+Q</li><li>有序列表：Ctrl+Shift+[</li><li>无序列表：Ctrl+Shift+]</li><li>增加缩进：Ctrl+]</li><li>减少缩进：Ctrl+[</li></ul><h2 id="五：格式"><a href="#五：格式" class="headerlink" title="五：格式"></a>五：格式</h2><ul><li>加粗：Ctrl+B</li><li>斜体：Ctrl+I</li><li>下划线：Ctrl+U</li><li>代码：Ctrl+Shift+`</li><li>删除线：Alt+Shift+5</li><li>超链接：Ctrl+K</li><li>图像：Ctrl+Shift+I</li><li>清除样式：Ctrl+</li></ul><h2 id="六：视图"><a href="#六：视图" class="headerlink" title="六：视图"></a>六：视图</h2><ul><li>显示隐藏侧边栏：Ctrl+Shift+L</li><li>大纲视图：Ctrl+Shift+1</li><li>文档列表视图：Ctrl+Shift+2</li><li>文件树视图：Ctrl+Shift+3</li><li>源代码模式：Ctrl+/</li><li>专注模式：F8</li><li>打字机模式：F9</li><li>切换全屏：F11</li><li>实际大小：Ctrl+Shift+0</li><li>放大：Ctrl+Shift+=</li><li>缩小：Ctrl+Shift+-</li><li>应用内窗口切换：Ctrl+Tab</li><li>打开DevTools：Shift+F12</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 软件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> typora </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Office365家庭版却需要激活专业增强版的解决办法</title>
       <link href="/post/office365/"/>
       <url>/post/office365/</url>
@@ -678,6 +653,31 @@
         <tags>
             
             <tag> office </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Typora快捷键</title>
+      <link href="/post/typora_keymap/"/>
+      <url>/post/typora_keymap/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Typora快捷键包括菜单栏、文件、编辑、段落、格式、视图等。</p><a id="more"></a><h2 id="一：菜单栏"><a href="#一：菜单栏" class="headerlink" title="一：菜单栏"></a>一：菜单栏</h2><ul><li>文件：alt+F</li><li>编辑：alt+</li><li>段落：alt+P</li><li>格式：alt+O</li><li>视图：alt+V</li><li>主题：alt+T</li><li>帮助：alt+H</li></ul><h2 id="二：文件"><a href="#二：文件" class="headerlink" title="二：文件"></a>二：文件</h2><ul><li>新建：Ctrl+N</li><li>新建窗口：Ctrl+Shift+N</li><li>打开：Ctrl+O</li><li>快速打开：Ctrl+P</li><li>保存：Ctrl+S</li><li>另存为：Ctrl+Shift+S</li><li>偏好：Ctrl+,</li><li>关闭：Ctrl+W</li></ul><h2 id="三：编辑"><a href="#三：编辑" class="headerlink" title="三：编辑"></a>三：编辑</h2><ul><li>撤销：Ctrl+Z</li><li>重做：Ctrl+Y</li><li>剪切：Ctrl+X</li><li>复制：Ctrl+C</li><li>粘贴：Ctrl+V</li><li>插入链接：Ctrl+K</li><li>复制为MarkDown：Ctrl+Shift+C</li><li>粘贴为纯文本：Ctrl+Shift+V</li><li>全选：Ctrl+A</li><li>选中当前行/句：Ctrl+L</li><li>选中当前格式文本：Ctrl+E</li><li>选中当前词：Ctrl+D</li><li>跳转到文首：Ctrl+Home</li><li>跳转到所选内容：Ctrl+J</li><li>跳转到文末：Ctrl+End</li><li>查找：Ctrl+F</li><li>查找下一个：F3</li><li>查找上一个：Shift+F3</li><li>替换：Ctrl+H</li></ul><h2 id="四：段落"><a href="#四：段落" class="headerlink" title="四：段落"></a>四：段落</h2><ul><li>标题：Ctrl+1/2/3/4/5</li><li>段落：Ctrl+0</li><li>增大标题级别：Ctrl+=</li><li>减少标题级别：Ctrl+-</li><li>表格：Ctrl+T</li><li>代码块：Ctrl+Shift+K</li><li>公式块：Ctrl+Shift+M</li><li>引用：Ctrl+Shift+Q</li><li>有序列表：Ctrl+Shift+[</li><li>无序列表：Ctrl+Shift+]</li><li>增加缩进：Ctrl+]</li><li>减少缩进：Ctrl+[</li></ul><h2 id="五：格式"><a href="#五：格式" class="headerlink" title="五：格式"></a>五：格式</h2><ul><li>加粗：Ctrl+B</li><li>斜体：Ctrl+I</li><li>下划线：Ctrl+U</li><li>代码：Ctrl+Shift+`</li><li>删除线：Alt+Shift+5</li><li>超链接：Ctrl+K</li><li>图像：Ctrl+Shift+I</li><li>清除样式：Ctrl+</li></ul><h2 id="六：视图"><a href="#六：视图" class="headerlink" title="六：视图"></a>六：视图</h2><ul><li>显示隐藏侧边栏：Ctrl+Shift+L</li><li>大纲视图：Ctrl+Shift+1</li><li>文档列表视图：Ctrl+Shift+2</li><li>文件树视图：Ctrl+Shift+3</li><li>源代码模式：Ctrl+/</li><li>专注模式：F8</li><li>打字机模式：F9</li><li>切换全屏：F11</li><li>实际大小：Ctrl+Shift+0</li><li>放大：Ctrl+Shift+=</li><li>缩小：Ctrl+Shift+-</li><li>应用内窗口切换：Ctrl+Tab</li><li>打开DevTools：Shift+F12</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> typora </tag>
             
         </tags>
       
@@ -740,33 +740,6 @@
     
     
     <entry>
-      <title>VS调试Linux程序环境配置</title>
-      <link href="/post/vs_linux_debug/"/>
-      <url>/post/vs_linux_debug/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol><li><p>Linux安装调试器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server g++ gdb gdbserver</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="2"><li><p>Windows环境配置</p><ul><li><p>Linux C++调试组件安装</p><p><img src="https://i.loli.net/2020/06/22/1dVF5TKPo3W8tsp.png" alt="vstool"></p></li><li><p>Linux头文件拷贝到Windows</p><p>Linux的头文件目录为：/usr/include   </p><p>Windows的目录为：安装目录\Common7\IDE\VC\Linux\include\usr\include</p><p>注：拷贝之前最好先备份一下windows的头文件目录</p></li><li><p>VS配置</p><p>增加Linux程序编译时的信息输出，以便更容易查看错误信息，打开路径”菜单-工具-选项-项目和解决方案-生成并运行”，更改MSBuild的两个选项改为普通</p><p><img src="https://i.loli.net/2020/06/22/3HrUAYFdV6GE4lh.png" alt="MSBuild"></p><p>添加Linux的IP与端口，使用SSH连接，打开路径”菜单-工具-选项-Cross Platform”</p><p><img src="https://i.loli.net/2020/06/22/yoaX9reUzTCVWKQ.png" alt="linuxssh"></p></li></ul></li></ol><h2 id="测试工程"><a href="#测试工程" class="headerlink" title="测试工程"></a>测试工程</h2><ol><li><p>新建Linux工程</p><p><img src="https://i.loli.net/2020/06/22/FdYG23qugl7bZEy.png" alt="linuxpro"></p></li><li><p>测试代码</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">func</span><span class="params">(<span class="keyword">void</span>* arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"HELLO WORLD - VS LINUX!"</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="keyword">pthread_t</span> handle;</span><br><span class="line">       pthread_create(&amp;handle, <span class="literal">NULL</span>, func,<span class="literal">NULL</span>);</span><br><span class="line">       pthread_join(handle, <span class="literal">NULL</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改项目配置</p><ul><li><p>路径：右键项目-属性-C/C++-所有选项 </p><p> a. 检查linux是否支持C11，如果不支持的话，要改为C99之类</p><p> b. 附加选项增加多线程所需要的标识‘-lphread’</p></li><li><p>路径：右键项目-属性-链接器-所有选项 </p><p> a. 附加选项增加多线程所需要的标识‘-lphread’</p></li><li><p>路径：右键项目-属性-常规  </p><p> a. 远程生成根目录（默认生成地址为~/project，这里可以修改成自己的专属目录地址）</p></li><li><p>路径：右键项目-属性-调试  </p><p> a. 调试模式（默认为gdbserver，需要看看自己的linux是否支持，如果不支持要改成gdb）</p><p> <img src="https://i.loli.net/2020/06/22/wQSsTkGa6IhZKyu.png" alt="vsset1"></p><p> <img src="https://i.loli.net/2020/06/22/h8iqXyV3cE7mBOa.png" alt="vsset2"></p><p> <img src="https://i.loli.net/2020/06/22/XvDc982jJdqg7C6.png" alt="vsset3"></p></li></ul></li><li><p>调试</p><p>路径：菜单-调试-linux console，可以查看printf输出的信息，linux上需要安装gdbserver才能看到输出的信息</p></li><li><p>链接库的配置</p><p>比如：工程需要链接静态库  /root/projects/xxxxxxxx.a</p><p><img src="https://i.loli.net/2020/06/22/fqjKJQx7EPCIXWv.png" alt="vslib"></p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> settings </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> linux </tag>
-            
-            <tag> vs </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vscode-Lua环境安装</title>
       <link href="/post/vscode_lua/"/>
       <url>/post/vscode_lua/</url>
@@ -786,6 +759,33 @@
             <tag> vs </tag>
             
             <tag> lua </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VS调试Linux程序环境配置</title>
+      <link href="/post/vs_linux_debug/"/>
+      <url>/post/vs_linux_debug/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol><li><p>Linux安装调试器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server g++ gdb gdbserver</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="2"><li><p>Windows环境配置</p><ul><li><p>Linux C++调试组件安装</p><p><img src="https://i.loli.net/2020/06/22/1dVF5TKPo3W8tsp.png" alt="vstool"></p></li><li><p>Linux头文件拷贝到Windows</p><p>Linux的头文件目录为：/usr/include   </p><p>Windows的目录为：安装目录\Common7\IDE\VC\Linux\include\usr\include</p><p>注：拷贝之前最好先备份一下windows的头文件目录</p></li><li><p>VS配置</p><p>增加Linux程序编译时的信息输出，以便更容易查看错误信息，打开路径”菜单-工具-选项-项目和解决方案-生成并运行”，更改MSBuild的两个选项改为普通</p><p><img src="https://i.loli.net/2020/06/22/3HrUAYFdV6GE4lh.png" alt="MSBuild"></p><p>添加Linux的IP与端口，使用SSH连接，打开路径”菜单-工具-选项-Cross Platform”</p><p><img src="https://i.loli.net/2020/06/22/yoaX9reUzTCVWKQ.png" alt="linuxssh"></p></li></ul></li></ol><h2 id="测试工程"><a href="#测试工程" class="headerlink" title="测试工程"></a>测试工程</h2><ol><li><p>新建Linux工程</p><p><img src="https://i.loli.net/2020/06/22/FdYG23qugl7bZEy.png" alt="linuxpro"></p></li><li><p>测试代码</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="title">func</span><span class="params">(<span class="keyword">void</span>* arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"HELLO WORLD - VS LINUX!"</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">       <span class="keyword">pthread_t</span> handle;</span><br><span class="line">       pthread_create(&amp;handle, <span class="literal">NULL</span>, func,<span class="literal">NULL</span>);</span><br><span class="line">       pthread_join(handle, <span class="literal">NULL</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>修改项目配置</p><ul><li><p>路径：右键项目-属性-C/C++-所有选项 </p><p> a. 检查linux是否支持C11，如果不支持的话，要改为C99之类</p><p> b. 附加选项增加多线程所需要的标识‘-lphread’</p></li><li><p>路径：右键项目-属性-链接器-所有选项 </p><p> a. 附加选项增加多线程所需要的标识‘-lphread’</p></li><li><p>路径：右键项目-属性-常规  </p><p> a. 远程生成根目录（默认生成地址为~/project，这里可以修改成自己的专属目录地址）</p></li><li><p>路径：右键项目-属性-调试  </p><p> a. 调试模式（默认为gdbserver，需要看看自己的linux是否支持，如果不支持要改成gdb）</p><p> <img src="https://i.loli.net/2020/06/22/wQSsTkGa6IhZKyu.png" alt="vsset1"></p><p> <img src="https://i.loli.net/2020/06/22/h8iqXyV3cE7mBOa.png" alt="vsset2"></p><p> <img src="https://i.loli.net/2020/06/22/XvDc982jJdqg7C6.png" alt="vsset3"></p></li></ul></li><li><p>调试</p><p>路径：菜单-调试-linux console，可以查看printf输出的信息，linux上需要安装gdbserver才能看到输出的信息</p></li><li><p>链接库的配置</p><p>比如：工程需要链接静态库  /root/projects/xxxxxxxx.a</p><p><img src="https://i.loli.net/2020/06/22/fqjKJQx7EPCIXWv.png" alt="vslib"></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> settings </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> vs </tag>
             
         </tags>
       
