@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。默认情况下，DHCP作为Windows Server的一个服务组件不会被系统自动安装，还需要管理员手动安装并进行必要的配置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DHCP局域网协议使用教程">
+<meta property="og:url" content="https://www.yaronzz.com/post/dhcp_use/index.html">
+<meta property="og:site_name" content="Yaronzz">
+<meta property="og:description" content="DHCP（动态主机配置协议）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。默认情况下，DHCP作为Windows Server的一个服务组件不会被系统自动安装，还需要管理员手动安装并进行必要的配置。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-25T02:52:20.000Z">
+<meta property="article:modified_time" content="2022-02-25T02:53:59.322Z">
+<meta property="article:author" content="YaornzZ">
+<meta property="article:tag" content="network">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>DHCP局域网协议使用教程</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Yaronzz" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/post/github_git/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/dhcp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/dhcp_use/&text=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/dhcp_use/&is_video=false&description=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DHCP局域网协议使用教程&body=Check out this article: https://www.yaronzz.com/post/dhcp_use/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/dhcp_use/&name=DHCP局域网协议使用教程&description=&lt;p&gt;DHCP（&lt;a href=&#34;https://baike.baidu.com/item/动态主机配置协议/10778663&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;动态主机配置协议&lt;/a&gt;）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。默认情况下，DHCP作为Windows Server的一个服务组件不会被系统自动安装，还需要管理员手动安装并进行必要的配置。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/dhcp_use/&t=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端模式"><span class="toc-number">1.</span> <span class="toc-text">客户端模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端模式"><span class="toc-number">2.</span> <span class="toc-text">服务端模式</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        DHCP局域网协议使用教程
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">YaornzZ</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-02-25T02:52:20.000Z" itemprop="datePublished">2022-02-25</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/network/" rel="tag">network</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>DHCP（<a href="https://baike.baidu.com/item/动态主机配置协议/10778663" target="_blank" rel="noopener">动态主机配置协议</a>）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。默认情况下，DHCP作为Windows Server的一个服务组件不会被系统自动安装，还需要管理员手动安装并进行必要的配置。</p>
+<a id="more"></a>
+
+<h2 id="客户端模式"><a href="#客户端模式" class="headerlink" title="客户端模式"></a>客户端模式</h2><p>作为客户端接入DHCP服务：连接路由器，使用自动IP搜索功能：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span> ~]<span class="comment">#/sbin/udhcpc</span></span><br><span class="line">udhcpc (v1.22.1) started</span><br><span class="line">Setting IP address 0.0.0.0 on eth0</span><br><span class="line">Sending discover...</span><br><span class="line">Sending select <span class="keyword">for</span> 192.168.0.233...</span><br><span class="line">Lease of 192.168.0.233 obtained, lease time 7200</span><br><span class="line">Setting IP address 192.168.0.233 on eth0</span><br><span class="line">Deleting routers</span><br><span class="line">route: SIOCDELRT: No such process</span><br><span class="line">Adding router 192.168.1.1</span><br><span class="line">Recreating /etc/resolv.conf</span><br><span class="line"> Adding DNS server 114.114.114.114</span><br><span class="line"> Adding DNS server 223.5.5.5</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务端模式"><a href="#服务端模式" class="headerlink" title="服务端模式"></a>服务端模式</h2><p>作为DHCP服务，可以与其他客户端通过网线直连：</p>
+<ol>
+<li><p>关闭<code>dhcpc</code>自动IP搜索功能</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall -9 udhcpc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置本地静态IP地址</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 192.168.32.10 netmask 255.255.254.0</span><br></pre></td></tr></table></figure>
+
+<p>eth0: 本地使用的网卡</p>
+<p>192.168.32.10: 本地使用的IP地址</p>
+</li>
+<li><p>配置DHCP服务：<code>vi /etc/udhcpd.conf</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sample udhcpd configuration file (/etc/udhcpd.conf)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The start and end of the IP lease block</span></span><br><span class="line"></span><br><span class="line">start		192.168.32.20	#客户端的起始地址</span><br><span class="line">end		192.168.32.254	#客户端的结束地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The interface that udhcpd will use</span></span><br><span class="line"></span><br><span class="line">interface	eth0		#网卡</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The maximim number of leases (includes addressesd reserved</span></span><br><span class="line"><span class="comment"># by OFFER's, DECLINE's, and ARP conficts</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#max_leases	254		#default: 254</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># If remaining is true (default), udhcpd will store the time</span></span><br><span class="line"><span class="comment"># remaining for each lease in the udhcpd leases file. This is</span></span><br><span class="line"><span class="comment"># for embedded systems that cannot keep time between reboots.</span></span><br><span class="line"><span class="comment"># If you set remaining to no, the absolute time that the lease</span></span><br><span class="line"><span class="comment"># expires at will be stored in the dhcpd.leases file.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#remaining	yes		#default: yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The time period at which udhcpd will write out a dhcpd.leases</span></span><br><span class="line"><span class="comment"># file. If this is 0, udhcpd will never automatically write a</span></span><br><span class="line"><span class="comment"># lease file. (specified in seconds)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#auto_time	7200		#default: 7200 (2 hours)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The amount of time that an IP will be reserved (leased) for if a</span></span><br><span class="line"><span class="comment"># DHCP decline message is received (seconds).</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#decline_time	3600		#default: 3600 (1 hour)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The amount of time that an IP will be reserved (leased) for if an</span></span><br><span class="line"><span class="comment"># ARP conflct occurs. (seconds</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#conflict_time	3600		#default: 3600 (1 hour)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># How long an offered address is reserved (leased) in seconds</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#offer_time	60		#default: 60 (1 minute)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If a lease to be given is below this value, the full lease time is</span></span><br><span class="line"><span class="comment"># instead used (seconds).</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#min_lease	60		#defult: 60</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># The location of the leases file</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#lease_file	/var/lib/misc/udhcpd.leases	#defualt: /var/lib/misc/udhcpd.leases</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The location of the pid file</span></span><br><span class="line"><span class="comment">#pidfile	/var/run/udhcpd.pid	#default: /var/run/udhcpd.pid</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Everytime udhcpd writes a leases file, the below script will be called.</span></span><br><span class="line"><span class="comment"># Useful for writing the lease file to flash every few hours.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#notify_file				#default: (no script)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#notify_file	dumpleases	# &lt;--- useful for debugging</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The following are bootp specific options, setable by udhcpd.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#siaddr		192.168.0.22		#default: 0.0.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sname		zorak			#default: (none)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#boot_file	/var/nfs_root		#default: (none)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The remainer of options are DHCP options and can be specifed with the</span></span><br><span class="line"><span class="comment"># keyword 'opt' or 'option'. If an option can take multiple items, such</span></span><br><span class="line"><span class="comment"># as the dns option, they can be listed on the same line, or multiple</span></span><br><span class="line"><span class="comment"># lines. The only option with a default is 'lease'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Examles</span></span><br><span class="line">opt	dns	114.114.114.114 223.5.5.5 #192.168.10.2 192.168.10.10</span><br><span class="line">option	subnet	255.255.255.0</span><br><span class="line">opt	router	192.168.32.10</span><br><span class="line"><span class="comment">#opt	wins	192.168.10.10</span></span><br><span class="line">option	dns	192.168.32.10 #129.219.13.81	# appened to above DNS servers for a total of 3</span><br><span class="line">option	domain	local</span><br><span class="line">option	lease	864000		# 10 days of seconds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Currently supported options, for more info, see options.c</span></span><br><span class="line"><span class="comment">#opt subnet</span></span><br><span class="line"><span class="comment">#opt timezone</span></span><br><span class="line"><span class="comment">#opt router</span></span><br><span class="line"><span class="comment">#opt timesrv</span></span><br><span class="line"><span class="comment">#opt namesrv</span></span><br><span class="line"><span class="comment">#opt dns</span></span><br><span class="line"><span class="comment">#opt logsrv</span></span><br><span class="line"><span class="comment">#opt cookiesrv</span></span><br><span class="line"><span class="comment">#opt lprsrv</span></span><br><span class="line"><span class="comment">#opt bootsize</span></span><br><span class="line"><span class="comment">#opt domain</span></span><br><span class="line"><span class="comment">#opt swapsrv</span></span><br><span class="line"><span class="comment">#opt rootpath</span></span><br><span class="line"><span class="comment">#opt ipttl</span></span><br><span class="line"><span class="comment">#opt mtu</span></span><br><span class="line"><span class="comment">#opt broadcast</span></span><br><span class="line"><span class="comment">#opt wins</span></span><br><span class="line"><span class="comment">#opt lease</span></span><br><span class="line"><span class="comment">#opt ntpsrv</span></span><br><span class="line"><span class="comment">#opt tftp</span></span><br><span class="line"><span class="comment">#opt bootfile</span></span><br><span class="line"><span class="comment">#opt wpad</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Static leases map</span></span><br><span class="line"><span class="comment">#static_lease 00:60:08:11:CE:4E 192.168.0.54</span></span><br><span class="line"><span class="comment">#static_lease 00:60:08:11:CE:3E 192.168.0.44</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动DHCP服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">udhcpd -fS -I 192.168.32.10 /etc/udhcpd.conf</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端模式"><span class="toc-number">1.</span> <span class="toc-text">客户端模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端模式"><span class="toc-number">2.</span> <span class="toc-text">服务端模式</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/dhcp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/dhcp_use/&text=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/dhcp_use/&is_video=false&description=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=DHCP局域网协议使用教程&body=Check out this article: https://www.yaronzz.com/post/dhcp_use/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/dhcp_use/&title=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/dhcp_use/&name=DHCP局域网协议使用教程&description=&lt;p&gt;DHCP（&lt;a href=&#34;https://baike.baidu.com/item/动态主机配置协议/10778663&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;动态主机配置协议&lt;/a&gt;）是一个局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务器时就可以自动获得服务器分配的IP地址和子网掩码。默认情况下，DHCP作为Windows Server的一个服务组件不会被系统自动安装，还需要管理员手动安装并进行必要的配置。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/dhcp_use/&t=DHCP局域网协议使用教程" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    YaornzZ
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  <div class="busuanzi-count">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
+    <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+</footer>
+
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f8585e10587ae42d33179ecfef2e506a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="yaronzz" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5"
+    data-position="Right" data-x_margin="18" data-y_margin="18"></script>
