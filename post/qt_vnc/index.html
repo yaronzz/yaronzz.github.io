@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/11/18/J6a4LokphVfqA9U.png">
 <meta property="article:published_time" content="2021-12-23T01:03:30.000Z">
-<meta property="article:modified_time" content="2022-02-23T02:55:54.923Z">
+<meta property="article:modified_time" content="2022-02-25T06:37:24.782Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="qt">
 <meta property="article:tag" content="vnc">
@@ -232,7 +232,7 @@
 <ol start="2">
 <li>检查qt库安装目录下插件<code>plugins</code>文件夹中<code>platforms</code>目录是否有vnc动态库<code>libqvnc.so</code></li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ls /usr/lib/qt5.8/plugins/platforms/</span></span><br><span class="line">libqeglfs.so       libqminimal.so     libqoffscreen.so</span><br><span class="line">libqlinuxfb.so     libqminimalegl.so  libqvnc.so</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls /usr/lib/qt5.8/plugins/platforms/</span></span><br><span class="line">libqeglfs.so       libqminimal.so     libqoffscreen.so</span><br><span class="line">libqlinuxfb.so     libqminimalegl.so  libqvnc.so</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：</strong>QT提供的VNC服务比较简单，只支持一些基本的功能，另外老版本的VNC中也有一些BUG可能会造成崩溃，所以最好还是尽量使用新版本。</p>
 <h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><h3 id="QT程序启动vnc服务"><a href="#QT程序启动vnc服务" class="headerlink" title="QT程序启动vnc服务"></a>QT程序启动vnc服务</h3><ol>
