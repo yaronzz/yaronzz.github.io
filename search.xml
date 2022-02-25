@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Github配置仓库Git环境</title>
+      <link href="/post/github_git/"/>
+      <url>/post/github_git/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将代码提交到Github时，突然报错：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  RemoteWorking git:(master) git push</span><br><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">'https://github.com/yaronzz/xxxxx.git/'</span></span><br></pre></td></tr></table></figure><p>这是由于Github提高了仓库的安全性，访问仓库时需要提供令牌<code>token</code></p><a id="more"></a><h2 id="生成token"><a href="#生成token" class="headerlink" title="生成token"></a>生成token</h2><ol><li>访问<a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal Access Tokens (github.com)</a> ，点击生成新token</li></ol><p><img src="https://s2.loli.net/2022/02/25/yOkslXtLSf4WdTq.png" alt="image-20220225095049918"></p><ol start="2"><li>配置名称、有效期、访问权限</li></ol><p><img src="https://s2.loli.net/2022/02/25/AFh7VxdQlMCi6eL.png" alt="image-20220225095152285"></p><ol start="3"><li>点击复制<code>token</code>，此token只能查看一次，最好自己保存到其他地方</li></ol><p><img src="https://s2.loli.net/2022/02/25/4jyWiXASvoMr5g3.png" alt="image-20220225095350129"></p><h2 id="使用token"><a href="#使用token" class="headerlink" title="使用token"></a>使用token</h2><p>重新设置git的远程地址：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin https://&lt;你的token&gt;@github.com/&lt;你的github名称&gt;/&lt;你的仓库名&gt;.git</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux安装ss客户端</title>
       <link href="/post/ss_install/"/>
       <url>/post/ss_install/</url>
