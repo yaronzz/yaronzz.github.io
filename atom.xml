@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.yaronzz.com/"/>
-  <updated>2022-02-25T06:37:24.753Z</updated>
+  <updated>2022-02-28T09:38:04.086Z</updated>
   <id>https://www.yaronzz.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux不同网段网络通信</title>
+    <link href="https://www.yaronzz.com/post/linux_netmask/"/>
+    <id>https://www.yaronzz.com/post/linux_netmask/</id>
+    <published>2022-02-28T09:26:17.000Z</published>
+    <updated>2022-02-28T09:38:04.086Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有两台机子，各自设置了静态 IP：</p><ul><li>A 机：<code>ifconfig eth0 192.168.32.10 netmask 255.255.254.0</code></li><li>B 机：<code>ifconfig eth0 192.168.1.15 netmask 255.255.254.0</code></li></ul><p>A 机 Ping B 机时，显示异常：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span>]<span class="comment"># ping 192.168.1.15</span></span><br><span class="line">PING 192.168.1.15 (192.168.1.15): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br></pre></td></tr></table></figure><p>需要在不改变 AB 机 IP 的情况下，让网络互通。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li><p>设置掩码为<code>255.255.192.0</code>，从而在二层打通 192.168.0.0 - 192.168.63.255 ，两个设备间可以走二层直接交付</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ifconfig eth0 192.168.32.10 netmask 255.255.192.0</span><br><span class="line"><span class="comment"># B机</span></span><br><span class="line">ifconfig eth0 192.168.1.15 netmask 255.255.192.0</span><br></pre></td></tr></table></figure></li><li><p>设置静态路由：</p><p>由于掩码是 23 位，A 机所在局域网 IP 地址范围是 192.168.32.1 ~ 192.168.33.254 (0 和 255 一般不分配给主机)，B 机所在局域网 IP 地址范围是 192.168.1.1 ~ 192.168.2.254。所以不是同一个 network ，网络不可达，无法 ping 通，只能在 A 机上添加一条到 B 机 network 的静态路由，并且在 B 机器上添加 A 机器的 static route </p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ip route add 192.168.0.0/23 dev eth0</span><br><span class="line"><span class="comment"># B机 </span></span><br><span class="line">ip route add 192.168.32.0/23 dev eth0</span><br></pre></td></tr></table></figure></li></ol><p><strong>参考：</strong><a href="https://www.v2ex.com/t/836870#reply11" target="_blank" rel="noopener">请教大佬一个关于网络的问题 - V2EX</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="code" scheme="https://www.yaronzz.com/categories/code/"/>
+    
+    
+      <category term="linux" scheme="https://www.yaronzz.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>DHCP局域网协议使用教程</title>
@@ -603,29 +629,6 @@
     
     
       <category term="windows" scheme="https://www.yaronzz.com/tags/windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>个人网盘搭建</title>
-    <link href="https://www.yaronzz.com/post/cloud_drive/"/>
-    <id>https://www.yaronzz.com/post/cloud_drive/</id>
-    <published>2021-03-11T02:47:20.000Z</published>
-    <updated>2022-02-25T06:37:24.740Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>个人网盘的搭建需要先搭建环境，再安装网盘程序。环境的搭建一般使用宝塔面板，网盘程序选择Cloudreve，功能全面，界面简洁而且更新频率高。</p><a id="more"></a><h2 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h2><h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><ol><li><code>Centos7.1+</code></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure><ol start="2"><li><code>Ubuntu16.04+</code></li></ol><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure><h3 id="组件安装"><a href="#组件安装" class="headerlink" title="组件安装"></a>组件安装</h3><ol><li>套件安装，选择Mysql，PHP，Nginx</li><li>扩展安装<code>首页 → php-X.X → 安装扩展fileinfo</code></li></ol><p><img src="https://i.loli.net/2021/06/08/ELbwsyxKgkAMCV5.png" alt="21"></p><p><img src="https://img-blog.csdnimg.cn/20201113182625409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3M3Nzc3Nzc3Nzc3Nzc3,size_16,color_FFFFFF,t_70#pic_center" alt="5"></p><h3 id="创建网站"><a href="#创建网站" class="headerlink" title="创建网站"></a>创建网站</h3><p><img src="https://i.loli.net/2021/06/08/FETWIXjuLDpsyb7.png" alt="3"></p><h2 id="Cloudreve安装"><a href="#Cloudreve安装" class="headerlink" title="Cloudreve安装"></a>Cloudreve安装</h2><h3 id="下载版本"><a href="#下载版本" class="headerlink" title="下载版本"></a>下载版本</h3><p>下载地址：Github网址：<a href="https://github.com/cloudreve/Cloudreve/releases" target="_blank" rel="noopener">Releases · cloudreve/Cloudreve (github.com)</a></p><p>下载版本：linux_amd64</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cloudreve/Cloudreve/releases/download/3.3.1/cloudreve_3.3.1_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure><h3 id="安装SSL证书"><a href="#安装SSL证书" class="headerlink" title="安装SSL证书"></a>安装SSL证书</h3><p>如果网盘地址想用https，则需要安装SSL证书</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><p>获取证书</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue -d os.yaronzz.com -w &#x2F;www&#x2F;wwwroot&#x2F;cloud</span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2021/06/08/MEqVj7nTrBQSlF9.png" alt="image-20210608105833651"></p><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p><img src="https://i.loli.net/2021/06/08/WDhlmriaSNb9HTB.png" alt="image-20210608105906895"></p><h3 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h3><p>aria2用于离线下载资源，cloudreve可以直接下载磁力链接资源，并上传到onedrive</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</span><br></pre></td></tr></table></figure><ul><li>启动：<code>service aria2 start</code></li><li>停止：<code>service aria2 stop</code></li><li>重启：<code>service aria2 restart</code></li><li>查看状态：<code>service aria2 status</code></li><li>配置文件：/root/.aria2/aria2.conf（配置文件包含中文注释，但是一些系统可能不支持显示中文）</li><li>下载目录：/usr/local/caddy/www/aria2/Download</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;个人网盘的搭建需要先搭建环境，再安装网盘程序。环境的搭建一般使用宝塔面板，网盘程序选择Cloudreve，功能全面，界面简洁而且更新频率高。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="建站" scheme="https://www.yaronzz.com/categories/%E5%BB%BA%E7%AB%99/"/>
-    
-    
-      <category term="cloudreve" scheme="https://www.yaronzz.com/tags/cloudreve/"/>
     
   </entry>
   

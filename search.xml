@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux不同网段网络通信</title>
+      <link href="/post/linux_netmask/"/>
+      <url>/post/linux_netmask/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有两台机子，各自设置了静态 IP：</p><ul><li>A 机：<code>ifconfig eth0 192.168.32.10 netmask 255.255.254.0</code></li><li>B 机：<code>ifconfig eth0 192.168.1.15 netmask 255.255.254.0</code></li></ul><p>A 机 Ping B 机时，显示异常：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span>]<span class="comment"># ping 192.168.1.15</span></span><br><span class="line">PING 192.168.1.15 (192.168.1.15): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br></pre></td></tr></table></figure><p>需要在不改变 AB 机 IP 的情况下，让网络互通。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol><li><p>设置掩码为<code>255.255.192.0</code>，从而在二层打通 192.168.0.0 - 192.168.63.255 ，两个设备间可以走二层直接交付</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ifconfig eth0 192.168.32.10 netmask 255.255.192.0</span><br><span class="line"><span class="comment"># B机</span></span><br><span class="line">ifconfig eth0 192.168.1.15 netmask 255.255.192.0</span><br></pre></td></tr></table></figure></li><li><p>设置静态路由：</p><p>由于掩码是 23 位，A 机所在局域网 IP 地址范围是 192.168.32.1 ~ 192.168.33.254 (0 和 255 一般不分配给主机)，B 机所在局域网 IP 地址范围是 192.168.1.1 ~ 192.168.2.254。所以不是同一个 network ，网络不可达，无法 ping 通，只能在 A 机上添加一条到 B 机 network 的静态路由，并且在 B 机器上添加 A 机器的 static route </p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ip route add 192.168.0.0/23 dev eth0</span><br><span class="line"><span class="comment"># B机 </span></span><br><span class="line">ip route add 192.168.32.0/23 dev eth0</span><br></pre></td></tr></table></figure></li></ol><p><strong>参考：</strong><a href="https://www.v2ex.com/t/836870#reply11" target="_blank" rel="noopener">请教大佬一个关于网络的问题 - V2EX</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DHCP局域网协议使用教程</title>
       <link href="/post/dhcp_use/"/>
       <url>/post/dhcp_use/</url>
