@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.yaronzz.com/post/python_note/</loc>
+    <lastmod>2022-03-24</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/python_string/</loc>
+    <lastmod>2022-03-24</lastmod>
+  </url>  <url>
     <loc>https://www.yaronzz.com/post/linux_netmask/</loc>
     <lastmod>2022-02-28</lastmod>
   </url>  <url>
@@ -26,12 +32,6 @@
     <lastmod>2022-02-25</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/sqlite_note/</loc>
-    <lastmod>2022-02-25</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/python_note/</loc>
-    <lastmod>2022-02-25</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/python_string/</loc>
     <lastmod>2022-02-25</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
