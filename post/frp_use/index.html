@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。frp提供跨平台的客户端与服务端，开源免费，地址：frp (github.com) 根据系统版本，下载不同的文件并解压如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="frp内网穿透">
+<meta property="og:url" content="https://www.yaronzz.com/post/frp_use/index.html">
+<meta property="og:site_name" content="Yaronzz">
+<meta property="og:description" content="frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。frp提供跨平台的客户端与服务端，开源免费，地址：frp (github.com) 根据系统版本，下载不同的文件并解压如下：">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/03/30/VYOMHWu3AglD8t2.png">
+<meta property="article:published_time" content="2022-03-30T10:00:20.000Z">
+<meta property="article:modified_time" content="2022-03-31T01:29:22.549Z">
+<meta property="article:author" content="YaornzZ">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/03/30/VYOMHWu3AglD8t2.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>frp内网穿透</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Yaronzz" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/post/linux_netmask/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/frp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/frp_use/&text=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/frp_use/&is_video=false&description=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=frp内网穿透&body=Check out this article: https://www.yaronzz.com/post/frp_use/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/frp_use/&name=frp内网穿透&description=&lt;p&gt;frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。frp提供跨平台的客户端与服务端，开源免费，地址：&lt;a href=&#34;https://github.com/fatedier/frp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;frp (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据系统版本，&lt;a href=&#34;https://github.com/fatedier/frp/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载不同的文件&lt;/a&gt;并解压如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/03/30/VYOMHWu3AglD8t2.png&#34; alt=&#34;image-20220330172447439&#34;&gt;&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/frp_use/&t=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端使用"><span class="toc-number">1.</span> <span class="toc-text">服务端使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#手动安装与配置"><span class="toc-number">1.1.</span> <span class="toc-text">手动安装与配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一键安装"><span class="toc-number">1.2.</span> <span class="toc-text">一键安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端使用"><span class="toc-number">2.</span> <span class="toc-text">客户端使用</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        frp内网穿透
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">YaornzZ</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-30T10:00:20.000Z" itemprop="datePublished">2022-03-30</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%BB%BA%E7%AB%99/">建站</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。frp提供跨平台的客户端与服务端，开源免费，地址：<a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp (github.com)</a></p>
+<p>根据系统版本，<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">下载不同的文件</a>并解压如下：</p>
+<p><img src="https://s2.loli.net/2022/03/30/VYOMHWu3AglD8t2.png" alt="image-20220330172447439"></p>
+<a id="more"></a>
+
+<p>文件包括：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>frpc</td>
+<td>客户端执行程序</td>
+</tr>
+<tr>
+<td>frpc.ini</td>
+<td>客户端配置</td>
+</tr>
+<tr>
+<td>frps</td>
+<td>服务端执行程序</td>
+</tr>
+<tr>
+<td>frps.ini</td>
+<td>服务端配置</td>
+</tr>
+</tbody></table>
+<h2 id="服务端使用"><a href="#服务端使用" class="headerlink" title="服务端使用"></a>服务端使用</h2><h3 id="手动安装与配置"><a href="#手动安装与配置" class="headerlink" title="手动安装与配置"></a>手动安装与配置</h3><ol>
+<li><p>修改配置文件，详细配置参数请参考<a href="https://gofrp.org/docs/reference/server-configures/" target="_blank" rel="noopener">服务端配置 | frp (gofrp.org)</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 绑定的IP与端口</span></span><br><span class="line">bind_addr = 0.0.0.0</span><br><span class="line">bind_port = 5000</span><br><span class="line"><span class="meta">#</span><span class="bash">用于接收采用 KCP 连接的 frpc</span></span><br><span class="line"><span class="meta">#</span><span class="bash">kcp_bind_port = 0</span></span><br><span class="line"><span class="meta">#</span><span class="bash">用于接收采用 HTTP\HTTPS 连接的 frpc</span></span><br><span class="line"><span class="meta">#</span><span class="bash">vhost_http_port = 0</span></span><br><span class="line"><span class="meta">#</span><span class="bash">vhost_https_port = 0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> http、https类型的二级域名后缀</span></span><br><span class="line"><span class="meta">#</span><span class="bash">subdomain_host = test.com</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> web仪表盘端口，可以查看服务详情与已连接的客户端</span></span><br><span class="line">dashboard_port = 5001</span><br><span class="line"><span class="meta">#</span><span class="bash"> web仪表盘用户与密码</span></span><br><span class="line">dashboard_user = admin</span><br><span class="line">dashboard_pwd = xxxxxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 日志级别 debug, info, warn, error | 日志最大天数</span></span><br><span class="line">log_file = ./frps.log</span><br><span class="line">log_level = info</span><br><span class="line">log_max_days = 3</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">服务端返回详细错误信息给客户端</span></span><br><span class="line">detailed_errors_to_client = true</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证码</span></span><br><span class="line">token = xxxxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 客户端可以绑定的端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">allow_ports = 1-65535</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> tcp stream multiplexing is used, default is <span class="literal">true</span></span></span><br><span class="line">tcp_mux = true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh</span><br><span class="line">chmod 700 ./install-frps.sh</span><br><span class="line">./install-frps.sh install</span><br></pre></td></tr></table></figure>
+
+<p>管理与配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/frps &#123;start|stop|restart|status|config|version&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h2><ol>
+<li><p>修改配置文件，详细配置参数请参考<a href="https://gofrp.org/docs/reference/client-configures/" target="_blank" rel="noopener">客户端配置 | frp (gofrp.org)</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line"><span class="meta">#</span><span class="bash">frps服务端地址与通讯端口</span></span><br><span class="line">server_addr = 192.168.0.1</span><br><span class="line">server_port = 5000</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证码</span></span><br><span class="line">token = xxxxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">设置为<span class="literal">false</span>，frpc连接frps失败后重连，默认为<span class="literal">true</span>不重连</span></span><br><span class="line">login_fail_exit = false</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">KCP协议在弱网环境下传输效率提升明显，但是对frps会有一些额外的流量消耗。服务端须先设置kcp_bind_port = 7000，www.yourdomain.com服务端已设置支持</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">连接服务端的通信协议 tcp, kcp, websocket</span></span><br><span class="line">protocol = tcp</span><br><span class="line"></span><br><span class="line">[SSH]  </span><br><span class="line"><span class="meta">#</span><span class="bash">代理类型 tcp, udp, http, https, stcp, sudp, xtcp, tcpmux</span></span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">压缩传输 | 加密传输</span></span><br><span class="line">use_compression = true</span><br><span class="line">use_encryption = true</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">tcp\udp绑定的服务端口</span></span><br><span class="line">remote_port = 6453</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>直接访问 <code>192.168.0.1:6453</code>即可</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务端使用"><span class="toc-number">1.</span> <span class="toc-text">服务端使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#手动安装与配置"><span class="toc-number">1.1.</span> <span class="toc-text">手动安装与配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一键安装"><span class="toc-number">1.2.</span> <span class="toc-text">一键安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端使用"><span class="toc-number">2.</span> <span class="toc-text">客户端使用</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/frp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/frp_use/&text=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/frp_use/&is_video=false&description=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=frp内网穿透&body=Check out this article: https://www.yaronzz.com/post/frp_use/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/frp_use/&title=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/frp_use/&name=frp内网穿透&description=&lt;p&gt;frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。frp提供跨平台的客户端与服务端，开源免费，地址：&lt;a href=&#34;https://github.com/fatedier/frp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;frp (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据系统版本，&lt;a href=&#34;https://github.com/fatedier/frp/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载不同的文件&lt;/a&gt;并解压如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/03/30/VYOMHWu3AglD8t2.png&#34; alt=&#34;image-20220330172447439&#34;&gt;&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/frp_use/&t=frp内网穿透" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    YaornzZ
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+  <div class="busuanzi-count">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
+    <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+</footer>
+
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f8585e10587ae42d33179ecfef2e506a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="yaronzz" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5"
+    data-position="Right" data-x_margin="18" data-y_margin="18"></script>
