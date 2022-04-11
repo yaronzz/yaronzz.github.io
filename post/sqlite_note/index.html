@@ -9,12 +9,12 @@
     <meta name="description" content="SQLite 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持Windows&#x2F;Linux&#x2F;Unix等等主流的操作系统，其源代码不受版权限制。 优点：  不需要安装与配置，以文件的形式作为数据库 轻量、小型，对嵌入式设备十分友好 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问 支持 SQL92（SQL2）标准的大多数查询语言的功能  SQLite的命令包括：    分类 命令 描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite笔记">
-<meta property="og:url" content="https://www.yaronzz.com/post/sqlite_note/index.html">
+<meta property="og:url" content="https://www.yaronzz.xyz/post/sqlite_note/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="SQLite 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持Windows&#x2F;Linux&#x2F;Unix等等主流的操作系统，其源代码不受版权限制。 优点：  不需要安装与配置，以文件的形式作为数据库 轻量、小型，对嵌入式设备十分友好 事务是完全兼容 ACID 的，允许从多个进程或线程安全访问 支持 SQL92（SQL2）标准的大多数查询语言的功能  SQLite的命令包括：    分类 命令 描述">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-18T03:06:33.000Z">
-<meta property="article:modified_time" content="2022-02-25T06:37:24.774Z">
+<meta property="article:modified_time" content="2022-03-31T01:29:22.838Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="sqlite">
 <meta name="twitter:card" content="summary">
@@ -92,16 +92,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/sqlite_note/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/sqlite_note/&text=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/sqlite_note/&is_video=false&description=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=SQLite笔记&body=Check out this article: https://www.yaronzz.com/post/sqlite_note/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/sqlite_note/&name=SQLite笔记&description=&lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持&lt;code&gt;Windows/Linux/Unix&lt;/code&gt;等等主流的操作系统，其源代码不受版权限制。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/sqlite_note/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/sqlite_note/&text=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/sqlite_note/&is_video=false&description=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SQLite笔记&body=Check out this article: https://www.yaronzz.xyz/post/sqlite_note/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/sqlite_note/&name=SQLite笔记&description=&lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持&lt;code&gt;Windows/Linux/Unix&lt;/code&gt;等等主流的操作系统，其源代码不受版权限制。&lt;/p&gt;
 &lt;p&gt;优点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;不需要安装与配置，以文件的形式作为数据库&lt;/li&gt;
@@ -154,7 +154,7 @@
 &lt;td&gt;查询记录&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/sqlite_note/&t=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/sqlite_note/&t=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -359,16 +359,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/sqlite_note/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/sqlite_note/&text=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/sqlite_note/&is_video=false&description=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=SQLite笔记&body=Check out this article: https://www.yaronzz.com/post/sqlite_note/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/sqlite_note/&name=SQLite笔记&description=&lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持&lt;code&gt;Windows/Linux/Unix&lt;/code&gt;等等主流的操作系统，其源代码不受版权限制。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/sqlite_note/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/sqlite_note/&text=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/sqlite_note/&is_video=false&description=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=SQLite笔记&body=Check out this article: https://www.yaronzz.xyz/post/sqlite_note/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/sqlite_note/&title=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/sqlite_note/&name=SQLite笔记&description=&lt;p&gt;&lt;code&gt;SQLite&lt;/code&gt; 是一款轻型的数据库，在嵌入式设备中应用十分广泛，它支持&lt;code&gt;Windows/Linux/Unix&lt;/code&gt;等等主流的操作系统，其源代码不受版权限制。&lt;/p&gt;
 &lt;p&gt;优点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;不需要安装与配置，以文件的形式作为数据库&lt;/li&gt;
@@ -421,7 +421,7 @@
 &lt;td&gt;查询记录&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/sqlite_note/&t=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/sqlite_note/&t=SQLite笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
