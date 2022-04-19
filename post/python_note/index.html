@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="基本语法 判断类型  12345#使用isinstance或type判断变量类型#isinstance可判断父类，type不支持判断父类test &#x3D; A()check &#x3D; isinstance(test, A) #Truecheck &#x3D; (type(test) &#x3D;&#x3D; A)   #True   运算  1234567#数值的除法包含两个运算符：&#x2F; 返回一个浮点数，&#x2F;&#x2F; 返回一个整数。a &#x3D; 10b">
+    <meta name="description" content="安装与使用 pip提速，使用国内源  1234#清华源pip install xxx --upgrade -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple#阿里云pip install xxx --upgrade -i http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;     永久修改： 1234567#打开配置,windows下C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python笔记">
-<meta property="og:url" content="https://www.yaronzz.xyz/post/python_note/index.html">
+<meta property="og:url" content="https://www.yaronzz.com/post/python_note/index.html">
 <meta property="og:site_name" content="Yaronzz">
-<meta property="og:description" content="基本语法 判断类型  12345#使用isinstance或type判断变量类型#isinstance可判断父类，type不支持判断父类test &#x3D; A()check &#x3D; isinstance(test, A) #Truecheck &#x3D; (type(test) &#x3D;&#x3D; A)   #True   运算  1234567#数值的除法包含两个运算符：&#x2F; 返回一个浮点数，&#x2F;&#x2F; 返回一个整数。a &#x3D; 10b">
+<meta property="og:description" content="安装与使用 pip提速，使用国内源  1234#清华源pip install xxx --upgrade -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple#阿里云pip install xxx --upgrade -i http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;     永久修改： 1234567#打开配置,windows下C">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-20T02:06:33.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:29:22.831Z">
+<meta property="article:modified_time" content="2022-04-19T07:49:39.833Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -92,16 +92,31 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/python_note/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/python_note/&text=Python笔记" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/python_note/&is_video=false&description=Python笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Python笔记&body=Check out this article: https://www.yaronzz.xyz/post/python_note/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/python_note/&name=Python笔记&description=&lt;h2 id=&#34;基本语法&#34;&gt;&lt;a href=&#34;#基本语法&#34; class=&#34;headerlink&#34; title=&#34;基本语法&#34;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;ol&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/python_note/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/python_note/&text=Python笔记" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/python_note/&is_video=false&description=Python笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python笔记&body=Check out this article: https://www.yaronzz.com/post/python_note/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/python_note/&name=Python笔记&description=&lt;h2 id=&#34;安装与使用&#34;&gt;&lt;a href=&#34;#安装与使用&#34; class=&#34;headerlink&#34; title=&#34;安装与使用&#34;&gt;&lt;/a&gt;安装与使用&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;pip提速，使用国内源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;清华源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install xxx --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;阿里云&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install xxx --upgrade -i http://mirrors.aliyun.com/pypi/simple/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;   永久修改：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;打开配置,windows下C:/Users/xxxx/pip/pip.ini&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi ~/.pip/pip.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;输入以下内容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[global]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;index-url = https://pypi.tuna.tsinghua.edu.cn/simple&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[install]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;trusted-host=mirrors.aliyun.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;pip搜索&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install pip_search&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip_search xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id=&#34;基本语法&#34;&gt;&lt;a href=&#34;#基本语法&#34; class=&#34;headerlink&#34; title=&#34;基本语法&#34;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;判断类型&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#使用isinstance或type判断变量类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#isinstance可判断父类，type不支持判断父类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;test = A()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;check = isinstance(test, A) &lt;span class=&#34;comment&#34;&gt;#True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;check = (type(test) == A)   &lt;span class=&#34;comment&#34;&gt;#True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -110,12 +125,12 @@
 &lt;li&gt;运算&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#数值的除法包含两个运算符：/ 返回一个浮点数，// 返回一个整数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a = &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;b = &lt;span class=&#34;number&#34;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;c = a / b	&lt;span class=&#34;comment&#34;&gt;#除法 1.66&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;d = a // b	&lt;span class=&#34;comment&#34;&gt;#整除 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;e = a % b	&lt;span class=&#34;comment&#34;&gt;#求模 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;f = &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; ** &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;#求幂 8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/python_note/&t=Python笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/python_note/&t=Python笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">2.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">3.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">4.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">5.</span> <span class="toc-text">函数装饰</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -164,7 +179,22 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ol>
+    <h2 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h2><ol>
+<li>pip提速，使用国内源</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">清华源</span></span><br><span class="line">pip install xxx --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"><span class="meta">#</span><span class="bash">阿里云</span></span><br><span class="line">pip install xxx --upgrade -i http://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<p>   永久修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">打开配置,windows下C:/Users/xxxx/pip/pip.ini</span></span><br><span class="line">vi ~/.pip/pip.conf</span><br><span class="line"><span class="meta">#</span><span class="bash">输入以下内容</span></span><br><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>pip搜索</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pip_search</span><br><span class="line">pip_search xxxx</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ol>
 <li>判断类型</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用isinstance或type判断变量类型</span></span><br><span class="line"><span class="comment">#isinstance可判断父类，type不支持判断父类</span></span><br><span class="line">test = A()</span><br><span class="line">check = isinstance(test, A) <span class="comment">#True</span></span><br><span class="line">check = (type(test) == A)   <span class="comment">#True</span></span><br></pre></td></tr></table></figure>
@@ -211,6 +241,93 @@
 <h2 id="函数装饰"><a href="#函数装饰" class="headerlink" title="函数装饰"></a>函数装饰</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_time</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        start = time.time()</span><br><span class="line">        result = func(*args, **kwargs)</span><br><span class="line">        end = time.time()</span><br><span class="line">        print(<span class="string">f'<span class="subst">&#123;func.__name__&#125;</span>执行时间: <span class="subst">&#123;end - start:<span class="number">.3</span>f&#125;</span>秒'</span>)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(filename)</span>:</span></span><br><span class="line">    print(<span class="string">f'开始下载<span class="subst">&#123;filename&#125;</span>.'</span>)</span><br><span class="line">    time.sleep(random.randint(<span class="number">2</span>, <span class="number">6</span>))</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;filename&#125;</span>下载完成.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@record_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">(filename)</span>:</span></span><br><span class="line">    print(<span class="string">f'开始上传<span class="subst">&#123;filename&#125;</span>.'</span>)</span><br><span class="line">    time.sleep(random.randint(<span class="number">4</span>, <span class="number">8</span>))</span><br><span class="line">    print(<span class="string">f'<span class="subst">&#123;filename&#125;</span>上传完成.'</span>)</span><br><span class="line"></span><br><span class="line">download(<span class="string">'MySQL从删库到跑路.avi'</span>)</span><br><span class="line">upload(<span class="string">'Python从入门到住院.pdf'</span>)</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><p><strong>pyinstaller</strong> 参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–distpath</td>
+<td>生成文件放在哪里</td>
+<td>默认：当前目录的dist文件夹内</td>
+</tr>
+<tr>
+<td>–workpath</td>
+<td>生成过程中的中间文件放在哪里</td>
+<td>默认：当前目录的build文件夹内</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>如果dist文件夹内已经存在生成文件，则不询问用户，直接覆盖</td>
+<td>默认：询问是否覆盖</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>不包含unicode支持</td>
+<td>默认：尽可能支持unicode</td>
+</tr>
+<tr>
+<td>–clean</td>
+<td>在本次编译开始时，清空上一次编译生成的各种文件</td>
+<td>默认：不清除</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>生成one-folder的程序（默认）</td>
+<td>结果是一个目录，各种第三方依赖、资源和exe同时存储在该目录</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>生成one-file的程序</td>
+<td>结果是一个exe文件，所有的第三方依赖、资源和代码均被打包进该exe内</td>
+</tr>
+<tr>
+<td>-specpath</td>
+<td>指定.spec文件的存储路径</td>
+<td>默认：当前目录</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>生成的.exe文件和.spec的文件名</td>
+<td></td>
+</tr>
+<tr>
+<td>–add-data</td>
+<td>打包额外资源</td>
+<td>用法：pyinstaller main.py –add-data=src;dest。<br />windows以;分割，linux以:分割</td>
+</tr>
+<tr>
+<td>–add-binary</td>
+<td>打包额外的代码</td>
+<td>用法：同–add-data。<br />用binary添加的文件，pyi会分析它引用的文件并把它们一同添加进来</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>显示命令行窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>-w</td>
+<td>不显示命令行窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>-i</td>
+<td>为main.exe指定图标</td>
+<td>pyinstaller -i beauty.ico main.py</td>
+</tr>
+<tr>
+<td>–version-file</td>
+<td>添加版本信息文件 (Windows特有的参数)</td>
+<td>pyinstaller –version-file ver.txt</td>
+</tr>
+</tbody></table>
+
   </div>
 </article>
 
@@ -235,21 +352,36 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">2.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">3.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">4.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">5.</span> <span class="toc-text">函数装饰</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/python_note/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/python_note/&text=Python笔记" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/python_note/&is_video=false&description=Python笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Python笔记&body=Check out this article: https://www.yaronzz.xyz/post/python_note/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/python_note/&name=Python笔记&description=&lt;h2 id=&#34;基本语法&#34;&gt;&lt;a href=&#34;#基本语法&#34; class=&#34;headerlink&#34; title=&#34;基本语法&#34;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;ol&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/python_note/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/python_note/&text=Python笔记" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/python_note/&is_video=false&description=Python笔记" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Python笔记&body=Check out this article: https://www.yaronzz.com/post/python_note/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/python_note/&title=Python笔记" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/python_note/&name=Python笔记&description=&lt;h2 id=&#34;安装与使用&#34;&gt;&lt;a href=&#34;#安装与使用&#34; class=&#34;headerlink&#34; title=&#34;安装与使用&#34;&gt;&lt;/a&gt;安装与使用&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;pip提速，使用国内源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;清华源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install xxx --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;阿里云&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install xxx --upgrade -i http://mirrors.aliyun.com/pypi/simple/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;   永久修改：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;打开配置,windows下C:/Users/xxxx/pip/pip.ini&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vi ~/.pip/pip.conf&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;输入以下内容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[global]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;index-url = https://pypi.tuna.tsinghua.edu.cn/simple&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[install]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;trusted-host=mirrors.aliyun.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;pip搜索&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install pip_search&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip_search xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id=&#34;基本语法&#34;&gt;&lt;a href=&#34;#基本语法&#34; class=&#34;headerlink&#34; title=&#34;基本语法&#34;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;判断类型&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#使用isinstance或type判断变量类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#isinstance可判断父类，type不支持判断父类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;test = A()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;check = isinstance(test, A) &lt;span class=&#34;comment&#34;&gt;#True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;check = (type(test) == A)   &lt;span class=&#34;comment&#34;&gt;#True&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -258,7 +390,7 @@
 &lt;li&gt;运算&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#数值的除法包含两个运算符：/ 返回一个浮点数，// 返回一个整数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a = &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;b = &lt;span class=&#34;number&#34;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;c = a / b	&lt;span class=&#34;comment&#34;&gt;#除法 1.66&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;d = a // b	&lt;span class=&#34;comment&#34;&gt;#整除 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;e = a % b	&lt;span class=&#34;comment&#34;&gt;#求模 4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;f = &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt; ** &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;#求幂 8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/python_note/&t=Python笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/python_note/&t=Python笔记" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -281,23 +413,9 @@
     
     2020-2022
     YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
   </div>
   <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-  <div class="busuanzi-count">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
     <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>

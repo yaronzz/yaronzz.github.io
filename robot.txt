@@ -12,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://www.yaronzz.xyz/sitemap.xml
-Sitemap: https://www.yaronzz.xyz/baidusitemap.xml
+Sitemap: https://www.yaronzz.com/sitemap.xml
+Sitemap: https://www.yaronzz.com/baidusitemap.xml

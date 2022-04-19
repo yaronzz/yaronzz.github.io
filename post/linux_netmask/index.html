@@ -9,12 +9,12 @@
     <meta name="description" content="问题有两台机子，各自设置了静态 IP：  A 机：ifconfig eth0 192.168.32.10 netmask 255.255.254.0 B 机：ifconfig eth0 192.168.1.15 netmask 255.255.254.0  A 机 Ping B 机时，显示异常： 123[root@test]# ping 192.168.1.15PING 192.168.1.15">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux不同网段网络通信">
-<meta property="og:url" content="https://www.yaronzz.xyz/post/linux_netmask/index.html">
+<meta property="og:url" content="https://www.yaronzz.com/post/linux_netmask/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="问题有两台机子，各自设置了静态 IP：  A 机：ifconfig eth0 192.168.32.10 netmask 255.255.254.0 B 机：ifconfig eth0 192.168.1.15 netmask 255.255.254.0  A 机 Ping B 机时，显示异常： 123[root@test]# ping 192.168.1.15PING 192.168.1.15">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-28T09:26:17.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:29:22.798Z">
+<meta property="article:modified_time" content="2022-04-19T07:49:39.784Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -92,22 +92,22 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/linux_netmask/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/linux_netmask/&text=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/linux_netmask/&is_video=false&description=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux不同网段网络通信&body=Check out this article: https://www.yaronzz.xyz/post/linux_netmask/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/linux_netmask/&name=Linux不同网段网络通信&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/linux_netmask/&t=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/linux_netmask/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/linux_netmask/&text=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/linux_netmask/&is_video=false&description=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux不同网段网络通信&body=Check out this article: https://www.yaronzz.com/post/linux_netmask/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/linux_netmask/&name=Linux不同网段网络通信&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/linux_netmask/&t=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说明"><span class="toc-number">2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">3.</span> <span class="toc-text">解决方法</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -165,12 +165,19 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@<span class="built_in">test</span>]<span class="comment"># ping 192.168.1.15</span></span><br><span class="line">PING 192.168.1.15 (192.168.1.15): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br></pre></td></tr></table></figure>
 
 <p>需要在不改变 AB 机 IP 的情况下，让网络互通。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><strong>子网掩码</strong>是一个32位的2进制数，常见格式为<code>255.255.255.255</code>（即FF.FF.FF.FF）。子网掩码由1和0组成，且1和0分别连续。 其对应网络地址的所有位都置为1，对应于主机地址的所有位置都为0。用于告知路由器，地址的哪一部分是网络地址，哪一部分是主机地址，使路由器正确判断任意IP地址是否是本网段)的，从而正确地进行路由。</p>
+<p><code>注意：只有网络标识相同的两台主机在无路由的情况下才能相互通信。</code></p>
+<p>通过子网掩码判断两台设备是否属于同一网段的方法是，将IP地址和子网掩码转换为二进制，然后进行二进制“与”计算，如果得出的结果是相同的，那么这两台计算机就属于同一网段。</p>
+<p><strong>比如：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#子网掩码：255.255.254.0</span></span><br><span class="line"><span class="comment">#设备1地址：192.168.0.55</span></span><br><span class="line"><span class="comment">#设备2地址：192.168.1.45</span></span><br><span class="line"></span><br><span class="line">可知：</span><br><span class="line">设备1网段192.168.0，设备2网段192.168.0</span><br></pre></td></tr></table></figure>
+
+<p>使用子网掩码划分子网后，<a href="https://baike.baidu.com/item/子网/1186929" target="_blank" rel="noopener">子网</a>内可以通信，跨子网不能通信，子网间通信应该使用路由器，并正确配置<a href="https://baike.baidu.com/item/静态路由/100778" target="_blank" rel="noopener">静态路由</a>信息。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
 <li><p>设置掩码为<code>255.255.192.0</code>，从而在二层打通 192.168.0.0 - 192.168.63.255 ，两个设备间可以走二层直接交付</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ifconfig eth0 192.168.32.10 netmask 255.255.192.0</span><br><span class="line"><span class="comment"># B机</span></span><br><span class="line">ifconfig eth0 192.168.1.15 netmask 255.255.192.0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置静态路由：</p>
-<p>由于掩码是 23 位，A 机所在局域网 IP 地址范围是 192.168.32.1 ~ 192.168.33.254 (0 和 255 一般不分配给主机)，B 机所在局域网 IP 地址范围是 192.168.1.1 ~ 192.168.2.254。所以不是同一个 network ，网络不可达，无法 ping 通，只能在 A 机上添加一条到 B 机 network 的静态路由，并且在 B 机器上添加 A 机器的 static route </p>
+<p>由于掩码是 23 位，A 机所在局域网 IP 地址范围是 192.168.32.1 ~ 192.168.33.254 (0 和 255 一般不分配给主机)，B 机所在局域网 IP 地址范围是 192.168.0.1 ~ 192.168.1.254。所以不是同一个 network ，网络不可达，无法 ping 通，只能在 A 机上添加一条到 B 机 network 的静态路由，并且在 B 机器上添加 A 机器的 static route </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A机</span></span><br><span class="line">ip route add 192.168.0.0/23 dev eth0</span><br><span class="line"><span class="comment"># B机 </span></span><br><span class="line">ip route add 192.168.32.0/23 dev eth0</span><br></pre></td></tr></table></figure>
 
 
@@ -203,22 +210,22 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说明"><span class="toc-number">2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">3.</span> <span class="toc-text">解决方法</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/linux_netmask/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/linux_netmask/&text=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/linux_netmask/&is_video=false&description=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Linux不同网段网络通信&body=Check out this article: https://www.yaronzz.xyz/post/linux_netmask/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/linux_netmask/&name=Linux不同网段网络通信&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/linux_netmask/&t=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/linux_netmask/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/linux_netmask/&text=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/linux_netmask/&is_video=false&description=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux不同网段网络通信&body=Check out this article: https://www.yaronzz.com/post/linux_netmask/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/linux_netmask/&title=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/linux_netmask/&name=Linux不同网段网络通信&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/linux_netmask/&t=Linux不同网段网络通信" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -241,23 +248,9 @@
     
     2020-2022
     YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
   </div>
   <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-  <div class="busuanzi-count">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
     <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>

@@ -9,12 +9,12 @@
     <meta name="description" content="概述说明网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。 组播中数据发送者和接收者之间是一对多点的连">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UDP组播的说明与使用">
-<meta property="og:url" content="https://www.yaronzz.xyz/post/udp_membership/index.html">
+<meta property="og:url" content="https://www.yaronzz.com/post/udp_membership/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="概述说明网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。 组播中数据发送者和接收者之间是一对多点的连">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-21T04:00:33.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:29:22.847Z">
+<meta property="article:modified_time" content="2022-04-19T07:49:39.860Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="udp">
@@ -93,18 +93,18 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/udp_membership/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/udp_membership/&text=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/udp_membership/&is_video=false&description=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=UDP组播的说明与使用&body=Check out this article: https://www.yaronzz.xyz/post/udp_membership/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/udp_membership/&name=UDP组播的说明与使用&description=&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&#34;说明&#34;&gt;&lt;a href=&#34;#说明&#34; class=&#34;headerlink&#34; title=&#34;说明&#34;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/udp_membership/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/udp_membership/&text=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/udp_membership/&is_video=false&description=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=UDP组播的说明与使用&body=Check out this article: https://www.yaronzz.com/post/udp_membership/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/udp_membership/&name=UDP组播的说明与使用&description=&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&#34;说明&#34;&gt;&lt;a href=&#34;#说明&#34; class=&#34;headerlink&#34; title=&#34;说明&#34;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。&lt;/p&gt;
 &lt;p&gt;组播中数据发送者和接收者之间是一对多点的连接方式，多个接收者加入同一个组播组，共享同一个IP地址，同时组播组中的成员是动态的，某个成员的加入和退出并不影响原有的组播组。当网络中的某些用户需要特定数据时，组播数据发送者（即组播源）仅发送一次数据，借助组播路由协议为组播数据包建立组播分发树，被传递的数据到达距离用户端尽可能近的节点后才开始复制和分发。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/udp_membership/&t=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/udp_membership/&t=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -233,18 +233,18 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/udp_membership/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/udp_membership/&text=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/udp_membership/&is_video=false&description=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=UDP组播的说明与使用&body=Check out this article: https://www.yaronzz.xyz/post/udp_membership/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/udp_membership/&name=UDP组播的说明与使用&description=&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&#34;说明&#34;&gt;&lt;a href=&#34;#说明&#34; class=&#34;headerlink&#34; title=&#34;说明&#34;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/udp_membership/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/udp_membership/&text=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/udp_membership/&is_video=false&description=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=UDP组播的说明与使用&body=Check out this article: https://www.yaronzz.com/post/udp_membership/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/udp_membership/&title=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/udp_membership/&name=UDP组播的说明与使用&description=&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;h3 id=&#34;说明&#34;&gt;&lt;a href=&#34;#说明&#34; class=&#34;headerlink&#34; title=&#34;说明&#34;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;网络通讯中，数据传输方式有：单播，广播和组播。单播是一对一的通信，广播则是对网络中所有主机进行通信。在需要对网络中某些主机进行通信时，单播会多次重复发送数据，广播则会造成资源浪费与安全问题。而组播是将信息发送到某个组播组，只有加入组播组的主机才能接收到消息，这种方式解决了单播情况下数据的重复拷贝及带宽的重复占用，也解决了广播方式下带宽资源的浪费。&lt;/p&gt;
 &lt;p&gt;组播中数据发送者和接收者之间是一对多点的连接方式，多个接收者加入同一个组播组，共享同一个IP地址，同时组播组中的成员是动态的，某个成员的加入和退出并不影响原有的组播组。当网络中的某些用户需要特定数据时，组播数据发送者（即组播源）仅发送一次数据，借助组播路由协议为组播数据包建立组播分发树，被传递的数据到达距离用户端尽可能近的节点后才开始复制和分发。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/udp_membership/&t=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/udp_membership/&t=UDP组播的说明与使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -267,23 +267,9 @@
     
     2020-2022
     YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
   </div>
   <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-  <div class="busuanzi-count">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
     <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>

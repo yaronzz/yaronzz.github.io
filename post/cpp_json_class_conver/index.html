@@ -9,12 +9,12 @@
     <meta name="description" content="背景与需求之前写C#的时候，解析json字符串一般使用的是开源的类库Newtonsoft.Json，方法十分简洁，比如： 1234567class Project&amp;#123;    public string Input &amp;#123; get; set; &amp;#125;    public string Output &amp;#123; get; set; &amp;#125;&amp;#125;JavaScriptSe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++类结构体与json相互转换">
-<meta property="og:url" content="https://www.yaronzz.xyz/post/cpp_json_class_conver/index.html">
+<meta property="og:url" content="https://www.yaronzz.com/post/cpp_json_class_conver/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="背景与需求之前写C#的时候，解析json字符串一般使用的是开源的类库Newtonsoft.Json，方法十分简洁，比如： 1234567class Project&amp;#123;    public string Input &amp;#123; get; set; &amp;#125;    public string Output &amp;#123; get; set; &amp;#125;&amp;#125;JavaScriptSe">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-09T04:40:33.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:29:22.781Z">
+<meta property="article:modified_time" content="2022-04-19T07:49:39.753Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="json">
@@ -93,21 +93,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/cpp_json_class_conver/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&text=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&is_video=false&description=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++类结构体与json相互转换&body=Check out this article: https://www.yaronzz.xyz/post/cpp_json_class_conver/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&name=C++类结构体与json相互转换&description=&lt;h2 id=&#34;背景与需求&#34;&gt;&lt;a href=&#34;#背景与需求&#34; class=&#34;headerlink&#34; title=&#34;背景与需求&#34;&gt;&lt;/a&gt;背景与需求&lt;/h2&gt;&lt;p&gt;之前写C#的时候，解析json字符串一般使用的是开源的类库&lt;code&gt;Newtonsoft.Json&lt;/code&gt;，方法十分简洁，比如：&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cpp_json_class_conver/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cpp_json_class_conver/&text=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cpp_json_class_conver/&is_video=false&description=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++类结构体与json相互转换&body=Check out this article: https://www.yaronzz.com/post/cpp_json_class_conver/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cpp_json_class_conver/&name=C++类结构体与json相互转换&description=&lt;h2 id=&#34;背景与需求&#34;&gt;&lt;a href=&#34;#背景与需求&#34; class=&#34;headerlink&#34; title=&#34;背景与需求&#34;&gt;&lt;/a&gt;背景与需求&lt;/h2&gt;&lt;p&gt;之前写C#的时候，解析json字符串一般使用的是开源的类库&lt;code&gt;Newtonsoft.Json&lt;/code&gt;，方法十分简洁，比如：&lt;/p&gt;
 &lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;class Project&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    public string Input &amp;#123; get; set; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    public string Output &amp;#123; get; set; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;JavaScriptSerializer serializer &amp;#x3D; new JavaScriptSerializer();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Project test &amp;#x3D; serializer.Deserialize&amp;lt;Project&amp;gt;(@&amp;quot;&amp;#123;&amp;quot;Input&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;Output&amp;quot;:&amp;quot;2&amp;quot;&amp;#125;&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;一行代码就能将json字符串转为相应的类对象。&lt;/p&gt;
 &lt;p&gt;最近写C++需要处理一下json数据，于是上github找了很多很强大的开源库，像&lt;a href=&#34;https://github.com/open-source-parsers/jsoncpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jsoncpp&lt;/a&gt;、&lt;a href=&#34;https://github.com/Tencent/rapidjson&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rapidjson&lt;/a&gt;、&lt;a href=&#34;https://github.com/nlohmann/json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt;，基本上都满足了开发需求，但想要做成像写C#那样子就要做二次开发。于是有了自己写一个简单的json转类 | 结构体的工具的想法。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/cpp_json_class_conver/&t=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cpp_json_class_conver/&t=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -233,21 +233,21 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/cpp_json_class_conver/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&text=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&is_video=false&description=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++类结构体与json相互转换&body=Check out this article: https://www.yaronzz.xyz/post/cpp_json_class_conver/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/cpp_json_class_conver/&name=C++类结构体与json相互转换&description=&lt;h2 id=&#34;背景与需求&#34;&gt;&lt;a href=&#34;#背景与需求&#34; class=&#34;headerlink&#34; title=&#34;背景与需求&#34;&gt;&lt;/a&gt;背景与需求&lt;/h2&gt;&lt;p&gt;之前写C#的时候，解析json字符串一般使用的是开源的类库&lt;code&gt;Newtonsoft.Json&lt;/code&gt;，方法十分简洁，比如：&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cpp_json_class_conver/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cpp_json_class_conver/&text=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cpp_json_class_conver/&is_video=false&description=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=C++类结构体与json相互转换&body=Check out this article: https://www.yaronzz.com/post/cpp_json_class_conver/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cpp_json_class_conver/&title=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cpp_json_class_conver/&name=C++类结构体与json相互转换&description=&lt;h2 id=&#34;背景与需求&#34;&gt;&lt;a href=&#34;#背景与需求&#34; class=&#34;headerlink&#34; title=&#34;背景与需求&#34;&gt;&lt;/a&gt;背景与需求&lt;/h2&gt;&lt;p&gt;之前写C#的时候，解析json字符串一般使用的是开源的类库&lt;code&gt;Newtonsoft.Json&lt;/code&gt;，方法十分简洁，比如：&lt;/p&gt;
 &lt;figure class=&#34;highlight plain&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;class Project&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    public string Input &amp;#123; get; set; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    public string Output &amp;#123; get; set; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;JavaScriptSerializer serializer &amp;#x3D; new JavaScriptSerializer();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Project test &amp;#x3D; serializer.Deserialize&amp;lt;Project&amp;gt;(@&amp;quot;&amp;#123;&amp;quot;Input&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;Output&amp;quot;:&amp;quot;2&amp;quot;&amp;#125;&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;一行代码就能将json字符串转为相应的类对象。&lt;/p&gt;
 &lt;p&gt;最近写C++需要处理一下json数据，于是上github找了很多很强大的开源库，像&lt;a href=&#34;https://github.com/open-source-parsers/jsoncpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;jsoncpp&lt;/a&gt;、&lt;a href=&#34;https://github.com/Tencent/rapidjson&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rapidjson&lt;/a&gt;、&lt;a href=&#34;https://github.com/nlohmann/json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt;，基本上都满足了开发需求，但想要做成像写C#那样子就要做二次开发。于是有了自己写一个简单的json转类 | 结构体的工具的想法。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/cpp_json_class_conver/&t=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cpp_json_class_conver/&t=C++类结构体与json相互转换" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -270,23 +270,9 @@
     
     2020-2022
     YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
   </div>
   <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-  <div class="busuanzi-count">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
     <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>

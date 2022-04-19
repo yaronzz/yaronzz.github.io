@@ -9,14 +9,14 @@
     <meta name="description" content="之前一直使用WPF自带的WebBrowser控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。  开源项目地址 官方中文帮助文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CefSharp的使用">
-<meta property="og:url" content="https://www.yaronzz.xyz/post/cefsharp_use/index.html">
+<meta property="og:url" content="https://www.yaronzz.com/post/cefsharp_use/index.html">
 <meta property="og:site_name" content="Yaronzz">
 <meta property="og:description" content="之前一直使用WPF自带的WebBrowser控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。  开源项目地址 官方中文帮助文档">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2020/07/30/7NdrJnzxabOZfPh.png">
 <meta property="og:image" content="https://i.loli.net/2020/07/30/Unib4OjqVvwKB7P.png">
 <meta property="article:published_time" content="2020-07-30T07:30:48.000Z">
-<meta property="article:modified_time" content="2022-03-31T01:29:22.753Z">
+<meta property="article:modified_time" content="2022-04-19T07:49:39.725Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="WPF">
 <meta property="article:tag" content="C#">
@@ -96,21 +96,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/cefsharp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/cefsharp_use/&text=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/cefsharp_use/&is_video=false&description=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CefSharp的使用&body=Check out this article: https://www.yaronzz.xyz/post/cefsharp_use/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/cefsharp_use/&name=CefSharp的使用&description=&lt;p&gt;之前一直使用WPF自带的&lt;code&gt;WebBrowser&lt;/code&gt;控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cefsharp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cefsharp_use/&text=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cefsharp_use/&is_video=false&description=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CefSharp的使用&body=Check out this article: https://www.yaronzz.com/post/cefsharp_use/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cefsharp_use/&name=CefSharp的使用&description=&lt;p&gt;之前一直使用WPF自带的&lt;code&gt;WebBrowser&lt;/code&gt;控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/cefsharp/CefSharp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;开源项目地址&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/cefsharp/CefSharp/wiki/CefSharp中文帮助文档&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方中文帮助文档&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/cefsharp_use/&t=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cefsharp_use/&t=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -243,21 +243,21 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.xyz/post/cefsharp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.xyz/post/cefsharp_use/&text=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.xyz/post/cefsharp_use/&is_video=false&description=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=CefSharp的使用&body=Check out this article: https://www.yaronzz.xyz/post/cefsharp_use/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.xyz/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.xyz/post/cefsharp_use/&name=CefSharp的使用&description=&lt;p&gt;之前一直使用WPF自带的&lt;code&gt;WebBrowser&lt;/code&gt;控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。&lt;/p&gt;
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cefsharp_use/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cefsharp_use/&text=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cefsharp_use/&is_video=false&description=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CefSharp的使用&body=Check out this article: https://www.yaronzz.com/post/cefsharp_use/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cefsharp_use/&title=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cefsharp_use/&name=CefSharp的使用&description=&lt;p&gt;之前一直使用WPF自带的&lt;code&gt;WebBrowser&lt;/code&gt;控件，但由于它使用的是IE内核，十分难用。于是换了一个开源的浏览器包CefSharp，其支持Winform和WPF，内嵌了Chrome浏览器组件并且有比较详细的说明文档。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/cefsharp/CefSharp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;开源项目地址&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/cefsharp/CefSharp/wiki/CefSharp中文帮助文档&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方中文帮助文档&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.xyz/post/cefsharp_use/&t=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cefsharp_use/&t=CefSharp的使用" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -280,23 +280,9 @@
     
     2020-2022
     YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
   </div>
   <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-  <div class="busuanzi-count">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
     <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
