@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="触摸屏使用 查看触摸屏输入设备 12#event0或1等，点击触摸屏即可打印相应信息hexdump  &#x2F;dev&#x2F;input&#x2F;event1  触摸屏校准 1&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;bin&#x2F;ts_calibrate    触摸屏测试 1&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;bin&#x2F;ts_test      lrzsz移植 下载并解压lrzsz源码 12wget https:&#x2F;&#x2F;www.ohs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt配置与常见问题">
+<meta property="og:url" content="https://www.yaronzz.com/post/qt_arm/index.html">
+<meta property="og:site_name" content="Yaronzz">
+<meta property="og:description" content="触摸屏使用 查看触摸屏输入设备 12#event0或1等，点击触摸屏即可打印相应信息hexdump  &#x2F;dev&#x2F;input&#x2F;event1  触摸屏校准 1&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;bin&#x2F;ts_calibrate    触摸屏测试 1&#x2F;usr&#x2F;local&#x2F;tslib&#x2F;bin&#x2F;ts_test      lrzsz移植 下载并解压lrzsz源码 12wget https:&#x2F;&#x2F;www.ohs">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/05/11/tmGobd3aAYg6x1e.png">
+<meta property="article:published_time" content="2022-05-11T02:40:33.000Z">
+<meta property="article:modified_time" content="2022-05-11T08:07:07.248Z">
+<meta property="article:author" content="YaornzZ">
+<meta property="article:tag" content="qt">
+<meta property="article:tag" content="arm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/11/tmGobd3aAYg6x1e.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Qt配置与常见问题</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Yaronzz" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/post/frp_use/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/qt_arm/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/qt_arm/&text=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/qt_arm/&is_video=false&description=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Qt配置与常见问题&body=Check out this article: https://www.yaronzz.com/post/qt_arm/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/qt_arm/&name=Qt配置与常见问题&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/qt_arm/&t=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸屏使用"><span class="toc-number">1.</span> <span class="toc-text">触摸屏使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lrzsz移植"><span class="toc-number">2.</span> <span class="toc-text">lrzsz移植</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Qt配置与常见问题
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">YaornzZ</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-05-11T02:40:33.000Z" itemprop="datePublished">2022-05-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/code/">code</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/arm/" rel="tag">arm</a>, <a class="tag-link" href="/tags/qt/" rel="tag">qt</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <a id="more"></a>
+
+<h2 id="触摸屏使用"><a href="#触摸屏使用" class="headerlink" title="触摸屏使用"></a>触摸屏使用</h2><ol>
+<li><p>查看触摸屏输入设备</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">event0或1等，点击触摸屏即可打印相应信息</span></span><br><span class="line">hexdump  /dev/input/event1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>触摸屏校准</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tslib/bin/ts_calibrate</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/05/11/tmGobd3aAYg6x1e.png" alt="img"></p>
+</li>
+<li><p>触摸屏测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tslib/bin/ts_test</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="lrzsz移植"><a href="#lrzsz移植" class="headerlink" title="lrzsz移植"></a>lrzsz移植</h2><ol>
+<li><p>下载并解压lrzsz源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span><br><span class="line">tar -xzvf lrzsz-0.12.20.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改交叉编译链并配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">修改配置：CC（交叉编译链）、host、build</span></span><br><span class="line">CC=arm-linux-gnueabihf-gcc ./configure --cache-file=./arm-linux.cache --prefix=$(pwd)/../output --host=arm-linux-gnueabihf --build=arm-linux-gnueabihf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译生成</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸屏使用"><span class="toc-number">1.</span> <span class="toc-text">触摸屏使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lrzsz移植"><span class="toc-number">2.</span> <span class="toc-text">lrzsz移植</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/qt_arm/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/qt_arm/&text=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/qt_arm/&is_video=false&description=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Qt配置与常见问题&body=Check out this article: https://www.yaronzz.com/post/qt_arm/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/qt_arm/&title=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/qt_arm/&name=Qt配置与常见问题&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/qt_arm/&t=Qt配置与常见问题" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    YaornzZ
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
+  </div>
+  <div class="footer-right">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
+    <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
+  </div>
+</footer>
+
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f8585e10587ae42d33179ecfef2e506a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="yaronzz" data-description="Support me on Buy me a coffee!" data-message="" data-color="#40DCA5"
+    data-position="Right" data-x_margin="18" data-y_margin="18"></script>
