@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.yaronzz.com/post/qt_arm/</loc>
-    <lastmod>2022-05-18</lastmod>
+    <lastmod>2022-05-21</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
+    <lastmod>2022-05-21</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/python_note/</loc>
     <lastmod>2022-05-11</lastmod>
@@ -65,9 +68,6 @@
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/cloud_drive/</loc>
-    <lastmod>2022-05-11</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/ss_install/</loc>
