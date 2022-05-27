@@ -14,7 +14,7 @@
 <meta property="og:description" content="安装与使用 pip提速，使用国内源  1234#清华源pip install xxx --upgrade -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple#阿里云pip install xxx --upgrade -i http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;     永久修改： 1234567#打开配置,windows下C">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-20T02:06:33.000Z">
-<meta property="article:modified_time" content="2022-05-11T08:07:07.277Z">
+<meta property="article:modified_time" content="2022-05-27T02:59:44.479Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -114,6 +114,11 @@
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install pip_search&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip_search xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;文件服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; python3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 -m http.server&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; python2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -m SimpleHTTPServer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
 
 
 &lt;h2 id=&#34;基本语法&#34;&gt;&lt;a href=&#34;#基本语法&#34; class=&#34;headerlink&#34; title=&#34;基本语法&#34;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;ol&gt;
@@ -130,7 +135,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件服务器"><span class="toc-number">8.</span> <span class="toc-text">文件服务器</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -191,6 +196,11 @@
 <li>pip搜索</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pip_search</span><br><span class="line">pip_search xxxx</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>文件服务器</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> python3</span></span><br><span class="line">python3 -m http.server</span><br><span class="line"><span class="meta">#</span><span class="bash"> python2</span></span><br><span class="line">python -m SimpleHTTPServer</span><br></pre></td></tr></table></figure>
 
 
 
@@ -327,6 +337,12 @@
 <td>pyinstaller –version-file ver.txt</td>
 </tr>
 </tbody></table>
+<h2 id="文件服务器"><a href="#文件服务器" class="headerlink" title="文件服务器"></a>文件服务器</h2><ul>
+<li><p>python3 -m http.server</p>
+</li>
+<li><p>python -m SimpleHTTPServer</p>
+</li>
+</ul>
 
   </div>
 </article>
@@ -352,7 +368,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与使用"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-number">2.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元祖tuple"><span class="toc-number">4.</span> <span class="toc-text">元祖tuple</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lambda"><span class="toc-number">5.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数装饰"><span class="toc-number">6.</span> <span class="toc-text">函数装饰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包工具"><span class="toc-number">7.</span> <span class="toc-text">打包工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件服务器"><span class="toc-number">8.</span> <span class="toc-text">文件服务器</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -378,6 +394,11 @@
 &lt;li&gt;pip搜索&lt;/li&gt;
 &lt;/ol&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install pip_search&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip_search xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;文件服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; python3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 -m http.server&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt; python2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -m SimpleHTTPServer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 
 

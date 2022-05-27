@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/python_note/</loc>
+    
+    <lastmod>2022-05-27T02:59:44.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
+    
+    <lastmod>2022-05-27T02:59:44.145Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/qt_arm/</loc>
     
     <lastmod>2022-05-21T07:56:36.761Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://www.yaronzz.com/post/linux_cmd/</loc>
     
     <lastmod>2022-05-21T07:56:31.701Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/python_note/</loc>
-    
-    <lastmod>2022-05-11T08:07:07.277Z</lastmod>
     
   </url>
   
@@ -131,13 +138,6 @@
     <loc>https://www.yaronzz.com/post/windows_log/</loc>
     
     <lastmod>2022-05-11T08:07:07.108Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
-    
-    <lastmod>2022-05-11T08:07:07.106Z</lastmod>
     
   </url>
   
