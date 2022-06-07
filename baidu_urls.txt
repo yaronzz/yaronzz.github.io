@@ -1,3 +1,4 @@
+https://www.yaronzz.com/post/design_patterns_singleton/
 https://www.yaronzz.com/post/qt_arm/
 https://www.yaronzz.com/post/frp_use/
 https://www.yaronzz.com/post/linux_netmask/

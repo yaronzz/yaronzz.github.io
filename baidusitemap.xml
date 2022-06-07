@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.yaronzz.com/post/python_note/</loc>
-    <lastmod>2022-05-27</lastmod>
+    <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
+    <lastmod>2022-06-07</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/ss_install/</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/python_note/</loc>
     <lastmod>2022-05-27</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/qt_arm/</loc>
@@ -68,9 +74,6 @@
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/cloud_drive/</loc>
-    <lastmod>2022-05-11</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/ss_install/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/linux_netmask/</loc>
