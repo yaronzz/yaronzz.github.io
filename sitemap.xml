@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yaronzz.com/post/design_patterns/</loc>
+    
+    <lastmod>2022-06-08T02:15:06.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
+    
+    <lastmod>2022-06-08T02:15:06.823Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/typora_keymap/</loc>
+    
+    <lastmod>2022-06-08T02:15:06.800Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/windows_software/</loc>
+    
+    <lastmod>2022-06-08T02:15:06.785Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.yaronzz.com/post/frp_use/</loc>
+    
+    <lastmod>2022-06-08T02:15:06.775Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yaronzz.com/post/github_git/</loc>
     
     <lastmod>2022-06-07T02:25:12.062Z</lastmod>
@@ -54,13 +89,6 @@
     <loc>https://www.yaronzz.com/post/cloud_drive/</loc>
     
     <lastmod>2022-06-07T02:25:12.035Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
-    
-    <lastmod>2022-06-07T01:58:07.361Z</lastmod>
     
   </url>
   
@@ -198,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://www.yaronzz.com/post/windows_software/</loc>
-    
-    <lastmod>2022-05-11T08:07:07.110Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.yaronzz.com/post/windows_log/</loc>
     
     <lastmod>2022-05-11T08:07:07.108Z</lastmod>
@@ -247,13 +268,6 @@
   </url>
   
   <url>
-    <loc>https://www.yaronzz.com/post/frp_use/</loc>
-    
-    <lastmod>2022-05-11T08:07:07.072Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.yaronzz.com/post/dhcp_use/</loc>
     
     <lastmod>2022-05-11T08:07:07.070Z</lastmod>
@@ -264,13 +278,6 @@
     <loc>https://www.yaronzz.com/post/rclone_use/</loc>
     
     <lastmod>2022-04-19T07:49:39.684Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yaronzz.com/post/typora_keymap/</loc>
-    
-    <lastmod>2022-04-19T07:49:39.672Z</lastmod>
     
   </url>
   

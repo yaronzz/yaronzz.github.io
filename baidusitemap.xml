@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.yaronzz.com/post/design_patterns/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/typora_keymap/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/windows_software/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/frp_use/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>  <url>
     <loc>https://www.yaronzz.com/post/github_git/</loc>
     <lastmod>2022-06-07</lastmod>
   </url>  <url>
@@ -23,9 +38,6 @@
     <lastmod>2022-06-07</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/cloud_drive/</loc>
-    <lastmod>2022-06-07</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
     <lastmod>2022-06-07</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/wsl_system_install/</loc>
@@ -85,9 +97,6 @@
     <loc>https://www.yaronzz.com/post/sqlite_note/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
-    <loc>https://www.yaronzz.com/post/windows_software/</loc>
-    <lastmod>2022-05-11</lastmod>
-  </url>  <url>
     <loc>https://www.yaronzz.com/post/windows_log/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
@@ -106,16 +115,10 @@
     <loc>https://www.yaronzz.com/post/hexo_build/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
-    <loc>https://www.yaronzz.com/post/frp_use/</loc>
-    <lastmod>2022-05-11</lastmod>
-  </url>  <url>
     <loc>https://www.yaronzz.com/post/dhcp_use/</loc>
     <lastmod>2022-05-11</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/rclone_use/</loc>
-    <lastmod>2022-04-19</lastmod>
-  </url>  <url>
-    <loc>https://www.yaronzz.com/post/typora_keymap/</loc>
     <lastmod>2022-04-19</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/vs_linux_debug/</loc>
