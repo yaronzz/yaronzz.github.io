@@ -6,20 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="类型 描述    创建型模式（Creational Patterns） 用于构建对象，以便它们可以从实现系统中分离出来。   结构型模式（Structural Patterns） 用于在许多不同的对象之间形成大型对象结构。   行为型模式（Behavioral Patterns） 用于管理对象之间的算法、关系和职责。    创建型模式 单例模式（Singleton Pattern）保证一个类">
+    <meta name="description" content="设计模式常用于面向对象的开发语言，主要是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 设计模式最早于1994年被GOF(GANG OF FOUR四人班)提出，他们合著了一本名为 《Design Patterns - Elements of Reusable Object-Oriented Software》（设计模式 - 可复用的面向对象软件元素）的书，书中总共提到了23种设计模式，可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式简介">
 <meta property="og:url" content="https://www.yaronzz.com/post/design_patterns/index.html">
 <meta property="og:site_name" content="Yaronzz">
-<meta property="og:description" content="类型 描述    创建型模式（Creational Patterns） 用于构建对象，以便它们可以从实现系统中分离出来。   结构型模式（Structural Patterns） 用于在许多不同的对象之间形成大型对象结构。   行为型模式（Behavioral Patterns） 用于管理对象之间的算法、关系和职责。    创建型模式 单例模式（Singleton Pattern）保证一个类">
+<meta property="og:description" content="设计模式常用于面向对象的开发语言，主要是为了重用代码、让代码更容易被他人理解、保证代码可靠性。 设计模式最早于1994年被GOF(GANG OF FOUR四人班)提出，他们合著了一本名为 《Design Patterns - Elements of Reusable Object-Oriented Software》（设计模式 - 可复用的面向对象软件元素）的书，书中总共提到了23种设计模式，可以">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/06/08/zCjkPb2hdcUvSJY.jpg">
 <meta property="article:published_time" content="2022-06-08T01:55:33.000Z">
-<meta property="article:modified_time" content="2022-06-08T02:15:06.824Z">
+<meta property="article:modified_time" content="2022-06-09T03:05:15.414Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="cpp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/06/08/zCjkPb2hdcUvSJY.jpg">
     
     
       
@@ -77,6 +75,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/post/design_patterns_factory/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/post/design_patterns_singleton/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -156,56 +156,129 @@
   
 
   <div class="content" itemprop="articleBody">
-    <table>
+    <p>设计模式常用于面向对象的开发语言，主要是为了重用代码、让代码更容易被他人理解、保证代码可靠性。</p>
+<p>设计模式最早于1994年被<code>GOF(GANG OF FOUR四人班)</code>提出，他们合著了一本名为 <strong>《Design Patterns - Elements of Reusable Object-Oriented Software》</strong>（<strong>设计模式 - 可复用的面向对象软件元素</strong>）的书，书中总共提到了23种设计模式，可以分为三大类：<code>创造型（Creational Patterns）</code>、<code>结构型（Structural Patterns）</code>和<code>行为模式型（Behavioral Patterns）</code>。</p>
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><p>提供了一种在创建对象的同时隐藏创建逻辑的方式，使某个给定实例需要创建哪些对象时更加灵活。</p>
+<table>
 <thead>
 <tr>
-<th>类型</th>
+<th>模式</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>创建型模式（Creational Patterns）</td>
-<td>用于构建对象，以便它们可以从实现系统中分离出来。</td>
+<td>单例模式（Singleton Pattern）</td>
+<td>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</td>
 </tr>
 <tr>
-<td>结构型模式（Structural Patterns）</td>
-<td>用于在许多不同的对象之间形成大型对象结构。</td>
+<td>简单工厂（Simple Factory Pattern）</td>
+<td>提供一个工厂类，定义一个用于创建对象的接口</td>
 </tr>
 <tr>
-<td>行为型模式（Behavioral Patterns）</td>
-<td>用于管理对象之间的算法、关系和职责。</td>
+<td>工厂方法（Factory Method Pattern）</td>
+<td>简单工厂升级，抽象工厂类的创建对象接口，让工厂子类决定如何创建对象。</td>
+</tr>
+<tr>
+<td>抽象工厂（Abstract Factory Pattern）</td>
+<td>工厂方法升级，工厂类中定义多个创建不同对象的接口，减少工厂类。</td>
+</tr>
+<tr>
+<td>建造者模式（Builder Pattern）</td>
+<td>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</td>
+</tr>
+<tr>
+<td>原型模式（Prototype Pattern）</td>
+<td>用原型实例指定创建对象的种类，并且通过拷贝这个原型来创建新的对象。</td>
 </tr>
 </tbody></table>
-<p><img src="https://s2.loli.net/2022/06/08/zCjkPb2hdcUvSJY.jpg" alt=""></p>
-<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><ul>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/61615495" target="_blank" rel="noopener">单例模式</a>（Singleton Pattern）<br>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/70653800" target="_blank" rel="noopener">抽象工厂模式</a> （Abstract Factory Pattern）<br>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/66968761" target="_blank" rel="noopener">建造者模式</a>（Builder Pattern）<br>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/70652858" target="_blank" rel="noopener">工厂方法模式</a> （Factory Method Pattern）<br>定义一个用于创建对象的接口，让子类决定将哪一个类实例化。Factory Method 使一个类的实例化延迟到其子类。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/66969965" target="_blank" rel="noopener">原型模式</a>（Prototype Pattern）<br>用原型实例指定创建对象的种类，并且通过拷贝这个原型来创建新的对象。</li>
-</ul>
-<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><ul>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/66973296" target="_blank" rel="noopener">适配器模式</a>（Adapter Pattern）<br>将一个类的接口转换成客户希望的另外一个接口。Adapter 模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79501177" target="_blank" rel="noopener">桥接模式</a>（Bridge Pattern）<br>将抽象部分与它的实现部分分离，使它们都可以独立地变化。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/66973836" target="_blank" rel="noopener">装饰者模式</a>（Decorator Pattern）<br>动态地给一个对象添加一些额外的职责。就扩展功能而言，它比生成子类方式更为灵活。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/71240662" target="_blank" rel="noopener">组合模式</a>（Composite Pattern）<br>将对象组合成树形结构以表示“部分-整体”的层次结构。它使得客户对单个对象和复合对象的使用具有一致性。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/70850367" target="_blank" rel="noopener">外观模式</a>（Facade Pattern）<br>为子系统中的一组接口提供一个一致的界面，Facade 模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79629690" target="_blank" rel="noopener">享元模式</a>（Flyweight Pattern）<br>运用共享技术有效地支持大量细粒度的对象。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/78533179" target="_blank" rel="noopener">代理模式</a>（Proxy Pattern）<br>为其他对象提供一个代理以控制对这个对象的访问。</li>
-</ul>
-<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><ul>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79403900" target="_blank" rel="noopener">模版方法模式</a> （Template Method Pattern）<br>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。Template Method 使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/62060457" target="_blank" rel="noopener">命令模式</a>（Command Pattern）<br>将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可取消的操作。</li>
-<li>迭代器模式（Iterator Pattern）<br>提供一种方法顺序访问一个聚合对象中各个元素，而又不需暴露该对象的内部表示。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/61925314" target="_blank" rel="noopener">观察者模式</a>（Observer Pattern）<br>定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79242388" target="_blank" rel="noopener">中介者模式</a>（Mediator Pattern）<br>用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79292435" target="_blank" rel="noopener">备忘录模式</a> （Memento Pattern）<br>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到保存的状态。</li>
-<li>解释器模式（Interpreter Pattern）<br>给定一个语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/78647519" target="_blank" rel="noopener">状态模式</a>（State Pattern）<br>允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它所属的类。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79242297" target="_blank" rel="noopener">策略模式</a>（Strategy Pattern）<br>定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法的变化可独立于使用它的客户端。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79077715" target="_blank" rel="noopener">职责链模式</a> （Chain of Responsibility Pattern）<br>为解除请求的发送者和接收者之间耦合，而使多个对象都有机会处理这个请求。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它。</li>
-<li><a href="http://blog.csdn.net/liang19890820/article/details/79364406" target="_blank" rel="noopener">访问者模式</a> （Visitor Pattern）<br>表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</li>
-</ul>
+<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适配器模式（Adapter Pattern）</td>
+<td>将一个类的接口转换成客户希望的另外一个接口。<br />使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</td>
+</tr>
+<tr>
+<td>桥接模式（Bridge Pattern）</td>
+<td>将抽象部分与它的实现部分分离，使它们都可以独立地变化。</td>
+</tr>
+<tr>
+<td>装饰者模式（Decorator Pattern）</td>
+<td>动态地给一个对象添加一些额外的职责。就扩展功能而言，它比生成子类方式更为灵活。</td>
+</tr>
+<tr>
+<td>组合模式（Composite Pattern）</td>
+<td>将对象组合成树形结构以表示“部分-整体”的层次结构。它使得客户对单个对象和复合对象的使用具有一致性。</td>
+</tr>
+<tr>
+<td>外观模式（Facade Pattern）</td>
+<td>为子系统中的一组接口提供一个一致的界面，定义了一个高层接口，这个接口使得这一子系统更加容易使用。</td>
+</tr>
+<tr>
+<td>享元模式（Flyweight Pattern）</td>
+<td>运用共享技术有效地支持大量细粒度的对象。</td>
+</tr>
+<tr>
+<td>代理模式（Proxy Pattern）</td>
+<td>为其他对象提供一个代理以控制对这个对象的访问。</td>
+</tr>
+</tbody></table>
+<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模版方法（Template Method Pattern）</td>
+<td>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。Template Method 使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</td>
+</tr>
+<tr>
+<td>命令模式（Command Pattern）</td>
+<td>将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可取消的操作。</td>
+</tr>
+<tr>
+<td>迭代器模式（Iterator Pattern）</td>
+<td>提供一种方法顺序访问一个聚合对象中各个元素，而又不需暴露该对象的内部表示。</td>
+</tr>
+<tr>
+<td>观察者模式（Observer Pattern）</td>
+<td>定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动刷新。</td>
+</tr>
+<tr>
+<td>中介者模式（Mediator Pattern）</td>
+<td>用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</td>
+</tr>
+<tr>
+<td>备忘录模式（Memento Pattern）</td>
+<td>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到保存的状态。</td>
+</tr>
+<tr>
+<td>解释器模式（Interpreter Pattern）</td>
+<td>给定一个语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。</td>
+</tr>
+<tr>
+<td>状态模式（State Pattern）</td>
+<td>允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它所属的类。</td>
+</tr>
+<tr>
+<td>策略模式（Strategy Pattern）</td>
+<td>定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换。本模式使得算法的变化可独立于使用它的客户端。</td>
+</tr>
+<tr>
+<td>职责链模式 （Chain of Responsibility Pattern）</td>
+<td>为解除请求的发送者和接收者之间耦合，而使多个对象都有机会处理这个请求。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它。</td>
+</tr>
+<tr>
+<td>访问者模式（Visitor Pattern）</td>
+<td>表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</td>
+</tr>
+</tbody></table>
 <blockquote>
 <p> 简单工厂模式和策略模式的区别</p>
 </blockquote>

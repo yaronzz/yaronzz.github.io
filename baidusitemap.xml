@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.yaronzz.com/post/design_patterns/</loc>
-    <lastmod>2022-06-08</lastmod>
+    <lastmod>2022-06-09</lastmod>
+  </url>  <url>
+    <loc>https://www.yaronzz.com/post/design_patterns_factory/</loc>
+    <lastmod>2022-06-09</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/design_patterns_singleton/</loc>
-    <lastmod>2022-06-08</lastmod>
+    <lastmod>2022-06-09</lastmod>
   </url>  <url>
     <loc>https://www.yaronzz.com/post/typora_keymap/</loc>
     <lastmod>2022-06-08</lastmod>
