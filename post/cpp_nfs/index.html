@@ -1,176 +1,252 @@
 <!DOCTYPE html>
-<html lang=en>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="挂载NFS挂载命令挂载NFS时，常用的命令比如： 12#将远程目录挂载到本地&#x2F;home&#x2F;share目录下mount -t nfs -o nolock 192.168.1.10:&#x2F;tmp &#x2F;home&#x2F;share  在Linux 下可以用mount函数进行挂载： 1234567891011121314151617181920bool Mount()&amp;#123;    string remotePath">
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>C++NFS挂载 | YaornzZ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="挂载NFS挂载命令挂载NFS时，常用的命令比如： 12#将远程目录挂载到本地&#x2F;home&#x2F;share目录下mount -t nfs -o nolock 192.168.1.10:&#x2F;tmp &#x2F;home&#x2F;share  在Linux 下可以用mount函数进行挂载： 1234567891011121314151617181920bool Mount()&amp;#123;    string remotePath">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++NFS挂载">
-<meta property="og:url" content="https://www.yaronzz.com/post/cpp_nfs/index.html">
+<meta property="og:url" content="http://doc.yaronzz.com/post/cpp_nfs/index.html">
 <meta property="og:site_name" content="YaornzZ">
 <meta property="og:description" content="挂载NFS挂载命令挂载NFS时，常用的命令比如： 12#将远程目录挂载到本地&#x2F;home&#x2F;share目录下mount -t nfs -o nolock 192.168.1.10:&#x2F;tmp &#x2F;home&#x2F;share  在Linux 下可以用mount函数进行挂载： 1234567891011121314151617181920bool Mount()&amp;#123;    string remotePath">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-24T02:20:33.000Z">
-<meta property="article:modified_time" content="2022-05-11T08:07:07.270Z">
+<meta property="article:modified_time" content="2022-06-20T03:22:47.347Z">
 <meta property="article:author" content="YaornzZ">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="nfs">
 <meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          <link rel="shortcut icon" href="/images/favicon.ico">
-        
-      
-      
-        
-          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-        
-      
-      
-        
-          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-        
-      
-    
-    <!-- title -->
-    <title>C++NFS挂载</title>
-    <!-- styles -->
-    
+  
+    <link rel="alternate" href="/atom.xml" title="YaornzZ" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/yaronzz/CDN/blog/favicon.ico">
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="YaornzZ" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
-<body class="max-width mx-auto px3 ltr">
+<body>
+  
+  
     
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">About</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Writing</a></li><!--
-     --><!--
-       --><li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="Previous post" href="/post/qt_qscrollarea/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="Next post" href="/post/gdb_coreDump/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cpp_nfs/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cpp_nfs/&text=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cpp_nfs/&is_video=false&description=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++NFS挂载&body=Check out this article: https://www.yaronzz.com/post/cpp_nfs/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cpp_nfs/&name=C++NFS挂载&description=&lt;h2 id=&#34;挂载NFS&#34;&gt;&lt;a href=&#34;#挂载NFS&#34; class=&#34;headerlink&#34; title=&#34;挂载NFS&#34;&gt;&lt;/a&gt;挂载NFS&lt;/h2&gt;&lt;h3 id=&#34;挂载命令&#34;&gt;&lt;a href=&#34;#挂载命令&#34; class=&#34;headerlink&#34; title=&#34;挂载命令&#34;&gt;&lt;/a&gt;挂载命令&lt;/h3&gt;&lt;p&gt;挂载NFS时，常用的命令比如：&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#将远程目录挂载到本地/home/share目录下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mount -t nfs -o nolock 192.168.1.10:/tmp /home/share&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;在Linux 下可以用&lt;code&gt;mount&lt;/code&gt;函数进行挂载：&lt;/p&gt;
-&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Mount&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; remotePath = m_remoteIP + &lt;span class=&#34;string&#34;&gt;&#34;:&#34;&lt;/span&gt; + m_remotePath;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; localPath = m_localPath;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; params = &lt;span class=&#34;string&#34;&gt;&#34;nolock,soft,fg,tcp,timeo=5,retrans=1,rsize=4096,vers=3,addr=&#34;&lt;/span&gt; + m_remoteIP;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; ret = mount(remotePath.c_str(),&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    localPath.c_str(),&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    &lt;span class=&#34;string&#34;&gt;&#34;nfs&#34;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    MS_SYNCHRONOUS,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    params.c_str());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (ret != &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; errInfo = errno;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cpp_nfs/&t=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
-
+<div id="banner" class="">
+  <img src="https://cdn.jsdelivr.net/gh/yaronzz/CDN/blog/mian2.jpg" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>YaornzZ </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
     </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载NFS"><span class="toc-number">1.</span> <span class="toc-text">挂载NFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载命令"><span class="toc-number">1.1.</span> <span class="toc-text">挂载命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误码"><span class="toc-number">1.2.</span> <span class="toc-text">错误码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载参数"><span class="toc-number">1.3.</span> <span class="toc-text">挂载参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载"><span class="toc-number">2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查是否挂载"><span class="toc-number">3.</span> <span class="toc-text">检查是否挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检查命令"><span class="toc-number">3.1.</span> <span class="toc-text">检查命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能实现"><span class="toc-number">3.2.</span> <span class="toc-text">功能实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFS服务"><span class="toc-number">4.</span> <span class="toc-text">NFS服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows下安装"><span class="toc-number">4.1.</span> <span class="toc-text">Windows下安装</span></a></li></ol></li></ol>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
+     
     </div>
-  </span>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=https://cdn.jsdelivr.net/gh/yaronzz/CDN/my/avatar1.jpg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Yaronzz </div>
+      <div class="dot"></div>
+      <div class="subtitle">折腾不息 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/7708412" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/yaronzz" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
 </div>
 
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        C++NFS挂载
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">YaornzZ</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2021-12-24T02:20:33.000Z" itemprop="datePublished">2021-12-24</time>
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/code/">code</a>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/cpp/" rel="tag">cpp</a>, <a class="tag-link" href="/tags/nfs/" rel="tag">nfs</a>
-    </div>
-
-
-    </div>
-  </header>
   
+  <div class="sticky">
+    
+      
 
-  <div class="content" itemprop="articleBody">
-    <h2 id="挂载NFS"><a href="#挂载NFS" class="headerlink" title="挂载NFS"></a>挂载NFS</h2><h3 id="挂载命令"><a href="#挂载命令" class="headerlink" title="挂载命令"></a>挂载命令</h3><p>挂载NFS时，常用的命令比如：</p>
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/code/">
+                code
+                <div class="category-count">18</div>
+            </a>
+        
+            <a class="category-link" href="/categories/linux/">
+                linux
+                <div class="category-count">10</div>
+            </a>
+        
+            <a class="category-link" href="/categories/windows/">
+                windows
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">
+                笔记
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                设计模式
+                <div class="category-count">3</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/WPF/" rel="tag">WPF</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/arm/" rel="tag">arm</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/gdb/" rel="tag">gdb</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/json/" rel="tag">json</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/lambda/" rel="tag">lambda</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/nfs/" rel="tag">nfs</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/qss/" rel="tag">qss</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/sqlite/" rel="tag">sqlite</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tidal/" rel="tag">tidal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/udp/" rel="tag">udp</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vnc/" rel="tag">vnc</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%89%AA%E8%BE%91/" rel="tag">剪辑</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F/" rel="tag">系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-C++NFS挂载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        C++NFS挂载
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2021-12-24T02:20:33.000Z" itemprop="datePublished">2021-12-24</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/code/">code</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.1k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nfs/" rel="tag">nfs</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="挂载NFS"><a href="#挂载NFS" class="headerlink" title="挂载NFS"></a>挂载NFS</h2><h3 id="挂载命令"><a href="#挂载命令" class="headerlink" title="挂载命令"></a>挂载命令</h3><p>挂载NFS时，常用的命令比如：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将远程目录挂载到本地/home/share目录下</span></span><br><span class="line">mount -t nfs -o nolock 192.168.1.10:/tmp /home/share</span><br></pre></td></tr></table></figure>
 
 <p>在Linux 下可以用<code>mount</code>函数进行挂载：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Mount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> remotePath = m_remoteIP + <span class="string">":"</span> + m_remotePath;</span><br><span class="line">    <span class="built_in">string</span> localPath = m_localPath;</span><br><span class="line">    <span class="built_in">string</span> params = <span class="string">"nolock,soft,fg,tcp,timeo=5,retrans=1,rsize=4096,vers=3,addr="</span> + m_remoteIP;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ret = mount(remotePath.c_str(),</span><br><span class="line">                    localPath.c_str(),</span><br><span class="line">                    <span class="string">"nfs"</span>,</span><br><span class="line">                    MS_SYNCHRONOUS,</span><br><span class="line">                    params.c_str());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ret != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> errInfo = errno;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Mount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string remotePath = m_remoteIP + <span class="string">&quot;:&quot;</span> + m_remotePath;</span><br><span class="line">    string localPath = m_localPath;</span><br><span class="line">    string params = <span class="string">&quot;nolock,soft,fg,tcp,timeo=5,retrans=1,rsize=4096,vers=3,addr=&quot;</span> + m_remoteIP;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ret = <span class="built_in">mount</span>(remotePath.<span class="built_in">c_str</span>(),</span><br><span class="line">                    localPath.<span class="built_in">c_str</span>(),</span><br><span class="line">                    <span class="string">&quot;nfs&quot;</span>,</span><br><span class="line">                    MS_SYNCHRONOUS,</span><br><span class="line">                    params.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ret != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> errInfo = errno;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="错误码"><a href="#错误码" class="headerlink" title="错误码"></a>错误码</h3><p>挂载失败时，常见错误码<code>errno</code>有：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EINVAL		22	<span class="comment">/* Invalid argument 挂载参数问题，可能是没加addr*/</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EACCES		13	<span class="comment">/* Permission denied 权限问题*/</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EPERM		 1	<span class="comment">/* Operation not permitted 权限问题*/</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	EBUSY		16	<span class="comment">/* Device or resource busy 挂载目录正被使用*/</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	ENOENT		 2	<span class="comment">/* No such file or directory 挂载目录错误*/</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span>	EINVAL		22	<span class="comment">/* Invalid argument 挂载参数问题，可能是没加addr*/</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	EACCES		13	<span class="comment">/* Permission denied 权限问题*/</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	EPERM		 1	<span class="comment">/* Operation not permitted 权限问题*/</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	EBUSY		16	<span class="comment">/* Device or resource busy 挂载目录正被使用*/</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>	ENOENT		 2	<span class="comment">/* No such file or directory 挂载目录错误*/</span></span></span><br></pre></td></tr></table></figure>
 
 <h3 id="挂载参数"><a href="#挂载参数" class="headerlink" title="挂载参数"></a>挂载参数</h3><table>
 <thead>
@@ -225,7 +301,7 @@
 </tr>
 </tbody></table>
 <h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>卸载函数有<code>mount</code>和<code>mount2</code>，第二个可以加参数，所以一般情况下使用<code>mount2</code>进行强制卸载：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">UnMount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> umount2(m_localPath.c_str(), MNT_FORCE) == <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">UnMount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">umount2</span>(m_localPath.<span class="built_in">c_str</span>(), MNT_FORCE) == <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果<code>m_localPath</code>目录没有被挂载，则会返回错误</p>
 <h2 id="检查是否挂载"><a href="#检查是否挂载" class="headerlink" title="检查是否挂载"></a>检查是否挂载</h2><h3 id="检查命令"><a href="#检查命令" class="headerlink" title="检查命令"></a>检查命令</h3><p>Linux下使用命令检查nfs是否挂载成功的方式有很多，比如：</p>
@@ -234,10 +310,10 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Filesystem                Size      Used Available Use% Mounted on</span><br><span class="line">ubi0:rootfs              54.1M     50.8M      3.3M  94% /</span><br><span class="line">devtmpfs                215.8M         0    215.8M   0% /dev</span><br><span class="line">192.168.0.249:/nfs       59.6G      1.6G     57.9G   3% /mnt/udisk</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看挂载信息文件 <code>cat /proc/mounts</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubi0:rootfs / ubifs rw,sync,relatime 0 0</span><br><span class="line">devtmpfs /dev devtmpfs rw,relatime,size=220936k,nr_inodes=55234,mode=755 0 0</span><br><span class="line">192.168.0.249:/nfs /mnt/udisk nfs rw,sync,relatime,vers=3,rsize=4096,wsize=8192,namlen=255,soft,nolock,proto=tcp,timeo=5,retrans=1,sec=sys,mountaddr=192.168.0.249,mountvers=3,mountproto=tcp,local_lock=all,addr=192.168.0.249 0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubi0:rootfs / ubifs rw,<span class="built_in">sync</span>,relatime 0 0</span><br><span class="line">devtmpfs /dev devtmpfs rw,relatime,size=220936k,nr_inodes=55234,mode=755 0 0</span><br><span class="line">192.168.0.249:/nfs /mnt/udisk nfs rw,<span class="built_in">sync</span>,relatime,vers=3,rsize=4096,wsize=8192,namlen=255,soft,nolock,proto=tcp,timeo=5,retrans=1,sec=sys,mountaddr=192.168.0.249,mountvers=3,mountproto=tcp,local_lock=all,addr=192.168.0.249 0 0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>直接使用挂载命令 <code>mount</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubi0:rootfs on / <span class="built_in">type</span> ubifs (rw,sync,relatime)</span><br><span class="line">devtmpfs on /dev <span class="built_in">type</span> devtmpfs (rw,relatime,size=220936k,nr_inodes=55234,mode=755)</span><br><span class="line">192.168.0.249:/nfs on /mnt/udisk <span class="built_in">type</span> nfs (rw,sync,relatime,vers=3,rsize=4096,wsize=8192,namlen=255,soft,nolock,proto=tcp,timeo=5,retrans=1,sec=sys,mountaddr=192.168.0.249,mountvers=3,mountproto=tcp,local_lock=all,addr=192.168.0.249)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubi0:rootfs on / <span class="built_in">type</span> ubifs (rw,<span class="built_in">sync</span>,relatime)</span><br><span class="line">devtmpfs on /dev <span class="built_in">type</span> devtmpfs (rw,relatime,size=220936k,nr_inodes=55234,mode=755)</span><br><span class="line">192.168.0.249:/nfs on /mnt/udisk <span class="built_in">type</span> nfs (rw,<span class="built_in">sync</span>,relatime,vers=3,rsize=4096,wsize=8192,namlen=255,soft,nolock,proto=tcp,timeo=5,retrans=1,sec=sys,mountaddr=192.168.0.249,mountvers=3,mountproto=tcp,local_lock=all,addr=192.168.0.249)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看指定目录是否挂载点 <code>mountpoint -d /mnt/udisk</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打印文件系统的主设备号和次设备号</span></span><br><span class="line">0:21</span><br></pre></td></tr></table></figure>
@@ -250,12 +326,12 @@
 <li>当NFS服务关闭时，检查结果也需要同步</li>
 </ul>
 <p>经过测试，只有<code>mountpoint</code> 能完成第二点功能需求，所以直接使用shell命令来进行检查：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">CheckMount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> shell = <span class="string">"mountpoint -d "</span> + m_localPath;</span><br><span class="line"></span><br><span class="line">    QProcess proc;</span><br><span class="line">    proc.start(shell.c_str());</span><br><span class="line">    <span class="keyword">if</span> (!proc.waitForFinished(<span class="number">10000</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> output = proc.readAll();</span><br><span class="line">    <span class="keyword">return</span> !output.isEmpty())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">CheckMount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string shell = <span class="string">&quot;mountpoint -d &quot;</span> + m_localPath;</span><br><span class="line"></span><br><span class="line">    QProcess proc;</span><br><span class="line">    proc.<span class="built_in">start</span>(shell.<span class="built_in">c_str</span>());</span><br><span class="line">    <span class="keyword">if</span> (!proc.<span class="built_in">waitForFinished</span>(<span class="number">10000</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> output = proc.<span class="built_in">readAll</span>();</span><br><span class="line">    <span class="keyword">return</span> !output.<span class="built_in">isEmpty</span>())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="NFS服务"><a href="#NFS服务" class="headerlink" title="NFS服务"></a>NFS服务</h2><h3 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h3><p>Windows下常见的NFS服务软件可以使用<a href="https://www.hanewin.net/nfs-e.htm" target="_blank" rel="noopener">haneWIN NFS Server</a></p>
-<p><strong>1. 下载地址</strong>：<a href="https://r.hanewin.net/nfs1261.zip" target="_blank" rel="noopener">https://r.hanewin.net/nfs1261.zip</a></p>
+<h2 id="NFS服务"><a href="#NFS服务" class="headerlink" title="NFS服务"></a>NFS服务</h2><h3 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h3><p>Windows下常见的NFS服务软件可以使用<a target="_blank" rel="noopener" href="https://www.hanewin.net/nfs-e.htm">haneWIN NFS Server</a></p>
+<p><strong>1. 下载地址</strong>：<a target="_blank" rel="noopener" href="https://r.hanewin.net/nfs1261.zip">https://r.hanewin.net/nfs1261.zip</a></p>
 <p><strong>2. 配置方法</strong>：打开目录下的<strong>exports</strong>文件，配置NFS服务目录，比如共享D盘下的<strong>NFSData</strong>目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\NFSData  -name:nfs -exec -maproot:0 -alldirs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\NFSData  -name:nfs -exec -maproot:0 -alldirs</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>name：设置挂载的目录名给客户端使用，比如<code>mount -t nfs -o nolock 192.168.1.10:/nfs /home/share</code></li>
@@ -267,7 +343,7 @@
 <li>安装：<code>sudo apt-get install nfs-kernel-server</code></li>
 <li>配置方法：编辑文件 <code>/etc/exports</code></li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/nfstest *(rw,sync,no_root_squash,no_subtree_check)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/nfstest *(rw,<span class="built_in">sync</span>,no_root_squash,no_subtree_check)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>rw：可读可写</li>
@@ -277,149 +353,105 @@
 </ul>
 <p>编辑成功之后运行命令<code>exportfs -au</code>刷新</p>
 
+        
+      </div>
+
+       
+        <footer class="article-footer">
+           
+        </footer>
+         
+    </div>
+    
+     
   </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/post/qt_qscrollarea/"
+      title="Qt-QScrollArea使用"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        Qt-QScrollArea使用
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/post/gdb_coreDump/"
+      title="GDB-CoreDump调试"
+     >
+
+    <p class="title-text">
+      
+        GDB-CoreDump调试
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
 </article>
 
 
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/yaronzz" target="_blank" rel="noopener">Projects</a></li>
-        
-      </ul>
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
     </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#挂载NFS"><span class="toc-number">1.</span> <span class="toc-text">挂载NFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载命令"><span class="toc-number">1.1.</span> <span class="toc-text">挂载命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误码"><span class="toc-number">1.2.</span> <span class="toc-text">错误码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载参数"><span class="toc-number">1.3.</span> <span class="toc-text">挂载参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载"><span class="toc-number">2.</span> <span class="toc-text">卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查是否挂载"><span class="toc-number">3.</span> <span class="toc-text">检查是否挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#检查命令"><span class="toc-number">3.1.</span> <span class="toc-text">检查命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能实现"><span class="toc-number">3.2.</span> <span class="toc-text">功能实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NFS服务"><span class="toc-number">4.</span> <span class="toc-text">NFS服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows下安装"><span class="toc-number">4.1.</span> <span class="toc-text">Windows下安装</span></a></li></ol></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://www.yaronzz.com/post/cpp_nfs/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://www.yaronzz.com/post/cpp_nfs/&text=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://www.yaronzz.com/post/cpp_nfs/&is_video=false&description=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=C++NFS挂载&body=Check out this article: https://www.yaronzz.com/post/cpp_nfs/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://www.yaronzz.com/post/cpp_nfs/&title=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://www.yaronzz.com/post/cpp_nfs/&name=C++NFS挂载&description=&lt;h2 id=&#34;挂载NFS&#34;&gt;&lt;a href=&#34;#挂载NFS&#34; class=&#34;headerlink&#34; title=&#34;挂载NFS&#34;&gt;&lt;/a&gt;挂载NFS&lt;/h2&gt;&lt;h3 id=&#34;挂载命令&#34;&gt;&lt;a href=&#34;#挂载命令&#34; class=&#34;headerlink&#34; title=&#34;挂载命令&#34;&gt;&lt;/a&gt;挂载命令&lt;/h3&gt;&lt;p&gt;挂载NFS时，常用的命令比如：&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#将远程目录挂载到本地/home/share目录下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mount -t nfs -o nolock 192.168.1.10:/tmp /home/share&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;在Linux 下可以用&lt;code&gt;mount&lt;/code&gt;函数进行挂载：&lt;/p&gt;
-&lt;figure class=&#34;highlight c++&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Mount&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; remotePath = m_remoteIP + &lt;span class=&#34;string&#34;&gt;&#34;:&#34;&lt;/span&gt; + m_remotePath;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; localPath = m_localPath;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt; params = &lt;span class=&#34;string&#34;&gt;&#34;nolock,soft,fg,tcp,timeo=5,retrans=1,rsize=4096,vers=3,addr=&#34;&lt;/span&gt; + m_remoteIP;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;int&lt;/span&gt; ret = mount(remotePath.c_str(),&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    localPath.c_str(),&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    &lt;span class=&#34;string&#34;&gt;&#34;nfs&#34;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    MS_SYNCHRONOUS,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    params.c_str());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (ret != &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;auto&lt;/span&gt; errInfo = errno;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://www.yaronzz.com/post/cpp_nfs/&t=C++NFS挂载" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
+    <div id="vcomments"></div>
   </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
+  <script>
+      new Valine({"enable":true,"appId":"x6W9Ed3Oz1KEGwWd0re5FPuj-gzGzoHsz","appKey":"XGM5sRGBfBQoaRX4iYCGO21F","placeholder":"Please leave your footprints","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
     
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span> <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
     
-    2020-2023
-    YaornzZ
-    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022045694号</a>
-  </div>
-  <div class="footer-right">
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span id="busuanzi_container_site_pv">👁‍🗨<span id="busuanzi_value_site_pv"></span> |</span>
-    <span id="busuanzi_container_site_uv">🙎‍♂️<span id="busuanzi_value_site_uv"></span></span>
+    &copy; 2023 Yaronzz<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
   </div>
 </footer>
 
-
     </div>
-    <!-- styles -->
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
 
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
 
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
- 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Copied!");
-      e.clearSelection();
-    })
-  })
-  </script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-  <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?f8585e10587ae42d33179ecfef2e506a";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-
-<!-- Cloudflare Analytics -->
-
-<!-- Umami Analytics -->
-
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
 </body>
 </html>
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
